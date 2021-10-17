@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "997335475936",
+    "project_id": "alzheimer-c58de",
+    "storage_bucket": "alzheimer-c58de.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:997335475936:android:cb51564677f8e1afd21285",
+        "android_client_info": {
+          "package_name": "com.example.panzehir"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "997335475936-um889rngiud2bdteesi32c2r269iceee.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDT3nPhd8EiP3yDFQ2ZZfTVjYyhIcgQMiI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "997335475936-um889rngiud2bdteesi32c2r269iceee.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
