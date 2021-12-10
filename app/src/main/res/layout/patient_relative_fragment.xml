@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.loginsignup.PatientRelative"
+        android:orientation="vertical"
+        android:background="@drawable/backgrnd"
+
+>
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/PatientRelativeTitle"
+            android:text="Hasta Yakını Girişi"
+            android:gravity="center"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:layout_marginTop="200dp"
+    />
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/emailinForgotPage"
+            android:hint="@string/password"
+            android:layout_margin="20dp"
+            android:textStyle="italic"
+
+    />
+    <Button
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/LoginButtoninPatient"
+            android:text="@string/Login"
+            android:textColor="@color/black"
+            app:cornerRadius="15dp"
+            android:layout_marginTop="35dp"
+            android:layout_gravity="center"
+    />
+</LinearLayout>

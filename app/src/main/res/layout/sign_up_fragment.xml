@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+        xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            >
+<LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/backgrnd"
+        tools:context=".view.loginsignup.SignUp">
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:layout_marginTop="40dp"
+            android:text="@string/signupPage"/>
+    <TextView
+            android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+            android:id="@+id/PatientTitle"
+            android:textColor="@color/white"
+            android:text="@string/patient"
+            android:textSize="20sp"
+            android:layout_margin="15dp"
+              />
+    <TableLayout android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:paddingLeft="10dp"
+                 android:paddingRight="10dp"
+
+                 >
+        <TableRow >
+            <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/addPhoto"
+                    android:drawableLeft="@drawable/ic_baseline_camera_alt_24"
+            />
+            <Button
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/addPhotoclick"
+                    android:layout_marginLeft="30dp"
+                    android:text="Fotoğraf yükleyin"
+/>
+
+        </TableRow>
+        <TableRow >
+            <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/nameOfPatient"
+                    android:text="@string/name"
+            />
+            <EditText
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/nameofPatientEdittext"
+                    android:layout_marginLeft="30dp"
+
+
+                   />
+
+        </TableRow>
+        <TableRow >
+            <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/surnameOfPatient"
+                    android:text="@string/surname"
+            />
+            <EditText
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/surnameofPatientEdittext"
+                    android:layout_marginLeft="30dp"
+
+
+            />
+
+        </TableRow>
+        <TableRow >
+            <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/groupOfBlood"
+                    android:text="Kan grubu"
+            />
+            <EditText
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/BloodEdittext"
+                    android:layout_marginLeft="30dp"
+            />
+        </TableRow>
+        <TableRow >
+            <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/TC"
+                    android:text="TC Kimlik "
+            />
+            <EditText
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/TCEdittext"
+                    android:layout_marginLeft="30dp"
+            />
+        </TableRow>
+        <TableRow >
+            <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/DateofBirth"
+                    android:text="Doğum Tarihi"
+            />
+            <EditText
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/DateofBirthEdittext"
+                    android:layout_marginLeft="30dp"
+                    android:drawableLeft="@drawable/ic_baseline_edit_calendar_24"
+            />
+
+        </TableRow>
+        <TableRow >
+            <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/weight"
+                    android:text="Kilo"
+            />
+            <EditText
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/weightEdittext"
+                    android:layout_marginLeft="30dp"
+
+
+            />
+
+        </TableRow>
+        <TableRow >
+            <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/height"
+                    android:text="Boy"
+            />
+            <EditText
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/heightEdittext"
+                    android:layout_marginLeft="30dp"
+
+
+            />
+
+        </TableRow>
+        <TableRow >
+            <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/sex"
+                    android:text="Cinsiyet"
+            />
+            <EditText
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/sexEdittext"
+                    android:layout_marginLeft="30dp"
+
+
+            />
+
+        </TableRow>
+        <TableRow >
+            <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Address"
+                    android:text="Adres"
+            />
+            <EditText
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/AdressEdittext"
+                    android:layout_marginLeft="30dp"
+
+
+            />
+
+        </TableRow>
+
+    </TableLayout>
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/RelationTitle"
+            android:textColor="@color/white"
+            android:text="@string/relationofpatient"
+            android:textSize="20sp"
+            android:layout_margin="15dp"
+    />
+    <TableLayout android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:paddingLeft="10dp"
+                 android:paddingRight="10dp"
+
+    >
+        <TableRow >
+            <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/addPhoto2"
+                    android:drawableLeft="@drawable/ic_baseline_camera_alt_24"
+            />
+            <Button
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/addPhoto2click"
+                    android:layout_marginLeft="30dp"
+                    android:text="Fotoğraf yükleyin"
+            />
+
+        </TableRow>
+        <TableRow >
+            <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/nameOfRelation"
+                    android:text="@string/name"
+            />
+            <EditText
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/nameofRelationEdittext"
+                    android:layout_marginLeft="30dp"
+
+
+            />
+
+        </TableRow>
+        <TableRow >
+            <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/surnameOfRelation"
+                    android:text="@string/surname"
+            />
+            <EditText
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/surnameofRelationEdittext"
+                    android:layout_marginLeft="30dp"
+
+
+            />
+
+        </TableRow>
+        <TableRow >
+            <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/degreeOfRelation"
+                    android:text="Yakınlık Derecesi"
+            />
+            <EditText
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/degreeEdittext"
+                    android:layout_marginLeft="30dp"
+            />
+        </TableRow>
+        <TableRow >
+            <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/email"
+                    android:text="@string/email"
+            />
+            <EditText
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/emailEdittext"
+                    android:layout_marginLeft="30dp"
+            />
+        </TableRow>
+        <TableRow >
+            <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/password"
+                    android:text="@string/password"
+            />
+            <EditText
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/passwordEdittext"
+                    android:layout_marginLeft="30dp"
+            />
+
+        </TableRow>
+        <TableRow >
+            <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/passwordAgain"
+                    android:text="Kilo"
+            />
+            <EditText
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/passwordAgainEdittext"
+                    android:layout_marginLeft="30dp"
+
+
+            />
+
+        </TableRow>
+        <TableRow >
+            <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/phoneNumber"
+                    android:text="@string/phoneNumber"
+            />
+            <EditText
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/numberEdittext"
+                    android:layout_marginLeft="30dp"
+
+
+            />
+
+        </TableRow>
+        <TableRow >
+            <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/phoneNumber2"
+                    android:text="@string/phoneNumber"
+            />
+            <EditText
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/number2Edittext"
+                    android:layout_marginLeft="30dp"
+
+
+            />
+
+        </TableRow>
+
+
+    </TableLayout>
+   <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="horizontal"
+   >
+       <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:id="@+id/alreadyHave"
+               android:text="Zaten bir hesabım var"
+               android:layout_marginTop="25dp"
+               android:textSize="20sp"
+               android:textStyle="bold"
+               android:layout_marginLeft="20dp"
+                 />
+       <Button
+               android:layout_width="150dp"
+               android:layout_height="wrap_content"
+               android:id="@+id/signUpButton"
+               android:text="@string/signupPage"
+               android:layout_marginTop="25dp"
+               android:layout_marginLeft="40dp"
+
+
+               app:cornerRadius="15dp"/>
+   </LinearLayout>
+
+</LinearLayout></ScrollView>
