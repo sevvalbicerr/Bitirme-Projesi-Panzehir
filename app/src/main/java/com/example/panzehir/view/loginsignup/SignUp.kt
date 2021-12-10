@@ -7,7 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.panzehir.R
-import com.example.panzehir.viewModel.SignUpViewModel
+import com.example.panzehir.viewModel.loginViewModel.SignUpViewModel
 
 class SignUp : Fragment() {
 

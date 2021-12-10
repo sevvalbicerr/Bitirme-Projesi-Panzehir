@@ -1,4 +1,4 @@
-package com.example.panzehir.view
+package com.example.panzehir.view.games
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -7,20 +7,23 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.panzehir.R
-import com.example.panzehir.viewModel.GamesViewModel
+import com.example.panzehir.viewModel.gamesViewModel.MazeGameViewModel
 
-class Games : Fragment() {
+class MazeGame : Fragment() {
 
-    private  val viewModel: GamesViewModel by lazy{
-        ViewModelProvider(this).get(GamesViewModel::class.java)
+
+
+    private  val viewModel: MazeGameViewModel by lazy{
+        ViewModelProvider(this)[MazeGameViewModel::class.java]
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.games_fragment, container, false)
+        return inflater.inflate(R.layout.maze_game_fragment, container, false)
     }
+
 
 
 }

@@ -1,4 +1,4 @@
-package com.example.panzehir.view.loginsignup
+package com.example.panzehir.view.memories
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -7,21 +7,22 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.panzehir.R
-import com.example.panzehir.viewModel.loginViewModel.PatientRelativeViewModel
+import com.example.panzehir.viewModel.memoriesViewModel.MemoriesDetailViewModel
 
-class PatientRelative : Fragment() {
+class MemoriesDetail : Fragment() {
 
-    private  val viewModel: PatientRelativeViewModel by lazy {
-        ViewModelProvider(this)[PatientRelativeViewModel::class.java]
+
+
+    private  val viewModel: MemoriesDetailViewModel by lazy{
+        ViewModelProvider(this)[MemoriesDetailViewModel::class.java]
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.patient_relative_fragment, container, false)
+        return inflater.inflate(R.layout.memories_detail_fragment, container, false)
     }
-
 
 
 }

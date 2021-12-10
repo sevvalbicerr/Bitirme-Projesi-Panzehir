@@ -1,4 +1,4 @@
-package com.example.panzehir.viewModel
+package com.example.panzehir.viewModel.gamesViewModel
 
 import androidx.lifecycle.ViewModel
 

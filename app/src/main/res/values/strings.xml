@@ -11,9 +11,10 @@
     <string name="resetPassword">Şifreyi Sıfırla</string>
     <string name="signupPage">Kayıt Ol</string>
     <string name="patient"><u>Hasta Profili           </u></string>
-    <string name="relationofpatient"><u>Hasta Yakını Profili</u></string>
+    <string name="relativesofpatient"><u>Hasta Yakını Profili</u></string>
     <string name="name">Ad</string>
     <string name="surname">Soyad</string>
     <string name="phoneNumber">Cep Telefonu</string>
+    <string name="memories">Anı Köşesi</string>
 
 </resources>

@@ -6,7 +6,7 @@
         android:layout_height="match_parent"
         tools:context=".view.loginsignup.PatientRelative"
         android:orientation="vertical"
-        android:background="@drawable/backgrnd"
+        android:background="@drawable/firstback"
 
 >
 

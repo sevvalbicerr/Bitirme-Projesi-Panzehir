@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:background="@color/xmlBackground"
+        android:layout_height="match_parent" >
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/numberOfQuestion"
+            android:text="X. Soru"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="70dp"
+
+              />
+
+    <ImageView android:layout_width="wrap_content"
+               android:layout_height="200dp"
+               android:id="@+id/questionImage"
+               android:src="@drawable/quiz"
+               />
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/questionText"
+            android:text="Yukarıda yer alan görseldeki nesne nerede saklanmalıdır?"
+            android:textColor="@color/black"
+            android:layout_margin="20dp"
+            android:textSize="20sp"
+    />
+    <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+                >
+        <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/firstAnswer"
+                android:text="A şıkkı"
+                android:layout_marginStart="20dp"
+        />
+        <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/SecondAnswer"
+                android:text="B şıkkı"
+                android:layout_marginStart="20dp"
+        />
+        <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/thirdAnswer"
+                android:text="C şıkkı"
+                android:layout_marginStart="20dp"
+        />
+        <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/fourthAnswer"
+                android:text="D şıkkı"
+                android:layout_marginStart="20dp"
+
+        />
+
+    </RadioGroup>
+
+</LinearLayout>

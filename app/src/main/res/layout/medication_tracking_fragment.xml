@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/xmlBackground"
+        tools:context=".view.MedicationTracking">
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textStyle="bold"
+            android:textSize="30sp"
+            android:textColor="@color/black"
+            android:id="@+id/medicationtitle"
+            android:layout_margin="20sp"
+            android:text="Günlük İlaç Listem"/>
+    <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="60dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+    />
+
+
+</FrameLayout>
