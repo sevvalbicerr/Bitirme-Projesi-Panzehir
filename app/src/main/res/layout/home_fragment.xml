@@ -21,13 +21,16 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginTop="50dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
             android:paddingLeft="30dp"
+            android:paddingEnd="30dp"
             android:background="@drawable/shaperectangle"
             android:backgroundTint="#9A3737"
                   >
         <TextView
 
-                android:layout_width="180dp"
+                android:layout_width="158dp"
                 android:layout_height="match_parent"
                 android:id="@+id/callFamily"
                 android:text="Ailemi Ara"
@@ -121,4 +124,61 @@
             />
         </LinearLayout>
     </LinearLayout>
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/memories"
+            android:text="@string/memories"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginTop="400dp"
+            android:layout_marginStart="20dp"
+
+              />
+    <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="450dp"
+    >
+
+
+    </LinearLayout>
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/water"
+            android:text="Su Takibi"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginTop="500dp"
+            android:layout_marginStart="20dp"
+
+    />
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/walking"
+            android:text="Adım Takibi"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginTop="550dp"
+            android:layout_marginStart="20dp"
+
+    />
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/medicine"
+            android:text="İlaç Takibi"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginTop="600dp"
+            android:layout_marginStart="20dp"
+
+    />
 </FrameLayout>
