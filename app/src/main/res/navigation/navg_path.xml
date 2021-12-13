@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools" android:id="@+id/navg_path" app:startDestination="@id/login">
+
+    <fragment android:id="@+id/login" android:name="com.example.panzehir.view.loginsignup.Login"
+              android:label="fragment_login" tools:layout="@layout/fragment_login">
+        <action android:id="@+id/action_login_to_signUp" app:destination="@id/signUp"/>
+        <action android:id="@+id/action_login_to_home2" app:destination="@id/home2"/>
+        <action android:id="@+id/action_login_to_forgotPassword" app:destination="@id/forgotPassword"/>
+    </fragment>
+    <fragment android:id="@+id/signUp" android:name="com.example.panzehir.view.loginsignup.SignUp"
+              android:label="SignUp">
+        <action android:id="@+id/action_signUp_to_login" app:destination="@id/login"/>
+    </fragment>
+    <fragment android:id="@+id/home2" android:name="com.example.panzehir.view.Home" android:label="home_fragment"
+              tools:layout="@layout/home_fragment"/>
+    <fragment android:id="@+id/forgotPassword" android:name="com.example.panzehir.view.loginsignup.ForgotPassword"
+              android:label="fragment_forgot_password" tools:layout="@layout/fragment_forgot_password"/>
+</navigation>

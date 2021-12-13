@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape
         xmlns:android="http://schemas.android.com/apk/res/android">
-    <stroke
+    <!--<stroke
             android:color="@color/black"
-            android:width="1dp"/>
+            android:width="1dp"/>-->
     <corners
             android:radius="190dp"/>
     <solid
-            android:color="#BCB7B7"/>
-    <!--<gradient
+            android:color="#80AAA2A2"
+
+    />
+    <gradient
+            android:startColor="#C1BACF"
+        />
+   <!-- <gradient
+   android:background="#80363636" bu kod button'a verildiğinde arka plan transparan oluyor
             android:startColor="#76ff03"/>-->
 </shape>

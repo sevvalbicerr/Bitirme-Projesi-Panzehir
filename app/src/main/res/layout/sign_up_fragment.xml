@@ -52,6 +52,7 @@
                     android:id="@+id/addPhotoclick"
                     android:layout_marginLeft="30dp"
                     android:text="Fotoğraf yükleyin"
+
 />
 
         </TableRow>
@@ -61,6 +62,10 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/nameOfPatient"
                     android:text="@string/name"
+
+                    android:background="@drawable/button_rectangle"
+                    android:textColor="@color/black"
+                    android:paddingStart="10dp"
             />
             <EditText
                     android:layout_width="180dp"
@@ -78,6 +83,9 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/surnameOfPatient"
                     android:text="@string/surname"
+                    android:background="@drawable/button_rectangle"
+                    android:textColor="@color/black"
+                    android:paddingStart="10dp"
             />
             <EditText
                     android:layout_width="180dp"
@@ -95,6 +103,9 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/groupOfBlood"
                     android:text="Kan grubu"
+                    android:background="@drawable/button_rectangle"
+                    android:textColor="@color/black"
+                    android:paddingStart="10dp"
             />
             <EditText
                     android:layout_width="180dp"
