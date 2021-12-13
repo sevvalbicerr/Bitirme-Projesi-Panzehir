@@ -43,6 +43,7 @@
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:id="@+id/addPhoto"
+                    android:background="@drawable/button_rectangle"
                     android:drawableLeft="@drawable/ic_baseline_camera_alt_24"
             />
             <Button
