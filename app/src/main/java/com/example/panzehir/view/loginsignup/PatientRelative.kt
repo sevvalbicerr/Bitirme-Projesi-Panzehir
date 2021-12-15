@@ -7,10 +7,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.panzehir.R
+import com.example.panzehir.databinding.MedicationTrackingFragmentBinding
+import com.example.panzehir.databinding.PatientRelativeFragmentBinding
 import com.example.panzehir.viewModel.loginViewModel.PatientRelativeViewModel
 
 class PatientRelative : Fragment() {
-
+    private var _binding: PatientRelativeFragmentBinding?=null
+    private val binding get() = _binding!!
     private  val viewModel: PatientRelativeViewModel by lazy {
         ViewModelProvider(this)[PatientRelativeViewModel::class.java]
     }
@@ -19,7 +22,8 @@ class PatientRelative : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.patient_relative_fragment, container, false)
+        _binding=PatientRelativeFragmentBinding.inflate(inflater,container,false)
+        return binding.root
     }
 
 
