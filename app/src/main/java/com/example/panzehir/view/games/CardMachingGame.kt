@@ -10,7 +10,6 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.panzehir.databinding.CardMachingGameFragmentBinding
 import com.example.panzehir.viewModel.gamesViewModel.CardMachingGameViewModel
-import kotlinx.android.synthetic.main.home_fragment.*
 
 class CardMachingGame : Fragment() {
 
@@ -29,8 +28,8 @@ class CardMachingGame : Fragment() {
         return binding.root
 
         // bottom_nav_menu_patient added 2 more items to improve the appearance
-        bottomNavigationView.menu.getItem(1).isEnabled = false
-        bottomNavigationView.menu.getItem(2).isEnabled = false
+        binding.bottomNavigationView.menu.getItem(1).isEnabled = false
+        binding.bottomNavigationView.menu.getItem(2).isEnabled = false
     }
 
 

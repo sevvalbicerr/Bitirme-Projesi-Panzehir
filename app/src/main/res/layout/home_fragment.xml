@@ -113,6 +113,7 @@
                 android:layout_height="@dimen/_46sdp"
                 android:orientation="horizontal"
                 android:background="@drawable/button_rectangle_red"
+                android:id="@+id/ProfileLinearLayout"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp">
             <de.hdodenhof.circleimageview.CircleImageView
@@ -154,8 +155,6 @@
                 />
             </LinearLayout>
         </LinearLayout>
-
-
         <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -211,19 +210,32 @@
                 android:orientation="horizontal"
         >
 
+            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+                          android:orientation="vertical">
+                <TextView
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/water"
+                        android:text="Su Takibi"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:layout_marginStart="20dp"
+                        android:paddingTop="10dp"
 
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/water"
-                    android:text="Su Takibi"
-                    android:textColor="@color/black"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:layout_marginStart="20dp"
-                    android:paddingTop="10dp"
+                />
+                <LinearLayout android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
 
-            />
+                              />
+                <Button android:layout_width="57dp"
+                        android:layout_height="60dp"
+                        android:drawableLeft="@drawable/ic_baseline_add_24"
+                        android:background="@drawable/shapecircle"
+                />
+
+            </LinearLayout>
+
             <de.hdodenhof.circleimageview.CircleImageView
                     android:layout_width="40dp"
                     android:layout_height="50dp"
@@ -346,7 +358,6 @@
         </LinearLayout>
 
     </LinearLayout>
-
     <com.google.android.material.bottomappbar.BottomAppBar
             android:id="@+id/bottomAppBar"
             android:layout_width="match_parent"

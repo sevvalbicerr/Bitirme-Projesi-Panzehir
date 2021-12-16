@@ -1,5 +1,3 @@
-@file:Suppress("UNREACHABLE_CODE")
-
 package com.example.panzehir.view.memories
 
 import android.os.Bundle
@@ -10,7 +8,6 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import com.example.panzehir.databinding.MemoriesFragmentBinding
 import com.example.panzehir.viewModel.memoriesViewModel.MemoriesViewModel
-import kotlinx.android.synthetic.main.home_fragment.*
 
 class Memories : Fragment() {
 
@@ -29,8 +26,8 @@ class Memories : Fragment() {
         return binding.root
 
         // bottom_nav_menu_patient added 2 more items to improve the appearance
-        bottomNavigationView.menu.getItem(1).isEnabled = false
-        bottomNavigationView.menu.getItem(2).isEnabled = false
+        binding.bottomNavigationView.menu.getItem(1).isEnabled = false
+        binding.bottomNavigationView.menu.getItem(2).isEnabled = false
     }
 
 
