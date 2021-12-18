@@ -7,12 +7,10 @@
     <corners
             android:radius="190dp"/>
     <solid
-            android:color="#80AAA2A2"
+            android:color="#90AAA2A2"
 
     />
-    <gradient
-            android:startColor="#C1BACF"
-        />
+
    <!-- <gradient
    android:background="#80363636" bu kod button'a verildiğinde arka plan transparan oluyor
             android:startColor="#76ff03"/>-->

@@ -1,4 +1,4 @@
-package com.example.panzehir.viewPatient
+package com.example.panzehir.view_Patient
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

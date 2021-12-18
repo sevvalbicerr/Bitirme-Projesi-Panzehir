@@ -1,4 +1,4 @@
-package com.example.panzehir.viewPatient.loginsignup
+package com.example.panzehir.view_Patient.loginsignup
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle

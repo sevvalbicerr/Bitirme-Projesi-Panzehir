@@ -1,30 +1,30 @@
 @file:Suppress("UNREACHABLE_CODE")
 
-package com.example.panzehir.viewPatient.games
+package com.example.panzehir.view_Patient.games
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.panzehir.databinding.CardMachingGameFragmentBinding
-import com.example.panzehir.viewModelPatient.gamesViewModel.CardMachingGameViewModel
+import androidx.lifecycle.ViewModelProvider
+import com.example.panzehir.databinding.SudokuFragmentBinding
+import com.example.panzehir.viewModelPatient.gamesViewModel.SudokuViewModel
 
-class CardMachingGame : Fragment() {
+class Sudoku : Fragment() {
 
-    private var _binding: CardMachingGameFragmentBinding?=null
+    private var _binding: SudokuFragmentBinding?=null
     private val binding get() = _binding!!
 
-    private  val viewModel: CardMachingGameViewModel by lazy{
-        ViewModelProvider(this)[CardMachingGameViewModel::class.java]
+    private  val viewModel: SudokuViewModel by lazy {
+        ViewModelProvider(this)[SudokuViewModel::class.java]
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding=CardMachingGameFragmentBinding.inflate(inflater,container,false)
+        _binding=SudokuFragmentBinding.inflate(inflater,container,false)
         return binding.root
 
         // bottom_nav_menu_patient added 2 more items to improve the appearance

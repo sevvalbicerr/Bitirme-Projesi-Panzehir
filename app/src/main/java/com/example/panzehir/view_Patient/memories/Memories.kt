@@ -1,4 +1,4 @@
-package com.example.panzehir.viewPatient.memories
+package com.example.panzehir.view_Patient.memories
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

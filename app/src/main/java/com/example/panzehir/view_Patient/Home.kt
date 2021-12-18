@@ -1,6 +1,6 @@
 @file:Suppress("UNREACHABLE_CODE")
 
-package com.example.panzehir.viewPatient
+package com.example.panzehir.view_Patient
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle

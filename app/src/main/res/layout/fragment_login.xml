@@ -5,8 +5,8 @@
              android:layout_width="match_parent"
              android:layout_height="match_parent"
         android:orientation="vertical"
-             tools:context=".viewPatient.loginsignup.Login"
-        android:layout_margin="20dp"
+             tools:context=".view_Patient.loginsignup.Login"
+      android:background="@drawable/arkaplan"
 >
     <TextView
             android:layout_width="match_parent"
@@ -16,6 +16,7 @@
             android:textColor="@color/black"
             android:textStyle="bold"
             android:textSize="30sp"
+            android:layout_margin="20dp"
 
             />
     <EditText
@@ -24,8 +25,11 @@
             android:id="@+id/emailinLoginPage"
             android:hint="@string/emailOrNickname"
             android:textStyle="italic"
-            android:layout_marginTop="70dp"
-              />
+
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+
+    />
     <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -34,6 +38,8 @@
             android:textStyle="italic"
             android:inputType="numberPassword"
             android:ems="10"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
 
     />
     <TextView
@@ -41,9 +47,11 @@
             android:layout_height="wrap_content"
             android:id="@+id/ForgotPasswordInLogin"
             android:text="@string/forgotPassword"
+            android:textColor="@color/black"
             android:drawablePadding="6dp"
             android:padding="4dp"
-            android:layout_marginLeft="250dp"
+            android:layout_marginStart="250dp"
+
     />
     <Button
             android:layout_width="match_parent"
@@ -52,26 +60,35 @@
             android:text="@string/Login"
             android:textColor="@color/black"
             app:cornerRadius="15dp"
-            android:layout_marginTop="35dp"
+            android:backgroundTint="#443468"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
     />
     <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/Or"
-            android:layout_marginTop="35dp"
+            android:layout_marginTop="@dimen/_50sdp"
             android:text="veya"
             android:gravity="center"
             android:textColor="@color/black"
-              />
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+
+    />
     <Button
-            android:layout_width="wrap_content"
+            android:layout_width="206dp"
             android:layout_height="wrap_content"
             android:id="@+id/SignUp"
             android:text="@string/SignUp"
             android:textColor="@color/black"
             app:cornerRadius="15dp"
-            android:layout_marginTop="35dp"
+            android:layout_marginTop="@dimen/_20sdp"
             android:layout_gravity="center"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:backgroundTint="@color/teal_700"
+
     />
 
 
