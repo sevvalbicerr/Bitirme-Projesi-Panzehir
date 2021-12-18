@@ -10,6 +10,8 @@
         <entry key="..\:/Users/busra/IntelliJIDEAProjects/Bitirme-Projesi-Panzehir/app/src/main/res/drawable/background_image.xml" value="0.26927083333333335" />
         <entry key="..\:/Users/busra/IntelliJIDEAProjects/Bitirme-Projesi-Panzehir/app/src/main/res/layout/activity_main.xml" value="0.13994565217391305" />
         <entry key="..\:/Users/busra/IntelliJIDEAProjects/Bitirme-Projesi-Panzehir/app/src/main/res/layout/card_maching_game_fragment.xml" value="0.13994565217391305" />
+        <entry key="..\:/Users/busra/IntelliJIDEAProjects/Bitirme-Projesi-Panzehir/app/src/main/res/layout/fragment_forgot_password.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/busra/IntelliJIDEAProjects/Bitirme-Projesi-Panzehir/app/src/main/res/layout/fragment_login.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/busra/IntelliJIDEAProjects/Bitirme-Projesi-Panzehir/app/src/main/res/layout/games_fragment.xml" value="0.13994565217391305" />
         <entry key="..\:/Users/busra/IntelliJIDEAProjects/Bitirme-Projesi-Panzehir/app/src/main/res/layout/home_fragment.xml" value="0.13994565217391305" />
         <entry key="..\:/Users/busra/IntelliJIDEAProjects/Bitirme-Projesi-Panzehir/app/src/main/res/layout/maze_game_fragment.xml" value="0.13994565217391305" />
@@ -18,7 +20,10 @@
         <entry key="..\:/Users/busra/IntelliJIDEAProjects/Bitirme-Projesi-Panzehir/app/src/main/res/layout/memories_detail_fragment.xml" value="0.13994565217391305" />
         <entry key="..\:/Users/busra/IntelliJIDEAProjects/Bitirme-Projesi-Panzehir/app/src/main/res/layout/memories_fragment.xml" value="0.13994565217391305" />
         <entry key="..\:/Users/busra/IntelliJIDEAProjects/Bitirme-Projesi-Panzehir/app/src/main/res/layout/profile_fragment.xml" value="0.13994565217391305" />
+        <entry key="..\:/Users/busra/IntelliJIDEAProjects/Bitirme-Projesi-Panzehir/app/src/main/res/layout/questionsofquiz.xml" value="0.16394927536231885" />
         <entry key="..\:/Users/busra/IntelliJIDEAProjects/Bitirme-Projesi-Panzehir/app/src/main/res/layout/quiz_fragment.xml" value="0.13994565217391305" />
+        <entry key="..\:/Users/busra/IntelliJIDEAProjects/Bitirme-Projesi-Panzehir/app/src/main/res/layout/sign_up_fragment.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/busra/IntelliJIDEAProjects/Bitirme-Projesi-Panzehir/app/src/main/res/layout/startgame_and_howtoplay.xml" value="0.16394927536231885" />
         <entry key="..\:/Users/busra/IntelliJIDEAProjects/Bitirme-Projesi-Panzehir/app/src/main/res/layout/sudoku_fragment.xml" value="0.13994565217391305" />
         <entry key="..\:/Users/busra/IntelliJIDEAProjects/Bitirme-Projesi-Panzehir/app/src/main/res/menu/bottom_nav_menu_patient.xml" value="0.19270833333333334" />
       </map>
