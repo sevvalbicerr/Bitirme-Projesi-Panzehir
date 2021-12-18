@@ -6,7 +6,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/xmlBackground"
-        tools:context=".view.memories.MemoriesDetail">
+        tools:context=".viewPatient.memories.MemoriesDetail">
 
 
     <FrameLayout

@@ -6,17 +6,17 @@
             app:startDestination="@id/home3">
 
     <fragment android:id="@+id/home3"
-              android:name="com.example.panzehir.view.Home"
+              android:name="com.example.panzehir.viewPatient.Home"
               android:label="Home"
               tools:layout="@layout/home_fragment"/>
 
     <fragment android:id="@+id/games"
-              android:name="com.example.panzehir.view.games.Games"
+              android:name="com.example.panzehir.viewPatient.games.Games"
               android:label="games_fragment"
               tools:layout="@layout/games_fragment"/>
 
     <fragment android:id="@+id/quiz"
-              android:name="com.example.panzehir.view.quiz.Quiz"
+              android:name="com.example.panzehir.viewPatient.quiz.Quiz"
               android:label="quiz_fragment"
               tools:layout="@layout/quiz_fragment"/>
 </navigation>

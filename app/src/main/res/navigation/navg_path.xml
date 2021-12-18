@@ -3,32 +3,32 @@
             xmlns:app="http://schemas.android.com/apk/res-auto"
             xmlns:tools="http://schemas.android.com/tools" android:id="@+id/navg_path" app:startDestination="@id/login">
 
-    <fragment android:id="@+id/login" android:name="com.example.panzehir.view.loginsignup.Login"
+    <fragment android:id="@+id/login" android:name="com.example.panzehir.viewPatient.loginsignup.Login"
               android:label="fragment_login" tools:layout="@layout/fragment_login">
         <action android:id="@+id/action_login_to_signUp" app:destination="@id/signUp"/>
         <action android:id="@+id/action_login_to_home2" app:destination="@id/home2"/>
         <action android:id="@+id/action_login_to_forgotPassword" app:destination="@id/forgotPassword"/>
     </fragment>
-    <fragment android:id="@+id/signUp" android:name="com.example.panzehir.view.loginsignup.SignUp"
+    <fragment android:id="@+id/signUp" android:name="com.example.panzehir.viewPatient.loginsignup.SignUp"
               android:label="SignUp">
         <action android:id="@+id/action_signUp_to_login" app:destination="@id/login"/>
     </fragment>
-    <fragment android:id="@+id/home2" android:name="com.example.panzehir.view.Home" android:label="home_fragment"
+    <fragment android:id="@+id/home2" android:name="com.example.panzehir.viewPatient.Home" android:label="home_fragment"
               tools:layout="@layout/home_fragment">
         <action android:id="@+id/action_home2_to_profile" app:destination="@id/profile"/>
         <action android:id="@+id/action_home2_to_memories2" app:destination="@id/memories2"/>
         <action android:id="@+id/action_home2_to_medicationTracking" app:destination="@id/medicationTracking"/>
     </fragment>
-    <fragment android:id="@+id/forgotPassword" android:name="com.example.panzehir.view.loginsignup.ForgotPassword"
+    <fragment android:id="@+id/forgotPassword" android:name="com.example.panzehir.viewPatient.loginsignup.ForgotPassword"
               android:label="fragment_forgot_password" tools:layout="@layout/fragment_forgot_password"/>
-    <fragment android:id="@+id/profile" android:name="com.example.panzehir.view.Profile"
+    <fragment android:id="@+id/profile" android:name="com.example.panzehir.viewPatient.Profile"
               android:label="profile_fragment" tools:layout="@layout/profile_fragment"/>
-    <fragment android:id="@+id/memories2" android:name="com.example.panzehir.view.memories.Memories"
+    <fragment android:id="@+id/memories2" android:name="com.example.panzehir.viewPatient.memories.Memories"
               android:label="memories_fragment" tools:layout="@layout/memories_fragment">
         <action android:id="@+id/action_memories2_to_memoriesDetail2" app:destination="@id/memoriesDetail2"/>
     </fragment>
-    <fragment android:id="@+id/memoriesDetail2" android:name="com.example.panzehir.view.memories.MemoriesDetail"
+    <fragment android:id="@+id/memoriesDetail2" android:name="com.example.panzehir.viewPatient.memories.MemoriesDetail"
               android:label="memories_detail_fragment" tools:layout="@layout/memories_detail_fragment"/>
-    <fragment android:id="@+id/medicationTracking" android:name="com.example.panzehir.view.MedicationTracking"
+    <fragment android:id="@+id/medicationTracking" android:name="com.example.panzehir.viewPatient.MedicationTracking"
               android:label="medication_tracking_fragment" tools:layout="@layout/medication_tracking_fragment"/>
 </navigation>
