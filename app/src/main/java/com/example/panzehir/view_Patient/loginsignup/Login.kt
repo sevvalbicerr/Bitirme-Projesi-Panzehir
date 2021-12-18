@@ -5,15 +5,19 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.example.panzehir.R
 import com.example.panzehir.databinding.FragmentLoginBinding
+import com.example.panzehir.viewModelPatient.loginViewModel.LoginViewModel
 
 class Login : Fragment() {
 
     private var _binding: FragmentLoginBinding?=null
     private val binding get() = _binding!!
-
+    private val viewModel by lazy {
+        ViewModelProvider(this)[LoginViewModel::class.java]
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -35,6 +39,9 @@ class Login : Fragment() {
         }
         binding.SignUp.setOnClickListener {
             Navigation.findNavController(it).navigate(R.id.action_login_to_signUp)
+        }
+        binding.ForgotPasswordInLogin.setOnClickListener {
+            Navigation.findNavController(it).navigate(R.id.action_login_to_forgotPassword)
         }
 
     }

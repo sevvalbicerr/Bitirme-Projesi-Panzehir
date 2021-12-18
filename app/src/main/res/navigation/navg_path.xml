@@ -20,7 +20,9 @@
         <action android:id="@+id/action_home2_to_medicationTracking" app:destination="@id/medicationTracking"/>
     </fragment>
     <fragment android:id="@+id/forgotPassword" android:name="com.example.panzehir.view_Patient.loginsignup.ForgotPassword"
-              android:label="fragment_forgot_password" tools:layout="@layout/fragment_forgot_password"/>
+              android:label="fragment_forgot_password" tools:layout="@layout/fragment_forgot_password">
+        <action android:id="@+id/action_forgotPassword_to_login" app:destination="@id/login"/>
+    </fragment>
     <fragment android:id="@+id/profile" android:name="com.example.panzehir.view_Patient.Profile"
               android:label="profile_fragment" tools:layout="@layout/profile_fragment"/>
     <fragment android:id="@+id/memories2" android:name="com.example.panzehir.view_Patient.memories.Memories"
