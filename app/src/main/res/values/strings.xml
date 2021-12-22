@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Panzehir</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -23,4 +23,7 @@
     <string name="mazeGame">Labirent Oyunu </string>
     <string name="sudoku">Sudoku Oyunu</string>
     <string name="profile">Profil</string>
+    <string name="p2_0">P2: 0</string>
+    <string name="p1_0">P1: 0</string>
+    <string name="todo" tools:ignore="DuplicateDefinition">TODO</string>
 </resources>
