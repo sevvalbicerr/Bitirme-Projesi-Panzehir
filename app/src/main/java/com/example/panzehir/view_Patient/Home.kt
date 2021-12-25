@@ -3,6 +3,7 @@
 package com.example.panzehir.view_Patient
 
 import android.app.AlertDialog
+import android.app.ProgressDialog.show
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -50,6 +51,7 @@ class Home : Fragment() {
         binding.callFamilyLayout.setOnClickListener {
             callMyFamilyAlertButton()
         }
+
     }
 
     private fun callMyFamilyAlertButton() {

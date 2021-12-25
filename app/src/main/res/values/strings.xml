@@ -20,8 +20,9 @@
     <string name="startGame"><u><i>Oyun\'a Başla!</i></u></string>
     <string name="games">Oyunlar</string>
     <string name="cardMatching">Kart Eşleştirme Oyunu</string>
-    <string name="mazeGame">Labirent Oyunu </string>
-    <string name="sudoku">Sudoku Oyunu</string>
+    <string name="mazeGame">Labirent  </string>
+    <string name="sudoku">Sudoku </string>
+    <string name="anagram">Anagram </string>
     <string name="profile">Profil</string>
     <string name="p2_0">P2: 0</string>
     <string name="p1_0">P1: 0</string>

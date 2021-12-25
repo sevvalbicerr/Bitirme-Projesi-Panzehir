@@ -33,4 +33,19 @@
               android:label="memories_detail_fragment" tools:layout="@layout/memories_detail_fragment"/>
     <fragment android:id="@+id/medicationTracking" android:name="com.example.panzehir.view_Patient.MedicationTracking"
               android:label="medication_tracking_fragment" tools:layout="@layout/medication_tracking_fragment"/>
+    <fragment android:id="@+id/games2" android:name="com.example.panzehir.view_Patient.games.Games"
+              android:label="Games">
+        <action android:id="@+id/action_games2_to_cardMachingGame2" app:destination="@id/cardMachingGame2"/>
+        <action android:id="@+id/action_games2_to_sudoku2" app:destination="@id/sudoku2"/>
+        <action android:id="@+id/action_games2_to_mazeGame" app:destination="@id/mazeGame"/>
+        <action android:id="@+id/action_games2_to_anagram2" app:destination="@id/anagram2"/>
+    </fragment>
+    <fragment android:id="@+id/cardMachingGame2" android:name="com.example.panzehir.view_Patient.games.CardMachingGame"
+              android:label="CardMachingGame"/>
+    <fragment android:id="@+id/mazeGame" android:name="com.example.panzehir.view_Patient.games.MazeGame"
+              android:label="maze_game_fragment" tools:layout="@layout/maze_game_fragment"/>
+    <fragment android:id="@+id/sudoku2" android:name="com.example.panzehir.view_Patient.games.Sudoku"
+              android:label="sudoku_fragment" tools:layout="@layout/sudoku_fragment"/>
+    <fragment android:id="@+id/anagram2" android:name="com.example.panzehir.view_Patient.games.Anagram"
+              android:label="anagram_fragment" tools:layout="@layout/anagram_fragment"/>
 </navigation>

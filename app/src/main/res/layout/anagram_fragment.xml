@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/xmlBackground"
+        tools:context=".view_Patient.games.Anagram">
+
+    <TextView
+            android:id="@+id/wordTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+
+            android:text="Anagram Kelime"
+            android:layout_gravity="center"
+            android:textSize="@dimen/_30ssp"
+            android:textStyle="bold" />
+    <EditText
+            android:id="@+id/wordEnteredTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="73dp"
+            android:background="@color/white"
+            android:textSize="@dimen/_30ssp"
+            android:hint="Anagramı giriniz:"
+            android:layout_gravity="center"
+            android:autofillHints="testHint"
+            tools:ignore="LabelFor"/>
+    <TextView
+            android:id="@+id/Answer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_30ssp"
+            android:hint="Kelimenin Anagramı:"
+            android:layout_gravity="center"
+           android:background="@color/white"
+            android:layout_marginTop="73dp"/>
+    <Button
+            android:id="@+id/validate"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:layout_gravity="center"
+            android:text="Kontrol Et"
+            android:backgroundTint="#90AAA2A2"
+            android:textColor="@color/black"
+            app:cornerRadius="15dp"
+    />
+
+    <Button
+            android:id="@+id/newGame"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="25dp"
+            android:text="Yeni Oyun"
+            android:backgroundTint="#90AAA2A2"
+            android:textColor="@color/black"
+            app:cornerRadius="15dp"
+    />
+
+</LinearLayout>
