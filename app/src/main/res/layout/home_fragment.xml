@@ -126,14 +126,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_46sdp"
                     android:orientation="horizontal"
-                    android:background="@drawable/button_rectangle_red"
+                    android:background="@drawable/button_rectangle"
                     android:id="@+id/ProfileLinearLayout"
                     android:layout_marginStart="20dp"
                     android:layout_marginEnd="20dp">
                 <de.hdodenhof.circleimageview.CircleImageView
                         android:layout_width="@dimen/_46sdp"
                         android:layout_height="match_parent"
-                        android:src="@drawable/ic_launcher_background"
+                        android:src="@drawable/me"
                         android:id="@+id/photo"/>
                 <LinearLayout
                         android:layout_width="wrap_content"
@@ -190,25 +190,25 @@
                 <de.hdodenhof.circleimageview.CircleImageView
                         android:layout_width="73dp"
                         android:layout_height="66dp"
-                        android:src="@drawable/ic_launcher_background"
+                        android:src="@drawable/boy"
                         android:id="@+id/memoriesCircle1"
                 />
                 <de.hdodenhof.circleimageview.CircleImageView
                         android:layout_width="73dp"
                         android:layout_height="66dp"
-                        android:src="@drawable/ic_launcher_background"
+                        android:src="@drawable/daughter"
                         android:id="@+id/memoriesCircle2"
                 />
                 <de.hdodenhof.circleimageview.CircleImageView
                         android:layout_width="73dp"
                         android:layout_height="66dp"
-                        android:src="@drawable/ic_launcher_background"
+                        android:src="@drawable/torun"
                         android:id="@+id/memoriesCircle3"
                 />
                 <de.hdodenhof.circleimageview.CircleImageView
                         android:layout_width="73dp"
                         android:layout_height="66dp"
-                        android:src="@drawable/ic_launcher_background"
+                        android:src="@drawable/torun2"
                         android:id="@+id/memoriesCircle4"
                 />
                 <de.hdodenhof.circleimageview.CircleImageView
@@ -224,8 +224,7 @@
                     android:orientation="horizontal"
             >
 
-                <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
-                              android:orientation="vertical">
+
                     <TextView
                             android:layout_width="110dp"
                             android:layout_height="wrap_content"
@@ -238,29 +237,27 @@
                             android:paddingTop="10dp"
 
                     />
-                    <LinearLayout android:layout_width="wrap_content"
-                                  android:layout_height="wrap_content"
 
-                    />
-                    <Button android:layout_width="57dp"
-                            android:layout_height="60dp"
-                            android:drawableLeft="@drawable/ic_baseline_add_24"
-                            android:background="@drawable/shapecircle"
-                    />
 
-                </LinearLayout>
 
+               <EditText
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:hint="bardak sayısı:"
+                       android:inputType="number"
+               />
                 <de.hdodenhof.circleimageview.CircleImageView
                         android:layout_width="40dp"
                         android:layout_height="50dp"
-                        android:src="@drawable/water"
+                        android:src="@drawable/glass"
                         android:id="@+id/water1"
-                        android:layout_marginStart="30dp"
+
+
                 />
                 <de.hdodenhof.circleimageview.CircleImageView
                         android:layout_width="40dp"
                         android:layout_height="50dp"
-                        android:src="@drawable/water"
+                        android:src="@drawable/glass"
                         android:id="@+id/water2"
                 />
                 <de.hdodenhof.circleimageview.CircleImageView
@@ -275,18 +272,7 @@
                         android:src="@drawable/water"
                         android:id="@+id/water4"
                 />
-                <de.hdodenhof.circleimageview.CircleImageView
-                        android:layout_width="40dp"
-                        android:layout_height="50dp"
-                        android:src="@drawable/water"
-                        android:id="@+id/water5"
-                />
-                <de.hdodenhof.circleimageview.CircleImageView
-                        android:layout_width="40dp"
-                        android:layout_height="50dp"
-                        android:src="@drawable/water"
-                        android:id="@+id/water6"
-                />
+
             </LinearLayout>
 
             <LinearLayout
