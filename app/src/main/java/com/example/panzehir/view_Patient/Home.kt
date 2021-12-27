@@ -43,8 +43,8 @@ class Home : Fragment() {
             Navigation.findNavController(it).navigate(R.id.action_home2_to_medicationTracking)
         }
         // bottom_nav_menu_patient added 2 more items to improve the appearance
-        binding.bottomNavigationView.menu.getItem(1).isEnabled = false
-        binding.bottomNavigationView.menu.getItem(2).isEnabled = false
+      /*  binding.bottomNavigationView.menu.getItem(1).isEnabled = false
+        binding.bottomNavigationView.menu.getItem(2).isEnabled = false*/
         binding.callEmergencyLayout.setOnClickListener {
             emergencyAlertButton()
         }

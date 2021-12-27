@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/nav_path_home"
+            app:startDestination="@id/home2">
+    <fragment android:id="@+id/home2"
+              android:name="com.example.panzehir.view_Patient.Home"
+              android:label="home_fragment"
+              tools:layout="@layout/home_fragment">
+        <action android:id="@+id/action_home2_to_profile"
+                app:destination="@id/profile"/>
+        <action android:id="@+id/action_home2_to_memories2"
+                app:destination="@id/memories2"/>
+        <action android:id="@+id/action_home2_to_medicationTracking"
+                app:destination="@id/medicationTracking"/>
+    </fragment>
+
+
+    <fragment android:id="@+id/profile" android:name="com.example.panzehir.view_Patient.Profile"
+              android:label="profile_fragment" tools:layout="@layout/profile_fragment"/>
+    <fragment android:id="@+id/memories2" android:name="com.example.panzehir.view_Patient.memories.Memories"
+              android:label="memories_fragment" tools:layout="@layout/memories_fragment">
+        <action android:id="@+id/action_memories2_to_memoriesDetail2" app:destination="@id/memoriesDetail2"/>
+    </fragment>
+
+    <fragment android:id="@+id/memoriesDetail2"
+              android:name="com.example.panzehir.view_Patient.memories.MemoriesDetail"
+              android:label="memories_detail_fragment"
+              tools:layout="@layout/memories_detail_fragment"/>
+    <fragment android:id="@+id/medicationTracking"
+              android:name="com.example.panzehir.view_Patient.MedicationTracking"
+              android:label="medication_tracking_fragment"
+              tools:layout="@layout/medication_tracking_fragment"/>
+    <fragment android:id="@+id/games2"
+              android:name="com.example.panzehir.view_Patient.games.Games"
+              android:label="Games">
+        <action android:id="@+id/action_games2_to_cardMachingGame2" app:destination="@id/cardMachingGame2"/>
+        <action android:id="@+id/action_games2_to_sudoku2"
+                app:destination="@id/sudoku2"/>
+        <action android:id="@+id/action_games2_to_mazeGame"
+                app:destination="@id/mazeGame"/>
+        <action android:id="@+id/action_games2_to_anagram2"
+                app:destination="@id/anagram2"/>
+    </fragment>
+
+    <fragment android:id="@+id/cardMachingGame2"
+              android:name="com.example.panzehir.view_Patient.games.CardMachingGame"
+              android:label="CardMachingGame"/>
+    <fragment android:id="@+id/mazeGame"
+              android:name="com.example.panzehir.view_Patient.games.MazeGame"
+              android:label="maze_game_fragment"
+              tools:layout="@layout/maze_game_fragment"/>
+    <fragment android:id="@+id/sudoku2"
+              android:name="com.example.panzehir.view_Patient.games.Sudoku"
+              android:label="sudoku_fragment"
+              tools:layout="@layout/sudoku_fragment"/>
+    <fragment android:id="@+id/anagram2"
+              android:name="com.example.panzehir.view_Patient.games.Anagram"
+              android:label="anagram_fragment" tools:layout="@layout/anagram_fragment"/>
+
+</navigation>
