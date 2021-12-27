@@ -30,9 +30,7 @@ class Games : Fragment() {
         _binding=GamesFragmentBinding.inflate(inflater,container,false)
         return binding.root
 
-        // bottom_nav_menu_patient added 2 more items to improve the appearance
-        binding.bottomNavigationView.menu.getItem(1).isEnabled = false
-        binding.bottomNavigationView.menu.getItem(2).isEnabled = false
+
 
         binding.MazeGame.setOnClickListener{
             Navigation.findNavController(it).navigate(R.id.action_games2_to_mazeGame)
