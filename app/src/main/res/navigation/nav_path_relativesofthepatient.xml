@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"
             xmlns:tools="http://schemas.android.com/tools" android:id="@+id/nav_path_relativesofthepatient"
-            app:startDestination="@id/profile_RelativesPatient">
+            app:startDestination="@id/homeRelativesOfThePatient">
 
     <fragment android:id="@+id/profile_RelativesPatient"
               android:name="com.example.panzehir.View_RelativesOfThePatient.Profile_RelativesPatient"
@@ -20,4 +20,15 @@
         <action android:id="@+id/action_addDetailMedication_to_addMedicationPage"
                 app:destination="@id/addMedicationPage"/>
     </fragment>
+    <fragment android:id="@+id/homeRelativesOfThePatient"
+              android:name="com.example.panzehir.View_RelativesOfThePatient.HomeRelativesOfThePatient"
+              android:label="fragment_home_relatives_of_the_patient"
+              tools:layout="@layout/fragment_home_relatives_of_the_patient">
+        <action android:id="@+id/action_homeRelativesOfThePatient_to_profile_RelativesPatient"
+                app:destination="@id/profile_RelativesPatient"/>
+        <action android:id="@+id/action_homeRelativesOfThePatient_to_addMedicationPage"
+                app:destination="@id/addMedicationPage"/>
+    </fragment>
+    <fragment android:id="@+id/settings2" android:name="com.example.panzehir.View_RelativesOfThePatient.Settings"
+              android:label="fragment_settings" tools:layout="@layout/fragment_settings"/>
 </navigation>

@@ -26,16 +26,11 @@ class CardMachingGame : Fragment() {
 
     private var _binding: CardMachingGameFragmentBinding? = null
     private val binding get() = _binding!!
-
     private val viewModel: CardMachingGameViewModel by lazy {
         ViewModelProvider(this)[CardMachingGameViewModel::class.java]
     }
-
-
-
     //array for the images
     private var cardsArray = mutableListOf(101, 102, 103, 104, 105, 106, 201, 202, 203, 204, 205, 206)
-
     //Delegates lateinit gibi sonradan initialize edilecekler için kullanılıyor
     private var image101 by Delegates.notNull<Int>()
     private var image102 by Delegates.notNull<Int>()

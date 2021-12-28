@@ -16,15 +16,17 @@ class RelativesOfThePatientMainActivity : AppCompatActivity() {
         _binding=ActivityRelativesOfThePatientMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         val navView: BottomNavigationView = binding.bottomNavigationView
-        navView.setOnNavigationItemSelectedListener(navListener)
-        // Home Fragment
-        binding.fab.setOnClickListener { findNavController(R.id.fragmentContainerView2).navigate(R.id.profile_RelativesPatient) }
-    }
-    private val navListener: BottomNavigationView.OnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener {
-        when(it.itemId){
-            R.id.profileofrelativeBottommenu ->{findNavController(R.id.fragmentContainerView2).navigate(R.id.profile_RelativesPatient)}
-            R.id.medicationtrackofrelativeBottommenu ->{findNavController(R.id.fragmentContainerView2).navigate(R.id.addMedicationPage)}
+        navView.setOnItemSelectedListener {
+            when(it.itemId){
+                R.id.profileofrelativeBottommenu ->{findNavController(R.id.fragmentContainerView2).navigate(R.id.profile_RelativesPatient)}
+                R.id.medicationtrackofrelativeBottommenu ->{findNavController(R.id.fragmentContainerView2).navigate(R.id.addMedicationPage)}
+                R.id.SettingsOfbottomMenu ->{findNavController(R.id.fragmentContainerView2).navigate(R.id.settings2)}
+
+            }
+             true
         }
-        return@OnNavigationItemSelectedListener true
+        // Home Fragment
+        binding.fab.setOnClickListener { findNavController(R.id.fragmentContainerView2).navigate(R.id.homeRelativesOfThePatient) }
     }
+
 }

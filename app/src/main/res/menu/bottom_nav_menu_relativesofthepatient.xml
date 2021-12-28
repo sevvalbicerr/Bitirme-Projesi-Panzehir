@@ -20,5 +20,9 @@
             android:title="İlaç Takibi"
             android:contentDescription="İlaç Takibi"
             android:icon="@drawable/ic_list"/>
+    <item
+            android:id="@+id/SettingsOfbottomMenu"
+            android:title="Ayarlar"
+            android:icon="@drawable/ic_baseline_miscellaneous_services_24"/>
 
 </menu>

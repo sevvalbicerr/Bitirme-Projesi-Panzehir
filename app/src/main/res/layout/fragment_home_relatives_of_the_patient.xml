@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             tools:context=".View_RelativesOfThePatient.HomeRelativesOfThePatient">
+
+    <LinearLayout
+            android:id="@+id/publicFragment"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <ImageView
+                android:id="@+id/signOut"
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_gravity="end"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_home"/>
+
+
+
+        <TextView
+                android:id="@+id/profilTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_margin="@dimen/_10sdp"
+                android:text="Profil"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:drawablePadding="@dimen/_10sdp"
+                android:drawableStart="@drawable/ic_emergency"/>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_46sdp"
+                android:orientation="horizontal"
+                android:background="@drawable/button_rectangle"
+                android:id="@+id/ProfileLinearLayout"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp">
+            <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="@dimen/_46sdp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/me"
+                    android:id="@+id/photo"/>
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginStart="20dp">
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/nameOfPerson"
+                        android:text="Meliha Yılmaz"
+                        android:textSize="15sp"
+                        android:textColor="@color/black"/>
+
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/ageOfPerson"
+                        android:text="52"
+                        android:textSize="15sp"
+                        android:textColor="@color/black"
+
+                />
+
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/typeOfBlood"
+                        android:text="A RH+"
+                        android:textSize="15sp"
+                        android:textColor="@color/black"
+
+                />
+            </LinearLayout>
+        </LinearLayout>
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/memories"
+                android:text="@string/memories"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginStart="20dp"
+
+        />
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+        >
+            <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="73dp"
+                    android:layout_height="66dp"
+                    android:src="@drawable/boy"
+                    android:id="@+id/memoriesCircle1"
+            />
+            <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="73dp"
+                    android:layout_height="66dp"
+                    android:src="@drawable/daughter"
+                    android:id="@+id/memoriesCircle2"
+            />
+            <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="73dp"
+                    android:layout_height="66dp"
+                    android:src="@drawable/torun"
+                    android:id="@+id/memoriesCircle3"
+            />
+            <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="73dp"
+                    android:layout_height="66dp"
+                    android:src="@drawable/torun2"
+                    android:id="@+id/memoriesCircle4"
+            />
+            <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="73dp"
+                    android:layout_height="66dp"
+                    android:src="@drawable/ic_baseline_keyboard_double_arrow_right_24"
+                    android:id="@+id/seeMoreMemories"
+            />
+        </LinearLayout>
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+        >
+
+
+            <TextView
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/water"
+                    android:text="Su Takibi"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_marginStart="20dp"
+                    android:paddingTop="10dp"
+
+            />
+
+
+
+            <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="bardak sayısı:"
+                    android:inputType="number"
+            />
+            <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="40dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ic_baseline_control_point_24"
+                    android:id="@+id/water1"
+                    android:layout_marginStart="@dimen/_40sdp"
+
+
+            />
+            <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="40dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ic_baseline_do_not_disturb_on_24"
+
+                    android:id="@+id/water2"
+            />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+        >
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/step"
+                    android:text="Adım Takibi"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_marginStart="20dp"
+
+            />
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/NumberOfStep"
+                    android:text="Adım sayısı:"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:paddingStart="76dp"
+            />
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/NumberOfStepText"
+                    android:text="5610000 "
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+
+
+            />
+        </LinearLayout>
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/medicine"
+                android:text="İlaç Takibi"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginStart="20dp"
+
+
+        />
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginStart="20dp"
+                android:layout_marginBottom="@dimen/_80sdp">
+            <CheckBox
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:text="İlaç 1"
+            />
+            <CheckBox
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:text="İlaç 2"
+            />
+            <CheckBox
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:text="İlaç 3"
+            />
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=" Daha fazlasını görmek için tıklayın."
+                    android:drawableLeft="@drawable/ic_baseline_add_24"
+                    android:paddingStart="5dp"
+                    android:textColor="@color/black"
+                    android:id="@+id/seeMoreMedication"
+            />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>
