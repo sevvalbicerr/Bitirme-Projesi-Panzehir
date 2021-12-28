@@ -1,4 +1,4 @@
-package com.example.panzehir.view_Patient.loginsignup
+package com.example.panzehir.loginsignup
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
-import androidx.navigation.compose.NavHost
 import com.example.panzehir.R
 import com.example.panzehir.databinding.SignUpFragmentBinding
 import com.example.panzehir.viewModelPatient.loginViewModel.SignUpViewModel

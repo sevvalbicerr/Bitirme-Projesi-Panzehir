@@ -2,10 +2,12 @@ package com.example.panzehir.view_Patient
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.navigation.Navigation
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment.findNavController
 import com.example.panzehir.R
 import com.example.panzehir.databinding.ActivityHostFragment2Binding
-import com.example.panzehir.databinding.HomeFragmentBinding
+import com.example.panzehir.view_Patient.games.Games
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class HostFragment2 : AppCompatActivity() {
     private var _binding: ActivityHostFragment2Binding?=null
@@ -14,15 +16,27 @@ class HostFragment2 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         _binding=ActivityHostFragment2Binding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.bottomNavigationView.setOnItemSelectedListener {
+      /*  binding.bottomNavigationView.setOnItemSelectedListener {
             when(it.itemId){
-                R.id.navigation_game-> Navigation.findNavController(this,R.id.fragmentContainerView3)
-                    .navigate(R.id.action_home2_to_games2)
-                R.id.navigation_list-> println("Bu mesaj senin için büşbüş bu nereye gidecek anlamadım bağlayıver yukarıdaki gibi bebek djdjdjd")
-
+                R.id.navigation_game->{
+                   // supportFragmentManager.beginTransaction().replace(R.id.fragmentContainerView3, Games()).commit()
+                    //Geriye basınca login sayfasına gidiyor niye ?
+                }
+                R.id.navigation_list-> println("Bu mesaj senin için büşbüş ")
             }
             true
+        }*/
+        val navView: BottomNavigationView = binding.bottomNavigationView
+        navView.setOnItemSelectedListener {
+            when(it.itemId){
+                R.id.navigation_game ->{findNavController(R.id.fragmentContainerView3).navigate(R.id.games2)}
+                R.id.navigation_list ->{findNavController(R.id.fragmentContainerView3).navigate(R.id.quiz2)}
+            }
+             true
         }
+        // Home Fragment
+        binding.fab.setOnClickListener { findNavController(R.id.fragmentContainerView3).navigate(R.id.home2) }
 
     }
+
 }

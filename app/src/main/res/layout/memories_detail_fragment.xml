@@ -30,7 +30,7 @@
                     android:layout_height="178dp"
                     android:src="@drawable/ic_launcher_background"
                     android:id="@+id/photo"
-                    android:layout_marginTop="80dp"
+                    android:layout_gravity="center"
                     android:layout_marginStart="20dp"
             />
             <LinearLayout

@@ -9,6 +9,7 @@ import android.widget.AdapterView
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.example.panzehir.R
+import com.example.panzehir.adapter.AnagramGridViewAdapter
 import com.example.panzehir.databinding.MemoriesFragmentBinding
 import com.example.panzehir.model.memoriesGridModel
 import com.example.panzehir.viewModelPatient.memoriesViewModel.MemoriesViewModel
@@ -19,7 +20,7 @@ class Memories : Fragment() {
     private var _binding: MemoriesFragmentBinding?=null
     private val binding get() = _binding!!
 
-   lateinit var  adapter :AnagramGridViewAdapter
+   lateinit var  adapter : AnagramGridViewAdapter
     var images= intArrayOf(
         R.drawable.boy,
         R.drawable.daughter,

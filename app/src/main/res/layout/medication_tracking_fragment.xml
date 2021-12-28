@@ -7,6 +7,7 @@
             xmlns:tools="http://schemas.android.com/tools"
             xmlns:app="http://schemas.android.com/apk/res-auto"
             android:orientation="vertical"
+            android:background="@color/xmlBackground"
             tools:context=".view_Patient.MedicationTracking"
 >
 
@@ -24,6 +25,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
+                android:id="@+id/medicationRecycler"
         />
 
 

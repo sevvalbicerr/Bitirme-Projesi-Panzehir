@@ -67,25 +67,21 @@ class CardMachingGame : Fragment() {
         _binding = CardMachingGameFragmentBinding.inflate(inflater, container, false)
         return binding.root
 
-        binding.includeImages.iv11.tag = 0
-        binding.includeImages.iv12.tag = 1
-        binding.includeImages.iv13.tag = 2
-        binding.includeImages.iv14.tag = 3
-        binding.includeImages.iv21.tag = 4
-        binding.includeImages.iv22.tag = 5
-        binding.includeImages.iv23.tag = 6
-        binding.includeImages.iv24.tag = 7
-        binding.includeImages.iv31.tag = 8
-        binding.includeImages.iv32.tag = 9
-        binding.includeImages.iv33.tag = 10
-        binding.includeImages.iv34.tag = 11
 
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        includedImages()
+        includedImagesSetonClickListener()
         frontOfCardsResources()
         //suffle the images
         cardsArray.shuffle()
         binding.tvP2.setTextColor(Color.GRAY)
 
-
+    }
+    private fun includedImagesSetonClickListener(){
         binding.includeImages.iv11.setOnClickListener { v ->
             val theCard: Int = v.tag.toString().toInt()
             println(theCard)
@@ -145,8 +141,20 @@ class CardMachingGame : Fragment() {
         }
 
 
-
-
+    }
+    private fun includedImages(){
+        binding.includeImages.iv11.tag = 0
+        binding.includeImages.iv12.tag = 1
+        binding.includeImages.iv13.tag = 2
+        binding.includeImages.iv14.tag = 3
+        binding.includeImages.iv21.tag = 4
+        binding.includeImages.iv22.tag = 5
+        binding.includeImages.iv23.tag = 6
+        binding.includeImages.iv24.tag = 7
+        binding.includeImages.iv31.tag = 8
+        binding.includeImages.iv32.tag = 9
+        binding.includeImages.iv33.tag = 10
+        binding.includeImages.iv34.tag = 11
     }
 
     private fun frontOfCardsResources() {

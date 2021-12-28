@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools" android:id="@+id/nav_path_relativesofthepatient"
+            app:startDestination="@id/profile_RelativesPatient">
+
+    <fragment android:id="@+id/profile_RelativesPatient"
+              android:name="com.example.panzehir.View_RelativesOfThePatient.Profile_RelativesPatient"
+              android:label="fragment_profile__relatives_patient"
+              tools:layout="@layout/fragment_profile__relatives_patient"/>
+    <fragment android:id="@+id/addMedicationPage"
+              android:name="com.example.panzehir.View_RelativesOfThePatient.AddMedicationPage"
+              android:label="fragment_add_medication_page" tools:layout="@layout/fragment_add_medication_page">
+        <action android:id="@+id/action_addMedicationPage_to_addDetailMedication"
+                app:destination="@id/addDetailMedication"/>
+    </fragment>
+    <fragment android:id="@+id/addDetailMedication"
+              android:name="com.example.panzehir.View_RelativesOfThePatient.AddDetailMedication"
+              android:label="fragment_add_detail_medication" tools:layout="@layout/fragment_add_detail_medication">
+        <action android:id="@+id/action_addDetailMedication_to_addMedicationPage"
+                app:destination="@id/addMedicationPage"/>
+    </fragment>
+</navigation>

@@ -31,6 +31,10 @@ class Games : Fragment() {
         return binding.root
 
 
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         binding.MazeGame.setOnClickListener{
             Navigation.findNavController(it).navigate(R.id.action_games2_to_mazeGame)

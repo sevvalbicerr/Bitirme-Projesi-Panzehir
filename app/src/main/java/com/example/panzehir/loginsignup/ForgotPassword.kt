@@ -1,4 +1,4 @@
-package com.example.panzehir.view_Patient.loginsignup
+package com.example.panzehir.loginsignup
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

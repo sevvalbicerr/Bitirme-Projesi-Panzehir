@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             tools:context=".View_RelativesOfThePatient.AddDetailMedication"
+              android:background="@color/xmlBackground"
+              android:orientation="vertical"
+>
+    <TableLayout android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:paddingLeft="10dp"
+                 android:paddingRight="10dp"
+                android:layout_marginTop="@dimen/_80sdp"
+
+    >
+        <TableRow >
+            <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/nameOfMedication"
+                    android:text="İlaç Adı"
+                    android:gravity="center"
+                    android:background="@drawable/button_rectangle"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15ssp"
+                    android:textStyle="bold"
+            />
+            <EditText
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/nameOfMedicationEdittext"
+                    android:layout_marginLeft="30dp"
+
+
+            />
+
+        </TableRow>
+        <TableRow android:layout_marginTop="@dimen/_20sdp" >
+            <TextView
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/amountofusageMedication"
+                    android:text="Kullanım Miktarı:"
+                    android:background="@drawable/button_rectangle"
+                    android:textColor="@color/black"
+                    android:gravity="center"
+                    android:textSize="@dimen/_15ssp"
+                    android:textStyle="bold"
+
+            />
+            <EditText
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/amountofusageMedicationEdittext"
+                    android:layout_marginLeft="30dp"
+
+
+            />
+
+        </TableRow>
+        <TableRow android:layout_marginTop="@dimen/_20sdp">
+            <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/hungryOrNot"
+                    android:text="Aç/Tok"
+                    android:background="@drawable/button_rectangle"
+                    android:textColor="@color/black"
+                    android:gravity="center"
+                    android:textSize="@dimen/_15ssp"
+                    android:textStyle="bold"
+
+            />
+            <EditText
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/hungryOrNotEdittext"
+                    android:layout_marginLeft="30dp"
+
+            />
+        </TableRow>
+        <TableRow android:layout_marginTop="@dimen/_20sdp">
+            <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/timeOfMedication"
+                    android:text="Saat:"
+                    android:background="@drawable/button_rectangle"
+                    android:textColor="@color/black"
+                    android:gravity="center"
+                    android:textSize="@dimen/_15ssp"
+                    android:textStyle="bold"
+
+            />
+            <EditText
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/timeOfMedicationEdittext"
+                    android:layout_marginLeft="30dp"
+            />
+        </TableRow>
+
+    </TableLayout>
+    <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="61dp"
+            android:layout_height="45dp"
+            android:src="@drawable/ic_sharp_done_outline_24"
+            android:id="@+id/recordButton"
+            android:layout_marginStart="@dimen/_200sdp"
+            android:layout_marginTop="@dimen/_50sdp"
+
+    />
+    <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="61dp"
+            android:layout_height="45dp"
+            android:src="@drawable/ic_twotone_close_24"
+            android:id="@+id/closeButton"
+            android:layout_marginStart="@dimen/_50sdp"
+            android:layout_marginTop="-42dp"
+
+    />
+
+
+
+</LinearLayout>

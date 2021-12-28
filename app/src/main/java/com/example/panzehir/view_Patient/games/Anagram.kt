@@ -55,6 +55,9 @@ class Anagram : Fragment() {
             binding.Answer.text=" "
             newGame()
         }
+        binding.imageBack.setOnClickListener{
+            //Navigation ekle
+        }
     }
     private fun newGame() {
         firstWord = viewModel.randomWord()
