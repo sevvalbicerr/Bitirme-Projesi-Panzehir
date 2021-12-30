@@ -66,8 +66,9 @@
             android:layout_marginTop="25dp"
             android:text="Yeni Oyun"
             android:backgroundTint="#90AAA2A2"
-            android:textColor="@color/black"
             app:cornerRadius="15dp"
+            android:textColor="@color/black"
+
     />
 
 </LinearLayout>

@@ -56,7 +56,7 @@
               android:label="maze_game_fragment"
               tools:layout="@layout/maze_game_fragment"/>
     <fragment android:id="@+id/sudoku2"
-              android:name="com.example.panzehir.view_Patient.games.Sudoku"
+              android:name="com.example.panzehir.view_Patient.games.sudoku.Sudoku"
               android:label="sudoku_fragment"
               tools:layout="@layout/sudoku_fragment"/>
     <fragment android:id="@+id/anagram2"

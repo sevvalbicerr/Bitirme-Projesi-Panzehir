@@ -1,9 +1,9 @@
 package com.example.panzehir.viewModelPatient.gamesViewModel
 
 import android.app.Application
-import androidx.lifecycle.ViewModel
 import com.example.panzehir.viewModelPatient.BaseViewModel
+import com.example.panzehir.view_Patient.games.sudoku.game.SudokuGame
 
 class SudokuViewModel(application: Application) : BaseViewModel(application) {
-    // TODO: Implement the ViewModel
+    val sudokuGame = SudokuGame()
 }
