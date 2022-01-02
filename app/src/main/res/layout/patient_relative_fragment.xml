@@ -24,21 +24,37 @@
     <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/emailinForgotPage"
+            android:id="@+id/inputPasswordRelative"
             android:hint="@string/password"
             android:layout_margin="20dp"
             android:textStyle="italic"
 
     />
-    <Button
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/LoginButtoninPatientRelatives"
-            android:text="@string/Login"
-            android:textColor="@color/black"
-            app:cornerRadius="15dp"
-            android:layout_marginTop="35dp"
-            android:layout_gravity="center"
-            android:backgroundTint="#443468"
-    />
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <Button
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/loginButtonInPatientRelatives"
+                android:text="@string/Login"
+                android:textColor="@color/black"
+                app:cornerRadius="15dp"
+                android:layout_gravity="center"
+                android:backgroundTint="#443468"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+        <ProgressBar
+                android:id="@+id/loginRelativeProgressBar"
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="@id/loginButtonInPatientRelatives"
+                app:layout_constraintEnd_toEndOf="@id/loginButtonInPatientRelatives"
+                app:layout_constraintStart_toStartOf="@id/loginButtonInPatientRelatives"
+                app:layout_constraintTop_toTopOf="@id/loginButtonInPatientRelatives"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 </LinearLayout>

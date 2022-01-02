@@ -41,4 +41,35 @@
     <string name="p2_0">P2: 0</string>
     <string name="p1_0">P1: 0</string>
     <string name="todo" tools:ignore="DuplicateDefinition">TODO</string>
+
+    <string name="password_hint">• • • • • •</string>
+    <string name="id_hint">• • • • • • • • • • •</string>
+    <string name="you_example_com">you@example.com</string>
+    <string name="phoneNumberHint">(5xx) xxx xx xx</string>
+
+    <string-array name="blood">
+        <item>None</item>
+        <item>0 Rh (+)</item>
+        <item>0 Rh (-)</item>
+        <item>AB Rh (+)</item>
+        <item>AB Rh (-)</item>
+        <item>A Rh (+)</item>
+        <item>A Rh (-)</item>
+        <item>B Rh (+)</item>
+        <item>B Rh (-)</item>
+    </string-array>
+
+    <string-array name="gender">
+        <item>None</item>
+        <item>Kadın</item>
+        <item>Erkek</item>
+    </string-array>
+
+    <string-array name="degree">
+        <item>None</item>
+        <item>Eş</item>
+        <item>Kız</item>
+        <item>Oğul</item>
+        <item>Torun</item>
+    </string-array>
 </resources>
