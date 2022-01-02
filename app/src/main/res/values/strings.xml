@@ -46,6 +46,10 @@
     <string name="id_hint">• • • • • • • • • • •</string>
     <string name="you_example_com">you@example.com</string>
     <string name="phoneNumberHint">(5xx) xxx xx xx</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="k_yap">Çıkış Yap</string>
+    <string name="incoming_meeting_invitation">Incoming Meeting Invitation</string>
+    <string name="sending_meeting_invitation">Sending Meeting Invitation</string>
 
     <string-array name="blood">
         <item>None</item>

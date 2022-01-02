@@ -12,8 +12,15 @@
             android:supportsRtl="true"
             android:theme="@style/Theme.Panzehir"
             android:usesCleartextTraffic="true">
-        <activity android:name=".View_RelativesOfThePatient.RelativesOfThePatientMainActivity"
-                  android:exported="true">
+        <activity
+                android:name=".videoCall.OutgoingInvitationActivity"
+                android:exported="true"/>
+        <activity
+                android:name=".videoCall.IncomingInvitationActivity"
+                android:exported="true"/>
+        <activity
+                android:name=".View_RelativesOfThePatient.RelativesOfThePatientMainActivity"
+                android:exported="true">
         </activity>
         <activity
                 android:name=".view_Patient.HostFragment2"
@@ -35,6 +42,11 @@
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT"/>
             </intent-filter>
+        </service>
+
+        <service
+                android:name="org.jitsi.meet.sdk.ConnectionService"
+                android:exported="false">
         </service>
 
     </application>

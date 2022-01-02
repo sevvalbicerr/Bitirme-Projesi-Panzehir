@@ -140,7 +140,6 @@ class SignUp : Fragment() {
         user[Constants.KEY_PHONE1] = binding.numberEdittext.text.toString()
         user[Constants.KEY_PHONE2] = binding.number2Edittext.text.toString()
 
-
         database.collection(Constants.KEY_COLLECTION_USERS)
             .document(binding.TCEdittext.text.toString())
             .set(user)

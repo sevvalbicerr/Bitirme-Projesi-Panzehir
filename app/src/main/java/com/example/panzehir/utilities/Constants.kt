@@ -2,6 +2,8 @@ package com.example.panzehir.utilities
 
 object Constants {
     const val KEY_COLLECTION_USERS = "users"
+    const val KEY_FCM_TOKEN = "fcm_token"
+
     const val KEY_FIRST_NAME_PATIENT = "patient_name_first"
     const val KEY_LAST_NAME_PATIENT = "patient_name_last"
     const val KEY_BLOOD_PATIENT = "patient_blood"
@@ -23,5 +25,30 @@ object Constants {
 
     const val KEY_PREFERENCE_NAME = "videoMeetingPreference"
     const val KEY_IS_SIGNED_IN = "isSignedIn"
+
+    private const val REMOTE_MSG_AUTHORIZATION = "Authorization"
+    private const val REMOTE_MSG_CONTENT_TYPE = "Content-Type"
+
+    const val REMOTE_MSG_TYPE = "type"
+    const val REMOTE_MSG_INVITATION = "invitation"
+    const val REMOTE_MSG_MEETING_TYPE = "meetingType"
+    const val REMOTE_MSG_INVITER_TOKEN = "inviterToken"
+    const val REMOTE_MSG_DATA = "data"
+    const val REMOTE_MSG_REGISTRATION_IDS = "registration_ids"
+
+    const val REMOTE_MSG_INVITATION_RESPONSE = "invitationResponse"
+
+    const val REMOTE_MSG_INVITATION_ACCEPTED = "accepted"
+    const val REMOTE_MSG_INVITATION_REJECTED = "rejected"
+    const val REMOTE_MSG_INVITATION_CANCELLED = "cancelled"
+
+    const val REMOTE_MSG_MEETING_ROOM = "meeting_room"
+
+    fun getRemoteMessageHeaders(): HashMap<String, String> {
+        val headers: HashMap<String, String> = HashMap()
+        headers[REMOTE_MSG_AUTHORIZATION] = "key=AAAA6DXTpuA:APA91bHSf3HNF2E8OeG-DZ6LTrHlUE2loyLOaEHmVY0l1rvkElN2EAdnAfpLSkOhS3QS_-jBh0XaBOA5hb4KzDWiQ698wIStn4DYG6w2xZ-7AJE4bDCvrkqbxSvpQ90BfTEJ2i6n57tq"
+        headers[REMOTE_MSG_CONTENT_TYPE] = "application/json"
+        return headers
+    }
 
 }
