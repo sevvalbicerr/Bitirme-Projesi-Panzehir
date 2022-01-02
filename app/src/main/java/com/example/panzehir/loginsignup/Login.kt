@@ -37,6 +37,13 @@ class Login : Fragment() {
 
         preferenceManager = context?.let { PreferenceManager(it) }!!
 
+        // The account will remain open until the sign-out button is clicked
+        if (preferenceManager.getBoolean(Constants.KEY_IS_SIGNED_IN)){
+            val intent = Intent(activity, HostFragment2::class.java)
+            startActivity(intent)
+            activity!!.finish()
+        }
+
         // Navigation
         binding.SignUp.setOnClickListener { Navigation.findNavController(it).navigate(R.id.action_login_to_signUp) }
         binding.ForgotPasswordInLogin.setOnClickListener { Navigation.findNavController(it).navigate(R.id.action_login_to_forgotPassword) }
