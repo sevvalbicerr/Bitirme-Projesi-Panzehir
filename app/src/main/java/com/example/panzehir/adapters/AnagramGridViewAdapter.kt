@@ -1,4 +1,4 @@
-package com.example.panzehir.adapter
+package com.example.panzehir.adapters
 
 import android.content.Context
 import android.view.LayoutInflater

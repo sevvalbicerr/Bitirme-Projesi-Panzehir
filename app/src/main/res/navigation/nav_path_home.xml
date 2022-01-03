@@ -16,6 +16,7 @@
         <action android:id="@+id/action_home2_to_medicationTracking"
                 app:destination="@id/medicationTracking"/>
         <action android:id="@+id/action_home2_to_games2" app:destination="@id/games2"/>
+        <action android:id="@+id/action_home2_to_friendList" app:destination="@id/friendList"/>
     </fragment>
 
 
@@ -64,5 +65,12 @@
               android:label="anagram_fragment" tools:layout="@layout/anagram_fragment"/>
     <fragment android:id="@+id/quiz2" android:name="com.example.panzehir.view_Patient.quiz.Quiz"
               android:label="quiz_fragment" tools:layout="@layout/quiz_fragment"/>
+    <fragment android:id="@+id/friendList" android:name="com.example.panzehir.videoCall.FriendList"
+              android:label="fragment_friend_list" tools:layout="@layout/fragment_friend_list">
+        <action android:id="@+id/action_friendList_to_home2" app:destination="@id/home2"/>
+        <action android:id="@+id/action_friendList_to_login2" app:destination="@id/login2"/>
+    </fragment>
+    <fragment android:id="@+id/login2" android:name="com.example.panzehir.loginsignup.Login"
+              android:label="fragment_login" tools:layout="@layout/fragment_login"/>
 
 </navigation>

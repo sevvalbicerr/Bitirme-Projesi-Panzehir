@@ -2,15 +2,25 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.example.panzehir">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
             android:allowBackup="true"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/app_name"
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
-            android:theme="@style/Theme.Panzehir">
-        <activity android:name=".View_RelativesOfThePatient.RelativesOfThePatientMainActivity"
-                  android:exported="true">
+            android:theme="@style/Theme.Panzehir"
+            android:usesCleartextTraffic="true">
+        <activity
+                android:name=".videoCall.OutgoingInvitationActivity"
+                android:exported="true"/>
+        <activity
+                android:name=".videoCall.IncomingInvitationActivity"
+                android:exported="true"/>
+        <activity
+                android:name=".View_RelativesOfThePatient.RelativesOfThePatientMainActivity"
+                android:exported="true">
         </activity>
         <activity
                 android:name=".view_Patient.HostFragment2"
@@ -25,6 +35,20 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
+        <service
+                android:name=".firebase.MessagingService"
+                android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+
+        <service
+                android:name="org.jitsi.meet.sdk.ConnectionService"
+                android:exported="false">
+        </service>
+
     </application>
 
 </manifest>

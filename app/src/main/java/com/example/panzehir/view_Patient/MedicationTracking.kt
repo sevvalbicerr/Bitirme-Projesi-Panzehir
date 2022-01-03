@@ -9,7 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.panzehir.adapter.MedicationRecyclerAdapter
+import com.example.panzehir.adapters.MedicationRecyclerAdapter
 import com.example.panzehir.databinding.MedicationTrackingFragmentBinding
 import com.example.panzehir.viewModelPatient.MedicationTrackingViewModel
 
