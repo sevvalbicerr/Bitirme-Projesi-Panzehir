@@ -6,9 +6,12 @@ import android.graphics.Color
 import android.graphics.Paint
 import android.util.AttributeSet
 import android.util.Log
+import android.view.MotionEvent
 import android.view.View
+import com.example.panzehir.R
 import java.util.*
 import kotlin.collections.ArrayList
+import kotlin.math.abs
 import kotlin.properties.Delegates
 class MazeGeneration(context: Context, attrs: AttributeSet) : View(context, attrs)  {
     private val cols = 7
@@ -18,6 +21,15 @@ class MazeGeneration(context: Context, attrs: AttributeSet) : View(context, attr
     private var vMargin by Delegates.notNull<Float>()
     private var random = Random()
     private var cells =Array(7){Array(10){CellMaze(7,10)} }
+
+
+    private var player = CellMaze(cols,rows)
+    private var exit = CellMaze(cols,rows)
+
+    private enum class Direction {
+        UP, DOWN, LEFT, RIGHT
+    }
+
     init {
         createMaze()
     }
@@ -26,6 +38,12 @@ class MazeGeneration(context: Context, attrs: AttributeSet) : View(context, attr
         strokeWidth = 6F // wall thickness
         color = Color.BLACK
         Log.d("bk", "wallPaint")
+    }
+    private val playerPaint = Paint().apply {
+        color = Color.RED
+    }
+    private val exitPaint = Paint().apply {
+        color = Color.BLUE
     }
     private fun getNeighbour(cell: CellMaze) : CellMaze?{
         val neighbours = ArrayList<CellMaze>()
@@ -86,25 +104,20 @@ class MazeGeneration(context: Context, attrs: AttributeSet) : View(context, attr
         }
     }
     private fun createMaze() {
-
-        /* Stack<Cell> stack = new Stack<>();
-        Cell currentPosition, nextPosition;
-        * */
         val stack = Stack<CellMaze>()
         var currentPosition = CellMaze(cols,rows)
         var nextPosition: CellMaze? = CellMaze(cols,rows)
-
         for (x in 0 until cols) {
             for (y in 0 until rows) {
                 cells[x][y] = CellMaze(x,y)
             }
         }
-
+        player = cells[0][0]
+        exit = cells[cols-1][rows-1]
         // Starting point
         currentPosition = cells[0][0]
         currentPosition.visited =true
         do {
-
             nextPosition =  getNeighbour(currentPosition)
             if (nextPosition != null){
                 removeWall(currentPosition,nextPosition)
@@ -114,10 +127,7 @@ class MazeGeneration(context: Context, attrs: AttributeSet) : View(context, attr
             }else{
                 currentPosition = stack.pop()
             }
-
         }while (stack.isNotEmpty())
-
-
     }
     override fun onDraw(canvas: Canvas) {
         canvas.drawColor(Color.WHITE)
@@ -186,5 +196,93 @@ class MazeGeneration(context: Context, attrs: AttributeSet) : View(context, attr
                 }
             }
         }
+
+        // add the small margin wall
+        val margin : Float = cellSize.toFloat()/10
+
+        canvas.drawRect(
+            player.col*cellSize+margin,
+            player.row*cellSize+margin,
+            (player.col+1)*cellSize-margin,
+            (player.row+1)*cellSize-margin,
+            playerPaint
+        )
+        canvas.drawRect(
+            exit.col*cellSize+margin,
+            exit.row*cellSize+margin,
+            (exit.col+1)*cellSize-margin,
+            (exit.row+1)*cellSize-margin,
+            exitPaint
+        )
+
+    }
+    private fun movePlayer(direction: Direction){
+        when(direction){
+            Direction.UP ->
+                if (!player.topWall){
+                    player = cells[player.col][player.row-1]
+                }
+            Direction.DOWN ->
+                if (!player.bottomWall){
+                    player = cells[player.col][player.row+1]
+                }
+            Direction.LEFT ->
+                if (!player.leftWall){
+                    player = cells[player.col-1][player.row]
+                }
+            Direction.RIGHT ->
+                if (!player.rightWall){
+                    player = cells[player.col+1][player.row]
+                }
+        }
+        checkExit()
+        invalidate()
+    }
+    //control finish then newGame (PROBLEMMMM)
+    private fun checkExit(){
+
+        if (player == exit){
+            createMaze()
+        }
+    }
+    override fun onTouchEvent(event: MotionEvent): Boolean {
+        if (event.getAction() == MotionEvent.ACTION_DOWN) return true
+        if (event.action == MotionEvent.ACTION_MOVE){
+            var x : Float = event.x.toFloat()
+            var y : Float = event.y.toFloat()
+
+            var playerCenterX : Float = hMargin + (player.col.toFloat() + 0.5f)*cellSize
+            var playerCenterY : Float = vMargin + (player.row.toFloat() + 0.5f)*cellSize
+
+            //negative
+            var dx : Float = x - playerCenterX as Float
+            var dy : Float = y - playerCenterY as Float
+
+            // absolute
+            var absDx : Float = abs(dx)
+            var absDy : Float = abs(dy)
+
+            if (absDx > cellSize || absDy > cellSize){
+                // move in x-direction
+                if (absDx > absDy){
+                    if (dx > 0) { //move to the right
+                        movePlayer(Direction.RIGHT)
+                    }else{ // move to the left
+                        movePlayer(Direction.LEFT)
+                    }
+                }
+                // move in y-direction
+                else{
+                    if (dy > 0){ // move to the down
+                        movePlayer(Direction.DOWN)
+                    } else { // move to the up
+                        movePlayer(Direction.UP)
+                    }
+                }
+            }
+            return true
+        }
+
+        return super.onTouchEvent(event)
     }
 }
