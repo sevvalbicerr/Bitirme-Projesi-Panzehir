@@ -7,6 +7,28 @@
         android:orientation="vertical"
         android:layout_height="match_parent"
         android:background="@color/xmlBackground"
-        tools:context=".view_Patient.games.MazeGame">
+        tools:context=".view_Patient.games.mazegame.MazeGame">
+    <Button
+            android:id="@+id/NewGamebutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Yeni Oyun"
+            android:backgroundTint="#121735"
+            android:textColor="@color/white"
+            app:cornerRadius="15dp"
+            android:layout_marginStart="@dimen/_210sdp"
+
+    />
+    <view android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          class="com.example.panzehir.view_Patient.games.mazegame.MazeGeneration"
+          android:id="@+id/view"
+          android:layout_marginBottom="@dimen/_80sdp"
+          android:layout_marginStart="@dimen/_10sdp"
+          android:layout_marginEnd="@dimen/_10sdp"
+
+          android:background="@color/white"
+    />
+
 
 </LinearLayout>

@@ -1,6 +1,4 @@
-@file:Suppress("UNREACHABLE_CODE")
-
-package com.example.panzehir.view_Patient.games
+package com.example.panzehir.view_Patient.games.mazegame
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -28,6 +26,16 @@ class MazeGame : Fragment() {
         return binding.root
 
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.NewGamebutton.setOnClickListener {
+
+        }
+
+
+    }
+
 
 
 
