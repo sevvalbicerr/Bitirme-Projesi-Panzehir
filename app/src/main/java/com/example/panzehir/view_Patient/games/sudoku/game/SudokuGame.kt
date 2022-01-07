@@ -1,5 +1,6 @@
 package com.example.panzehir.view_Patient.games.sudoku.game
 
+import androidx.compose.ui.input.key.Key.Companion.K
 import androidx.lifecycle.MutableLiveData
 
 class SudokuGame {
@@ -88,8 +89,8 @@ class SudokuGame {
     private fun generateSudokuPuzzle(): Array<IntArray> {
         //Generate sudoku to ready to solve
         val N = 9
-        val K = 30
-        val sudoku = Generator(N, K)
+        val level = 30
+        val sudoku = Generator(N, level)
         return sudoku.fillValues()
     }
 

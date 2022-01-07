@@ -12,18 +12,13 @@ class SudokuBoardView(context: Context, attributeSet: AttributeSet) : View(conte
 
     private var sqrtSize = 3
     private var size = 9
-
     // these are set in onDraw
     private var cellSizePixels = 0F
     private var noteSizePixels = 0F
-
     private var selectedRow = 0
     private var selectedCol = 0
-
     private var listener: OnTouchListener? = null
-
     private var cells: List<Cell>? = null
-
     private val thickLinePaint = Paint().apply {
         style = Paint.Style.STROKE
         color = Color.BLACK

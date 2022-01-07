@@ -7,18 +7,53 @@
         android:orientation="vertical"
         android:layout_height="match_parent"
         android:background="@color/xmlBackground"
-        tools:context=".view_Patient.games.mazegame.MazeGame">
-    <Button
-            android:id="@+id/NewGamebutton"
+        tools:context=".view_Patient.games.mazegame.Maze">
+    <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Yeni Oyun"
-            android:backgroundTint="#121735"
-            android:textColor="@color/white"
-            app:cornerRadius="15dp"
-            android:layout_marginStart="@dimen/_210sdp"
+            android:orientation="horizontal"
+    >
+        <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_twotone_close_24"
+                android:id="@+id/stopTimebutton"
+                android:background="#5460A5"
+                android:layout_marginStart="@dimen/_30sdp"
+                android:layout_marginTop="@dimen/_5sdp"
 
-    />
+
+        />
+        <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="#5460A5"
+                android:src="@drawable/ic_baseline_arrow_right_24"
+                android:id="@+id/playtimeButton"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+        />
+        <Chronometer
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/chronomether"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="#5460A5"
+        />
+        <Button
+                android:id="@+id/NewGamebutton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Yeni Oyun"
+                android:backgroundTint="#121735"
+                android:textColor="@color/white"
+                app:cornerRadius="15dp"
+                android:layout_marginStart="@dimen/_90sdp"
+
+        />
+
+    </LinearLayout>
     <view android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           class="com.example.panzehir.view_Patient.games.mazegame.MazeGeneration"

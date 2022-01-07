@@ -8,6 +8,14 @@ class Generator internal constructor(// number of columns/rows.
     var SRN // square root of N
             : Int
 
+    init {
+        Level = Level
+
+        // Compute square root of N
+        val SRNd = Math.sqrt(N.toDouble())
+        SRN = SRNd.toInt()
+        mat = Array(N) { IntArray(N) }
+    }
     // Sudoku Generator
     fun fillValues():Array<IntArray> {
         // Fill the diagonal of SRN x SRN matrices
@@ -112,12 +120,9 @@ class Generator internal constructor(// number of columns/rows.
         var count = Level
         while (count != 0) {
             val cellId = randomGenerator(N * N) - 1
-
-            // System.out.println(cellId);
-            // extract coordinates i  and j
             val i = cellId / N
             var j = cellId % 9
-            if (j != 0) j = j - 1
+            if (j != 0) j -= 1
 
             // System.out.println(i+" "+j);
             if (mat[i][j] != 0) {
@@ -139,13 +144,5 @@ class Generator internal constructor(// number of columns/rows.
 
 
 
-    // Constructor
-    init {
-        Level = Level
 
-        // Compute square root of N
-        val SRNd = Math.sqrt(N.toDouble())
-        SRN = SRNd.toInt()
-        mat = Array(N) { IntArray(N) }
-    }
 }

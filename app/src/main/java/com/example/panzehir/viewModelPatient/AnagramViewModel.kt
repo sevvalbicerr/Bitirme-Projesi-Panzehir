@@ -8,12 +8,12 @@ class AnagramViewModel : ViewModel() {
     private var word2:String?=null
     var wordForSorting= mutableListOf<Int>()
     var length = 0
-    private val WORDS = arrayOf(
+    private val WORDS = arrayOf("elma",
         "lokal","bariz", "bitik","sanal",
         "kayseri",  "emeklilik",
 
         )
-    private val WordsToAnagram= arrayOf(
+    private val WordsToAnagram= arrayOf("alem",
         "alkol","ibraz","bitki", "aslan",
         "kasiyer",  "iliklemek"
     )
@@ -24,12 +24,9 @@ class AnagramViewModel : ViewModel() {
         var j=0
         for (i in arrayByte){
             charASCII.add(i.toInt())
-            //println(charASCII[j])
             j++
         }
         sort(charASCII)
-
-
     }
     fun randomWord(): String {
         return WORDS[RANDOM.nextInt(WORDS.size)]

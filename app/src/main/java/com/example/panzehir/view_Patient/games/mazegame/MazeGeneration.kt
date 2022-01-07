@@ -1,5 +1,6 @@
 package com.example.panzehir.view_Patient.games.mazegame
 
+import android.app.AlertDialog
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Color
@@ -8,23 +9,27 @@ import android.util.AttributeSet
 import android.util.Log
 import android.view.MotionEvent
 import android.view.View
+import androidx.navigation.Navigation
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import com.example.panzehir.R
 import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.math.abs
 import kotlin.properties.Delegates
 class MazeGeneration(context: Context, attrs: AttributeSet) : View(context, attrs)  {
-    private val cols = 7
+    private val cols = 10
     private val rows = 10
     private var cellSize by Delegates.notNull<Float>()
     private var hMargin by Delegates.notNull<Float>()
     private var vMargin by Delegates.notNull<Float>()
     private var random = Random()
-    private var cells =Array(7){Array(10){CellMaze(7,10)} }
+    private var cells =Array(10){Array(10){CellMaze(10,10)} }
 
 
     private var player = CellMaze(cols,rows)
     private var exit = CellMaze(cols,rows)
+    private var destination = CellMaze(cols,rows)
 
     private enum class Direction {
         UP, DOWN, LEFT, RIGHT
@@ -37,6 +42,12 @@ class MazeGeneration(context: Context, attrs: AttributeSet) : View(context, attr
         style = Paint.Style.STROKE
         strokeWidth = 6F // wall thickness
         color = Color.BLACK
+        Log.d("bk", "wallPaint")
+    }
+    private val cellPaint = Paint().apply {
+        style = Paint.Style.STROKE
+        strokeWidth = 6F // wall thickness
+        color = Color.YELLOW
         Log.d("bk", "wallPaint")
     }
     private val playerPaint = Paint().apply {
@@ -129,6 +140,7 @@ class MazeGeneration(context: Context, attrs: AttributeSet) : View(context, attr
             }
         }while (stack.isNotEmpty())
     }
+
     override fun onDraw(canvas: Canvas) {
         canvas.drawColor(Color.WHITE)
 
@@ -194,11 +206,13 @@ class MazeGeneration(context: Context, attrs: AttributeSet) : View(context, attr
                         wallPaint
                     )
                 }
+
             }
         }
 
         // add the small margin wall
         val margin : Float = cellSize.toFloat()/10
+
 
         canvas.drawRect(
             player.col*cellSize+margin,
@@ -221,6 +235,7 @@ class MazeGeneration(context: Context, attrs: AttributeSet) : View(context, attr
             Direction.UP ->
                 if (!player.topWall){
                     player = cells[player.col][player.row-1]
+
                 }
             Direction.DOWN ->
                 if (!player.bottomWall){
@@ -242,7 +257,8 @@ class MazeGeneration(context: Context, attrs: AttributeSet) : View(context, attr
     private fun checkExit(){
 
         if (player == exit){
-            createMaze()
+            findNavController().navigate(R.id.action_mazeGame_to_games2)
+            //createMaze()
         }
     }
     override fun onTouchEvent(event: MotionEvent): Boolean {
@@ -267,6 +283,7 @@ class MazeGeneration(context: Context, attrs: AttributeSet) : View(context, attr
                 if (absDx > absDy){
                     if (dx > 0) { //move to the right
                         movePlayer(Direction.RIGHT)
+
                     }else{ // move to the left
                         movePlayer(Direction.LEFT)
                     }

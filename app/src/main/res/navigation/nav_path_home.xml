@@ -53,9 +53,11 @@
               android:name="com.example.panzehir.view_Patient.games.CardMachingGame"
               android:label="CardMachingGame"/>
     <fragment android:id="@+id/mazeGame"
-              android:name="com.example.panzehir.view_Patient.games.mazegame.MazeGame"
+              android:name="com.example.panzehir.view_Patient.games.mazegame.Maze"
               android:label="maze_game_fragment"
-              tools:layout="@layout/maze_game_fragment"/>
+              tools:layout="@layout/maze_game_fragment">
+        <action android:id="@+id/action_mazeGame_to_games2" app:destination="@id/games2"/>
+    </fragment>
     <fragment android:id="@+id/sudoku2"
               android:name="com.example.panzehir.view_Patient.games.sudoku.Sudoku"
               android:label="sudoku_fragment"
