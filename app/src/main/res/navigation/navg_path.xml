@@ -5,17 +5,6 @@
             android:id="@+id/navg_path"
             app:startDestination="@id/login">
 
-    <fragment android:id="@+id/login"
-              android:name="com.example.panzehir.loginsignup.Login"
-              android:label="fragment_login"
-              tools:layout="@layout/fragment_login">
-        <action android:id="@+id/action_login_to_signUp"
-                app:destination="@id/signUp"/>
-        <action android:id="@+id/action_login_to_forgotPassword"
-                app:destination="@id/forgotPassword"/>
-        <action android:id="@+id/action_login_to_patientRelative" app:destination="@id/patientRelative"/>
-    </fragment>
-
     <fragment android:id="@+id/signUp" android:name="com.example.panzehir.loginsignup.SignUp"
               android:label="SignUp">
         <action android:id="@+id/action_signUp_to_login" app:destination="@id/login"/>
@@ -26,6 +15,12 @@
     </fragment>
     <fragment android:id="@+id/patientRelative" android:name="com.example.panzehir.loginsignup.PatientRelative"
               android:label="patient_relative_fragment" tools:layout="@layout/patient_relative_fragment"/>
+    <fragment android:id="@+id/login" android:name="com.example.panzehir.loginsignup.Login"
+              android:label="fragment_login" tools:layout="@layout/fragment_login">
+        <action android:id="@+id/action_login_to_signUp" app:destination="@id/signUp"/>
+        <action android:id="@+id/action_login_to_forgotPassword" app:destination="@id/forgotPassword"/>
+        <action android:id="@+id/action_login_to_patientRelative" app:destination="@id/patientRelative"/>
+    </fragment>
 
 
 </navigation>

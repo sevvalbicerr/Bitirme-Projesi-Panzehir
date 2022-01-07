@@ -29,7 +29,6 @@ class MazeGeneration(context: Context, attrs: AttributeSet) : View(context, attr
 
     private var player = CellMaze(cols,rows)
     private var exit = CellMaze(cols,rows)
-    private var destination = CellMaze(cols,rows)
 
     private enum class Direction {
         UP, DOWN, LEFT, RIGHT
