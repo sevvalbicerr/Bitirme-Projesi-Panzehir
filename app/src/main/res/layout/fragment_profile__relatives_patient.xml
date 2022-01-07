@@ -48,7 +48,7 @@
 
        />
        <ImageView
-           android:id="@+id/imageBack"
+           android:id="@+id/imageEditProfile"
            android:layout_width="50dp"
            android:layout_height="42dp"
 
@@ -453,6 +453,7 @@
                android:visibility="gone"
                android:layout_marginBottom="@dimen/_80sdp"
        />
+
    </LinearLayout>
 
 </ScrollView>

@@ -32,6 +32,9 @@ class HomeRelativesOfThePatient : Fragment() {
         binding.seeMoreMedication.setOnClickListener{
             Navigation.findNavController(it).navigate(R.id.action_homeRelativesOfThePatient_to_addMedicationPage)
         }
+        binding.ProfileLinearLayout.setOnClickListener{Navigation.findNavController(it).navigate(R.id.action_homeRelativesOfThePatient_to_profile_RelativesPatient)}
+
+
     }
     @SuppressLint("SetTextI18n")
     private fun getUser(){
