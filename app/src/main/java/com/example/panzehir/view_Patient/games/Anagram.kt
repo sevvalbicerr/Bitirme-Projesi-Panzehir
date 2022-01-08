@@ -1,5 +1,6 @@
 package com.example.panzehir.view_Patient.games
 
+import android.app.AlertDialog
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -33,22 +34,20 @@ class Anagram : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.validate.setOnClickListener {
+            val checkControl = control()
+            if (checkControl) {
+                val builder = AlertDialog.Builder(this.context)
+                builder.setTitle("${firstWord} kelimesi ${Answer} kelimesiyle anagram kelimedir.")
+                builder.setPositiveButton("Yeni Oyun") { dialog, which ->
+                    builder.setCancelable(true)
+                    newGame()
+                    binding.Answer.text=" "
+                }
+                builder.show()
 
-            firstWord?.let {
-                Answer=viewModel.findAnagram(it)
-                binding.Answer.text=Answer
-            }
-            //kontrol et butonu
-            //edittextTeki giriş kontrol edilecek
-            var string=binding.wordEnteredTv.text.toString()
-            if (Answer==string){
-                println("Answer değişlkeni::$Answer  \n String değişkeni::$string")
-                Toast.makeText(this.context,"Doğru Cevap !!!!", Toast.LENGTH_LONG).show()
-                print("Doğru cevap anagram kelimeyi buldunuz")
-            }
-            else{
-                println("Answer değişlkeni::$Answer  \n String değişkeni::$string")
-                println("Yanlış cevap ")
+            } else {
+                Toast.makeText(context, "Tekrar deneyin", Toast.LENGTH_LONG).show()
+                binding.Answer.text = " "
             }
         }
         binding.newGame.setOnClickListener {
@@ -58,6 +57,28 @@ class Anagram : Fragment() {
         binding.imageBack.setOnClickListener{
             //Navigation ekle
         }
+    }
+    private fun control():Boolean{
+        //Kontrol et butonu
+        var control=false
+        firstWord?.let {
+            Answer=viewModel.findAnagram(it)
+            //binding.Answer.text=Answer
+        }
+        //kontrol et butonu
+        //edittextTeki giriş kontrol edilecek
+        var string=binding.wordEnteredTv.text.toString()
+        if (Answer==string){
+            Toast.makeText(this.context,"Doğru Cevap !!!!", Toast.LENGTH_LONG).show()
+            binding.Answer.text=Answer
+
+            control=true
+        }
+        else{
+            Toast.makeText(this.context,"Yanlış Cevap !!!!", Toast.LENGTH_LONG).show()
+
+        }
+        return control
     }
     private fun newGame() {
         firstWord = viewModel.randomWord()

@@ -15,6 +15,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import com.example.panzehir.R
 import com.example.panzehir.databinding.ActivityMainBinding
 import com.example.panzehir.databinding.CardMachingGameFragmentBinding
@@ -325,13 +327,11 @@ class CardMachingGame : Fragment() {
             alertDialogBuilder
                 .setMessage("GAME OVER!\nP1: $playerPoints\nP2: $cpuPoint")
                 .setCancelable(false)
-                .setPositiveButton("NEW") { _, _ ->
-                    //Burada intent vardı
-                }
-                .setNegativeButton("EXIT") { _, _ -> //finish() }
-                    val alertDialog: AlertDialog = alertDialogBuilder.create()
-                    alertDialog.show()
-                }
+                .setNegativeButton("EXIT") { _, _ ->
+                    findNavController().navigate(R.id.action_cardMachingGame2_to_games2)
+                    //val alertDialog: AlertDialog = alertDialogBuilder.create()
+                   // alertDialog.show()
+                }.show()
         }
 
     }

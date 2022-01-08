@@ -18,33 +18,44 @@
             />
     <TextView
             android:id="@+id/wordTv"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-
+            android:textColor="@color/black"
+            android:background="@drawable/button_rectangle_gray"
+            android:paddingStart="@dimen/_10sdp"
             android:text="Anagram Kelime"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
             android:layout_gravity="center"
             android:textSize="@dimen/_30ssp"
-            android:textStyle="bold" />
+            android:textStyle="bold"/>
     <EditText
             android:id="@+id/wordEnteredTv"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
-            android:background="@color/white"
-            android:textSize="@dimen/_30ssp"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:paddingStart="@dimen/_10sdp"
+            android:background="@drawable/shaperectangle"
+            android:textSize="@dimen/_25ssp"
             android:hint="Anagramı giriniz:"
             android:layout_gravity="center"
             android:autofillHints="testHint"
             tools:ignore="LabelFor"/>
     <TextView
             android:id="@+id/Answer"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/_30ssp"
+            android:textSize="@dimen/_25ssp"
+            android:paddingStart="@dimen/_10sdp"
             android:hint="Kelimenin Anagramı:"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:background="@drawable/shaperectangle"
             android:layout_gravity="center"
-           android:background="@color/white"
+
             android:layout_marginTop="20dp"/>
     <Button
             android:id="@+id/validate"
