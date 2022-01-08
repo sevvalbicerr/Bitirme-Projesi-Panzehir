@@ -1,11 +1,13 @@
 package com.example.panzehir.View_RelativesOfThePatient
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.Navigation
 import com.example.panzehir.R
 import com.example.panzehir.databinding.CardMachingGameFragmentBinding
@@ -14,6 +16,8 @@ import com.example.panzehir.model.medication
 import com.example.panzehir.utilities.Constants
 import com.example.panzehir.utilities.ConstantsForRelativesMedication
 import com.example.panzehir.utilities.PreferenceManager
+import com.example.panzehir.view_Patient.MainActivity
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.QueryDocumentSnapshot
 import java.util.*
@@ -39,8 +43,29 @@ class HomeRelativesOfThePatient : Fragment() {
         }
         binding.ProfileLinearLayout.setOnClickListener{Navigation.findNavController(it).navigate(R.id.action_homeRelativesOfThePatient_to_profile_RelativesPatient)}
         getMedication()
+        binding.signOut.setOnClickListener{
+            signOut()
+        }
 
     }
+    private fun signOut() {
+        Toast.makeText(context, "Çıkış yapılıyor", Toast.LENGTH_SHORT).show()
+        val database = FirebaseFirestore.getInstance()
+        val documentReference = database.collection(Constants.KEY_COLLECTION_USERS)
+            .document(preferenceManager.getString(Constants.KEY_ID_PATIENT)!!)
+        val updates: HashMap<String, Any> = HashMap()
+        updates[Constants.KEY_FCM_TOKEN] = FieldValue.delete()
+        documentReference.update(updates)
+            .addOnSuccessListener {
+                preferenceManager.clearPreference()
+                val intent= Intent(context, MainActivity::class.java)
+                startActivity(intent)
+            }
+            .addOnFailureListener {
+                Toast.makeText(context, "Çıkış yapılamadı", Toast.LENGTH_SHORT).show()
+            }
+    }
+
     @SuppressLint("SetTextI18n")
     private fun getUser(){
         binding.nameOfPerson.text=preferenceManager.getString(Constants.KEY_FIRST_NAME_PATIENT)+" "+preferenceManager.getString(

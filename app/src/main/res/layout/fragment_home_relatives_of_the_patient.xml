@@ -19,7 +19,7 @@
                 android:layout_height="@dimen/_25sdp"
                 android:layout_gravity="end"
                 android:contentDescription="@string/app_name"
-                android:src="@drawable/ic_home"/>
+                android:src="@drawable/ic_baseline_logout_24"/>
 
 
 
@@ -29,7 +29,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
-                android:layout_margin="@dimen/_10sdp"
+                android:layout_marginBottom="10dp"
                 android:text="Profil"
                 android:textColor="@color/black"
                 android:textSize="20sp"
@@ -44,7 +44,7 @@
                 android:background="@drawable/button_rectangle"
                 android:id="@+id/ProfileLinearLayout"
                 android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp">
+                android:layout_marginEnd="20dp"  android:layout_marginBottom="10dp">
             <de.hdodenhof.circleimageview.CircleImageView
                     android:layout_width="@dimen/_46sdp"
                     android:layout_height="match_parent"
@@ -93,7 +93,7 @@
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:layout_marginStart="20dp"
-
+                android:layout_marginBottom="10dp"
         />
         <LinearLayout
                 android:layout_width="match_parent"
@@ -101,6 +101,7 @@
                 android:orientation="horizontal"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
+                android:layout_marginBottom="10dp"
         >
             <de.hdodenhof.circleimageview.CircleImageView
                     android:layout_width="73dp"
@@ -137,6 +138,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:layout_marginBottom="10dp"
         >
 
 
@@ -185,6 +187,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:layout_marginBottom="10dp"
         >
 
             <TextView
@@ -196,7 +199,6 @@
                     android:textSize="20sp"
                     android:textStyle="bold"
                     android:layout_marginStart="20dp"
-
             />
             <TextView
                     android:layout_width="wrap_content"
@@ -228,7 +230,7 @@
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:layout_marginStart="20dp"
-
+                android:layout_marginBottom="10dp"
 
         />
         <LinearLayout
