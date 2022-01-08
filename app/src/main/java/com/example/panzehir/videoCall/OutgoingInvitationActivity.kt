@@ -10,7 +10,7 @@ import android.widget.Toast
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import com.example.panzehir.R
 import com.example.panzehir.databinding.ActivityOutgoingInvitationBinding
-import com.example.panzehir.models.User
+import com.example.panzehir.model.User
 import com.example.panzehir.network.ApiClient
 import com.example.panzehir.network.ApiService
 import com.example.panzehir.utilities.Constants

@@ -13,9 +13,11 @@ import com.example.panzehir.R
 import com.example.panzehir.adapters.UsersAdapter
 import com.example.panzehir.databinding.FragmentFriendListBinding
 import com.example.panzehir.listeners.UsersListener
-import com.example.panzehir.models.User
+import com.example.panzehir.model.User
 import com.example.panzehir.utilities.Constants
 import com.example.panzehir.utilities.PreferenceManager
+import com.example.panzehir.view_Patient.HostFragment2
+import com.example.panzehir.view_Patient.MainActivity
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.QueryDocumentSnapshot
@@ -123,7 +125,8 @@ class FriendList : Fragment(), UsersListener {
         documentReference.update(updates)
             .addOnSuccessListener {
                 preferenceManager.clearPreference()
-                Navigation.findNavController(view).navigate(R.id.action_friendList_to_login2)
+                val intent= Intent(context, MainActivity::class.java)
+                startActivity(intent)
             }
             .addOnFailureListener {
                 Toast.makeText(context, "Çıkış yapılamadı", Toast.LENGTH_SHORT).show()

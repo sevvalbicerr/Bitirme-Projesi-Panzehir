@@ -237,20 +237,26 @@
                 android:orientation="vertical"
                 android:layout_marginStart="20dp"
                 android:layout_marginBottom="@dimen/_80sdp">
+
             <CheckBox
                     android:layout_width="match_parent"
                     android:layout_height="30dp"
                     android:text="İlaç 1"
+                    android:id="@+id/medicaiton1"
             />
             <CheckBox
                     android:layout_width="match_parent"
                     android:layout_height="30dp"
                     android:text="İlaç 2"
+                    android:id="@+id/medicaiton2"
+
             />
             <CheckBox
                     android:layout_width="match_parent"
                     android:layout_height="30dp"
                     android:text="İlaç 3"
+                    android:id="@+id/medicaiton3"
+
             />
             <TextView
                     android:layout_width="match_parent"

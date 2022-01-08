@@ -1,4 +1,4 @@
-package com.example.panzehir.models
+package com.example.panzehir.model
 
 import java.io.Serializable
 

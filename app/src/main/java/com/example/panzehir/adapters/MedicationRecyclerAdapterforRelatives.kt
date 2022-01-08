@@ -10,7 +10,7 @@ import com.example.panzehir.model.medication
 
 //Firebase'den hasta yakınının girdiği ilaç listesi çekilerek bağlanacak
 //Bu işlem verilerin firebase kaydından sonra yapılacak
-class MedicationRecyclerAdapter(private var medicationlist: ArrayList<medication>):RecyclerView.Adapter<MedicationRecyclerAdapter.MedicationViewHolder>(){
+class MedicationRecyclerAdapterforRelatives(private var medicationlist: ArrayList<medication>):RecyclerView.Adapter<MedicationRecyclerAdapterforRelatives.MedicationViewHolder>(){
     class MedicationViewHolder(var itemBinding:MedicationxmlfileBinding):RecyclerView.ViewHolder(itemBinding.root) {
 
     }

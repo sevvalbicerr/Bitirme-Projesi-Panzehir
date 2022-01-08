@@ -49,8 +49,7 @@ class Profile : Fragment() {
             activity!!.finish()
         }*/
        getUserProfile()
-        println("        preferenceManager.getString(Constants.KEY_FIRST_NAME_PATIENT)  "+        preferenceManager.getString(Constants.KEY_FIRST_NAME_PATIENT)
-        )
+
     }
     fun getUserProfile(){
         //Patient

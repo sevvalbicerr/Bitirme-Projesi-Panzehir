@@ -1,6 +1,6 @@
 package com.example.panzehir.listeners
 
-import com.example.panzehir.models.User
+import com.example.panzehir.model.User
 
 interface UsersListener {
 

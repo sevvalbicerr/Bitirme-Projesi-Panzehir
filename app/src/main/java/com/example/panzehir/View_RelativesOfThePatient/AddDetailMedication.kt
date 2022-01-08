@@ -40,7 +40,7 @@ class AddDetailMedication : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         preferenceManager = context?.let { PreferenceManager(it) }!!
         binding.recordButton.setOnClickListener{
-            //recordMedication(it)
+            recordMedication(it)
         }
         binding.closeButton.setOnClickListener{
             //Firebase'e ilacı kaydetmeden ve önceki sayfaya dön
@@ -50,21 +50,19 @@ class AddDetailMedication : Fragment() {
 
     fun recordMedication(view: View){
         val medication: HashMap<String, Any> = HashMap()
-
+        val tc=preferenceManager.getString(Constants.KEY_ID_PATIENT)!!
         medication[ConstantsForRelativesMedication.KEY_NAME_MEDICATION] = binding.nameOfMedicationEdittext.text.toString()
         medication[ConstantsForRelativesMedication.KEY_AMOUNT] = binding.amountofusageMedicationEdittext.text.toString()
         medication[ConstantsForRelativesMedication.KEY_HUNGRY_OR_NOT] = binding.hungryOrNotEdittext.text.toString()
         medication[ConstantsForRelativesMedication.KEY_TIME] = binding.timeOfMedicationEdittext.text.toString()
-        val tc=preferenceManager.getString(Constants.KEY_ID_PATIENT)!!
+        medication[ConstantsForRelativesMedication.KEY_PATIENT_ID] = tc
+
         val database: FirebaseFirestore = FirebaseFirestore.getInstance()
         database.collection(ConstantsForRelativesMedication.KEY_COLLECTION_MEDICATION)
-            .document(tc)
+            .document()
             .set(medication)
             .addOnSuccessListener {
-                preferenceManager.putString(ConstantsForRelativesMedication.KEY_NAME_MEDICATION,binding.nameOfMedicationEdittext.text.toString())
-                preferenceManager.putString(ConstantsForRelativesMedication.KEY_AMOUNT,binding.amountofusageMedicationEdittext.text.toString())
-                preferenceManager.putString(ConstantsForRelativesMedication.KEY_HUNGRY_OR_NOT,binding.hungryOrNotEdittext.text.toString())
-                preferenceManager.putString(ConstantsForRelativesMedication.KEY_TIME,binding.timeOfMedicationEdittext.text.toString())
+
                 Navigation.findNavController(view).navigate(R.id.action_addDetailMedication_to_addMedicationPage)
             }
             .addOnFailureListener { Toast.makeText(context, "Error: " + it.message, Toast.LENGTH_SHORT).show() }

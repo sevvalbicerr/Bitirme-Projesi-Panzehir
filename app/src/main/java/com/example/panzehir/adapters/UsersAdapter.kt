@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.panzehir.databinding.ItemcontaineruserBinding
 import com.example.panzehir.listeners.UsersListener
-import com.example.panzehir.models.User
+import com.example.panzehir.model.User
 
 class UsersAdapter(private var users: ArrayList<User>, private var usersListener: UsersListener): RecyclerView.Adapter<UsersAdapter.UserViewHolder>() {
 
