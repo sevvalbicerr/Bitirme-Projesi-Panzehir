@@ -10,12 +10,11 @@ class AnagramViewModel : ViewModel() {
     var length = 0
     private val WORDS = arrayOf("elma",
         "lokal","bariz", "bitik","sanal",
-        "kayseri",  "emeklilik",
-
+        "kayseri",  "emeklilik","karşılama","kaymaklı"
         )
     private val WordsToAnagram= arrayOf("alem",
         "alkol","ibraz","bitki", "aslan",
-        "kasiyer",  "iliklemek"
+        "kasiyer",  "iliklemek","karışlama","yakılmak"
     )
     private fun stringToInt(word:String){
         word2= word.uppercase(Locale.getDefault())

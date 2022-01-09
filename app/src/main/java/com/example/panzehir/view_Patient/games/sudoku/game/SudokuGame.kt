@@ -2,12 +2,12 @@ package com.example.panzehir.view_Patient.games.sudoku.game
 
 import androidx.compose.ui.input.key.Key.Companion.K
 import androidx.lifecycle.MutableLiveData
+import com.google.android.play.core.splitinstall.d
 
 class SudokuGame {
 
     var selectedCellLiveData = MutableLiveData<Pair<Int,Int>>()
     var cellsLiveData = MutableLiveData<List<Cell>>()
-    var wrongLiveData= MutableLiveData<Boolean>()
     val isTakingNotesLiveData = MutableLiveData<Boolean>()
     val highlightedKeysLiveData = MutableLiveData<Set<Int>>()
     var boards= Array(9) { IntArray(9) }
@@ -15,10 +15,7 @@ class SudokuGame {
     private var selectedRow = -1
     private var selectedCol = -1
     private var isTakingNotes = false
-    private var isWrong = true
-
     private var board: Board
-
 
     /* Uygulamadaki note ve silme butonunu , sayılar butonunu uygulama tlamadan kullanabilmek için önce boardTan bir yere tıklamak gerekiyor.
 */
@@ -26,21 +23,16 @@ class SudokuGame {
         //uygulama ilk çalıştığında dolu gelmesini sağlayan kod bu satır. value değişkenine ne verirsen
         //tablo onunla dolu olarak geliyor.
         boards=generateSudokuPuzzle()
-        cells = List(9 * 9){i -> Cell( i / 9, i % 9 , boards[i / 9][i % 9])}
+        cells = List(9 * 9){i -> Cell( i / 9, i % 9 , boards[i / 9][i % 9], wrong = true)}
         board = Board(9, cells)
         selectedCellLiveData.postValue(Pair(selectedRow,selectedCol))
         cellsLiveData.postValue(board.cells)
-        //kontrol sonucunda kutunun rengi değişecekse
-        wrongLiveData.postValue(isWrong)
-
-
     }
     fun handleInput(number: Int){
         val cell = board.getCell(selectedRow,selectedCol)
                 // Check control
         if (selectedRow == -1 || selectedCol == -1) return
         if (cell.isStartingCell) return
-
         if (isTakingNotes){
             if (cell.notes.contains(number)){
                 cell.notes.remove(number)
@@ -48,10 +40,12 @@ class SudokuGame {
                 cell.notes.add(number)
             }
             highlightedKeysLiveData.postValue(cell.notes)
-        }else {
-            board.getCell(selectedRow, selectedCol).value = number
         }
+        board.getCell(selectedRow, selectedCol).value = number
+        solveSudoku(boards,boards.size)
+        cell.wrong = !(cell.value!=boards[selectedRow][selectedCol] && cell.value!=0)
         cellsLiveData.postValue(board.cells)
+
     }
     fun updateSelectedCell(row: Int, col: Int){
         val cell = board.getCell(row, col)
@@ -60,10 +54,10 @@ class SudokuGame {
             selectedCol = col
             selectedCellLiveData.postValue(Pair(row, col))
         }
-
         if (isTakingNotes){
             highlightedKeysLiveData.postValue(cell.notes)
         }
+
     }
     // Edit the pen
     fun changeNoteTakingState(){
@@ -95,7 +89,7 @@ class SudokuGame {
     }
 
     fun solve(){
-        ControlUserSolve()
+
 
         solveSudoku(boards,boards.size)
         for (i in 0 until 9) {
@@ -108,7 +102,7 @@ class SudokuGame {
     }
     fun newGame(){
         boards=generateSudokuPuzzle()
-        cells = List(9 * 9){i -> Cell( i / 9, i % 9 , boards[i / 9][i % 9])}
+        cells = List(9 * 9){i -> Cell( i / 9, i % 9 , boards[i / 9][i % 9], wrong = true)}
         board = Board(9, cells)
         cellsLiveData.postValue(board.cells)
 
@@ -126,24 +120,6 @@ class SudokuGame {
             }
         }
     }
-    fun ControlUserSolve(){
-        //Şu an karşılaştırmayı  doğru yapıyor.
-        //Eğer kırmızı yazdırma işlemi yapacaksak burada güncelleyeceğiz
-       for (i in 0 until 9) {
-         for (j in 0 until 9) {
-             //product[i][j] = board.getCell(i, j).value
-             if (board.getCell(i, j).value==boards[i][j]){
-                 continue
-             }
-             else{
-              //   println("Doğru cevap : ${boards[i][j]}")
-                // println("Sizin Cevabınız ${board.getCell(i, j).value}")
-                // wrongLiveData.postValue(true)
-             }
-         }
-     }
-
-    }
     //Solver
     fun isSafe(
         board: Array<IntArray>,
@@ -160,7 +136,6 @@ class SudokuGame {
                 return false
             }
         }
-
         // Column has the unique numbers (column-clash)
         for (r in board.indices) {
 

@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.Navigation
 import com.example.panzehir.R
 import com.example.panzehir.databinding.AnagramFragmentBinding
 import com.example.panzehir.databinding.GamesFragmentBinding
@@ -33,6 +34,8 @@ class Anagram : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        newGame()
+        binding.imageBack.setOnClickListener { Navigation.findNavController(it).navigate(R.id.action_anagram2_to_games2) }
         binding.validate.setOnClickListener {
             val checkControl = control()
             if (checkControl) {
@@ -54,9 +57,7 @@ class Anagram : Fragment() {
             binding.Answer.text=" "
             newGame()
         }
-        binding.imageBack.setOnClickListener{
-            //Navigation ekle
-        }
+
     }
     private fun control():Boolean{
         //Kontrol et butonu

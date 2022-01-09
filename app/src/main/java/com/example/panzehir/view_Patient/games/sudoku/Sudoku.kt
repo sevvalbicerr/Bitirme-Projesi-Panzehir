@@ -1,8 +1,6 @@
 package com.example.panzehir.view_Patient.games.sudoku
 
 import android.app.AlertDialog
-import android.app.Dialog
-import android.content.Intent
 import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.PorterDuff
@@ -13,15 +11,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.Navigation
 import com.example.panzehir.R
 import com.example.panzehir.databinding.SudokuFragmentBinding
 import com.example.panzehir.viewModelPatient.gamesViewModel.SudokuViewModel
-import com.example.panzehir.view_Patient.HostFragment2
 import com.example.panzehir.view_Patient.games.sudoku.canvas.SudokuBoardView
 import com.example.panzehir.view_Patient.games.sudoku.game.Cell
 
@@ -91,7 +86,6 @@ class Sudoku : Fragment() , SudokuBoardView.OnTouchListener{
         viewModel.sudokuGame.highlightedKeysLiveData.observe(this, Observer { updateHighlightedKeys(it) })
         binding.notesButton.setOnClickListener { viewModel.sudokuGame.changeNoteTakingState() }
 
-        viewModel.sudokuGame.wrongLiveData.observe(this, Observer { Wrong(it) })
         //delete
         binding.deleteButton.setOnClickListener { viewModel.sudokuGame.delete() }
         binding.solveButton.setOnClickListener {
@@ -117,16 +111,7 @@ class Sudoku : Fragment() , SudokuBoardView.OnTouchListener{
         val color = if (it) ContextCompat.getColor(this.context!!, R.color.purple_200) else Color.LTGRAY
         binding.notesButton.background.setColorFilter(color, PorterDuff.Mode.MULTIPLY)
     }
-    private fun Wrong(isWrong: Boolean?) = isWrong?.let {
-        //Şevvoş Buası yanlış kutuyu güzel mavi renkte yapacak
-        val color = if (it) ContextCompat.getColor(this.context!!, R.color.teal_700) else Color.LTGRAY
-        binding.notesButton.background.setColorFilter(color, PorterDuff.Mode.MULTIPLY)
 
-    }
-    private val selectedCellPaint = Paint().apply {
-        style = Paint.Style.FILL_AND_STROKE
-        color = Color.parseColor("#6ead3a")
-    }
 
     private fun updateHighlightedKeys(set: Set<Int>?) = set?.let {
         numberButtons.forEachIndexed { index, button ->

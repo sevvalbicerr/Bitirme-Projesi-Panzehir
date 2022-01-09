@@ -66,7 +66,9 @@
               tools:layout="@layout/sudoku_fragment"/>
     <fragment android:id="@+id/anagram2"
               android:name="com.example.panzehir.view_Patient.games.Anagram"
-              android:label="anagram_fragment" tools:layout="@layout/anagram_fragment"/>
+              android:label="anagram_fragment" tools:layout="@layout/anagram_fragment">
+        <action android:id="@+id/action_anagram2_to_games2" app:destination="@id/games2"/>
+    </fragment>
     <fragment android:id="@+id/quiz2" android:name="com.example.panzehir.view_Patient.quiz.Quiz"
               android:label="quiz_fragment" tools:layout="@layout/quiz_fragment"/>
     <fragment android:id="@+id/friendList" android:name="com.example.panzehir.videoCall.FriendList"

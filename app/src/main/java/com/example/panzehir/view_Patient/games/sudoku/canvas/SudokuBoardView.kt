@@ -6,6 +6,7 @@ import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
 import com.example.panzehir.view_Patient.games.sudoku.game.Cell
+import com.google.android.play.core.internal.ce
 
 
 class SudokuBoardView(context: Context, attributeSet: AttributeSet) : View(context, attributeSet) {
@@ -42,10 +43,15 @@ class SudokuBoardView(context: Context, attributeSet: AttributeSet) : View(conte
         style = Paint.Style.FILL_AND_STROKE
         color = Color.parseColor("#efedef")
     }
+    private val wrongPaint = Paint().apply {
+        style = Paint.Style.FILL_AND_STROKE
+        color = Color.RED
+    }
 
     private val textPaint = Paint().apply {
         style = Paint.Style.FILL_AND_STROKE
         color = Color.BLACK
+
     }
 
     private val startingCellTextPaint = Paint().apply {
@@ -73,14 +79,12 @@ class SudokuBoardView(context: Context, attributeSet: AttributeSet) : View(conte
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
-
         //Width buradan değiştiriliyor
         updateMeasurements(900)
         fillCells(canvas)
         drawLines(canvas)
         drawText(canvas)
     }
-
     private fun updateMeasurements(width: Int) {
         cellSizePixels = (width / size).toFloat()
         noteSizePixels = cellSizePixels / sqrtSize.toFloat()
@@ -99,12 +103,12 @@ class SudokuBoardView(context: Context, attributeSet: AttributeSet) : View(conte
                 fillCell(canvas, r, c, selectedCellPaint)
             } else if (r == selectedRow || c == selectedCol) {
                 fillCell(canvas, r, c, conflictingCellPaint)
-            } else if (r / sqrtSize == selectedRow / sqrtSize && c / sqrtSize == selectedCol / sqrtSize) {
+            } else if (r / sqrtSize == selectedRow / sqrtSize &&
+                c / sqrtSize == selectedCol / sqrtSize) {
                 fillCell(canvas, r, c, conflictingCellPaint)
             }
         }
     }
-
     private fun fillCell(canvas: Canvas, r: Int, c: Int, paint: Paint) {
         canvas.drawRect(
             c * cellSizePixels,
@@ -113,8 +117,8 @@ class SudokuBoardView(context: Context, attributeSet: AttributeSet) : View(conte
             (r + 1) * cellSizePixels,
             paint
         )
-    }
 
+    }
     private fun drawLines(canvas: Canvas) {
         canvas.drawRect(0F, 0F, 900F, 900F, thickLinePaint)
 
@@ -133,7 +137,6 @@ class SudokuBoardView(context: Context, attributeSet: AttributeSet) : View(conte
         cells?.forEach { cell ->
             val value = cell.value
             val textBounds = Rect()
-
             if (value == 0) {
                 // draw notes
                 cell.notes.forEach { note ->
@@ -151,42 +154,53 @@ class SudokuBoardView(context: Context, attributeSet: AttributeSet) : View(conte
                         noteTextPaint)
 
                 }
-
-            } else {
+                            }
+            else {
                 val row = cell.row
                 val col = cell.col
                 val valueString = cell.value.toString()
-
-                val painToUse = if (cell.isStartingCell) startingCellTextPaint else textPaint
+                var painToUse:Paint = if (cell.isStartingCell) startingCellTextPaint   else textPaint
                 painToUse.getTextBounds(valueString, 0, valueString.length, textBounds)
                 val textWidth = painToUse.measureText(valueString)
                 val textHeight = textBounds.height()
-
-                canvas.drawText(
-                    valueString,
-                    (col * cellSizePixels) + cellSizePixels / 2 - textWidth / 2,
-                    (row * cellSizePixels) + cellSizePixels / 0.75f - textHeight / 0.75f,
-                    painToUse)
+                if (!cell.wrong){
+                    canvas.drawRect(
+                        col * cellSizePixels,
+                        row * cellSizePixels,
+                        (col + 1) * cellSizePixels,
+                        (row + 1) * cellSizePixels,
+                        wrongPaint
+                    )
+                    canvas.drawText(
+                        valueString,
+                        (col * cellSizePixels) + cellSizePixels / 2 - textWidth / 2,
+                        (row * cellSizePixels) + cellSizePixels / 0.75f - textHeight / 0.75f,
+                        painToUse)
+                }
+               else{
+                    canvas.drawText(
+                        valueString,
+                        (col * cellSizePixels) + cellSizePixels / 2 - textWidth / 2,
+                        (row * cellSizePixels) + cellSizePixels / 0.75f - textHeight / 0.75f,
+                        painToUse)
+                }
             }
-        }
-    }
-
+        }}
     override fun onTouchEvent(event: MotionEvent): Boolean {
         return when (event.action) {
             MotionEvent.ACTION_DOWN -> {
+                handleTouchEvent(event.x, event.y)
                 handleTouchEvent(event.x, event.y)
                 true
             }
             else -> false
         }
     }
-
     private fun handleTouchEvent(x: Float, y: Float) {
         val possibleSelectedRow = (y / cellSizePixels).toInt()
         val possibleSelectedCol = (x / cellSizePixels).toInt()
         listener?.onCellTouched(possibleSelectedRow, possibleSelectedCol)
     }
-
     fun updateSelectedCellUI(row: Int, col: Int) {
         selectedRow = row
         selectedCol = col
