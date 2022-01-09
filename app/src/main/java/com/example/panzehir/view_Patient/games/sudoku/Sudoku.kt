@@ -2,7 +2,6 @@ package com.example.panzehir.view_Patient.games.sudoku
 
 import android.app.AlertDialog
 import android.graphics.Color
-import android.graphics.Paint
 import android.graphics.PorterDuff
 import android.os.Bundle
 import android.os.SystemClock
@@ -11,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -29,35 +29,23 @@ class Sudoku : Fragment() , SudokuBoardView.OnTouchListener{
     private  val viewModel: SudokuViewModel by lazy {
         ViewModelProvider(this)[SudokuViewModel::class.java]
     }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         _binding=SudokuFragmentBinding.inflate(inflater,container,false)
-     /*   val builder = Dialog(this.context!!)
-        builder.setContentView(R.layout.startgame_and_howtoplay)
-        builder.show()*/
         return binding.root
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val builder = AlertDialog.Builder(this.context)
         builder.setTitle("Oyuna başla")
         builder.setPositiveButton("Başla") { dialog, which ->
           builder.setCancelable(true)
-            binding.chronomether.start()
+            setChronomether()
         }
         builder.show()
-
-        binding.playtimeButton.setOnClickListener{
-            binding.chronomether.start()
-        }
-        binding.stopTimebutton.setOnClickListener{
-            binding.chronomether.stop()
-        }
-
+        binding.chronomether.format=" %s"
         binding.sudokuBoardView.registerListener(this)
         viewModel.sudokuGame.selectedCellLiveData.observe(this, Observer { updateSelectedCellUI(it) })
         viewModel.sudokuGame.cellsLiveData.observe(this, Observer { updateCells(it) })
@@ -80,24 +68,36 @@ class Sudoku : Fragment() , SudokuBoardView.OnTouchListener{
                 )
             }
         }
-
         // Edit the pen, click
         viewModel.sudokuGame.isTakingNotesLiveData.observe(this, Observer { updateNoteTakingUI(it) })
         viewModel.sudokuGame.highlightedKeysLiveData.observe(this, Observer { updateHighlightedKeys(it) })
         binding.notesButton.setOnClickListener { viewModel.sudokuGame.changeNoteTakingState() }
-
         //delete
         binding.deleteButton.setOnClickListener { viewModel.sudokuGame.delete() }
         binding.solveButton.setOnClickListener {
             viewModel.sudokuGame.solve()
             binding.chronomether.stop()
+            val time= binding.chronomether.text
+            Toast.makeText(this.context,"${time} süresinde bulmacayı çözdünüz.",Toast.LENGTH_LONG).show()
         }
         binding.NewGamebutton.setOnClickListener{
-            viewModel.sudokuGame.newGame()
-            binding.chronomether.setBase(SystemClock.elapsedRealtime())
-            binding.chronomether.start()
+            viewModel.sudokuGame.newGame(30)
+            setChronomether()
         }
+        binding.EasyLevel.setOnClickListener {
+            setChronomether()
+            viewModel.sudokuGame.newGame(30) }
+        binding.MediumLevel.setOnClickListener {
+            setChronomether()
+            viewModel.sudokuGame.newGame(40)  }
+        binding.HardLevel.setOnClickListener {
+            setChronomether()
+            viewModel.sudokuGame.newGame(50)  }
 
+    }
+    private fun setChronomether(){
+        binding.chronomether.setBase(SystemClock.elapsedRealtime())
+        binding.chronomether.start()
     }
     private fun updateCells(cells: List<Cell>?) = cells?.let {
         binding.sudokuBoardView.updateCells(cells)
@@ -123,7 +123,4 @@ class Sudoku : Fragment() , SudokuBoardView.OnTouchListener{
     override fun onCellTouched(row: Int, col: Int) {
         viewModel.sudokuGame.updateSelectedCell(row, col)
     }
-
-
-
 }

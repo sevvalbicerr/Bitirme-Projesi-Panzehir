@@ -14,43 +14,53 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
     >
-        <de.hdodenhof.circleimageview.CircleImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@drawable/ic_twotone_close_24"
-                android:id="@+id/stopTimebutton"
-                android:background="#5460A5"
-                android:layout_marginStart="@dimen/_30sdp"
-                android:layout_marginTop="@dimen/_5sdp"
 
+        <Button
+                android:id="@+id/EasyLevel"
+                android:layout_width="@dimen/_65sdp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#121735"
+                android:textColor="@color/white"
+                android:layout_marginStart="@dimen/_20sdp"
+                app:cornerRadius="15dp"
+                android:text="Kolay"/>
+        <Button
+                android:id="@+id/MediumLevel"
+                android:layout_width="76dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#121735"
+                android:textColor="@color/white"
+                app:cornerRadius="15dp"
+                android:text="Orta"/>
+        <Button
+                android:id="@+id/HardLevel"
+                android:layout_width="76dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#121735"
+                android:textColor="@color/white"
+                app:cornerRadius="15dp"
+                android:text="Zor"/>
 
-        />
-        <de.hdodenhof.circleimageview.CircleImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:background="#5460A5"
-                android:src="@drawable/ic_baseline_arrow_right_24"
-                android:id="@+id/playtimeButton"
-                android:layout_marginStart="@dimen/_5sdp"
-                android:layout_marginTop="@dimen/_5sdp"
-        />
         <Chronometer
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/chronomether"
-                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginStart="@dimen/_40sdp"
                 android:layout_marginTop="@dimen/_5sdp"
                 android:background="#5460A5"
+                android:textSize="@dimen/_15sdp"
         />
         <Button
                 android:id="@+id/NewGamebutton"
-                android:layout_width="wrap_content"
+                android:layout_width="@dimen/_75sdp"
                 android:layout_height="wrap_content"
                 android:text="Yeni Oyun"
                 android:backgroundTint="#121735"
                 android:textColor="@color/white"
                 app:cornerRadius="15dp"
-                android:layout_marginStart="@dimen/_90sdp"
+                android:visibility="gone"
+                android:layout_marginStart="@dimen/_10sdp"
+
 
         />
 

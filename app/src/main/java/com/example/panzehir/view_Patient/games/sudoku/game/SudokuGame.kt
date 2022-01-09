@@ -3,6 +3,7 @@ package com.example.panzehir.view_Patient.games.sudoku.game
 import androidx.compose.ui.input.key.Key.Companion.K
 import androidx.lifecycle.MutableLiveData
 import com.google.android.play.core.splitinstall.d
+import kotlin.properties.Delegates
 
 class SudokuGame {
 
@@ -17,12 +18,13 @@ class SudokuGame {
     private var isTakingNotes = false
     private var board: Board
 
+
     /* Uygulamadaki note ve silme butonunu , sayılar butonunu uygulama tlamadan kullanabilmek için önce boardTan bir yere tıklamak gerekiyor.
 */
     init {
         //uygulama ilk çalıştığında dolu gelmesini sağlayan kod bu satır. value değişkenine ne verirsen
         //tablo onunla dolu olarak geliyor.
-        boards=generateSudokuPuzzle()
+        boards=generateSudokuPuzzle(30)
         cells = List(9 * 9){i -> Cell( i / 9, i % 9 , boards[i / 9][i % 9], wrong = true)}
         board = Board(9, cells)
         selectedCellLiveData.postValue(Pair(selectedRow,selectedCol))
@@ -80,10 +82,9 @@ class SudokuGame {
         cellsLiveData.postValue(board.cells)
 
     }
-    private fun generateSudokuPuzzle(): Array<IntArray> {
+    private fun generateSudokuPuzzle( level:Int): Array<IntArray> {
         //Generate sudoku to ready to solve
         val N = 9
-        val level = 30
         val sudoku = Generator(N, level)
         return sudoku.fillValues()
     }
@@ -100,8 +101,8 @@ class SudokuGame {
         }
         cellsLiveData.postValue(board.cells)
     }
-    fun newGame(){
-        boards=generateSudokuPuzzle()
+    fun newGame(level: Int) {
+        boards=generateSudokuPuzzle(level)
         cells = List(9 * 9){i -> Cell( i / 9, i % 9 , boards[i / 9][i % 9], wrong = true)}
         board = Board(9, cells)
         cellsLiveData.postValue(board.cells)
