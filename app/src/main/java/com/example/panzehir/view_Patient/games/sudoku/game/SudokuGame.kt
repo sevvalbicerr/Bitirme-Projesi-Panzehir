@@ -90,13 +90,11 @@ class SudokuGame {
     }
 
     fun solve(){
-
-
         solveSudoku(boards,boards.size)
         for (i in 0 until 9) {
             for (j in 0 until 9) {
+                if (board.getCell(i, j).value != boards[i][j]) board.getCell(i, j).wrong=false
                 board.getCell(i, j).value = boards[i][j]
-
             }
         }
         cellsLiveData.postValue(board.cells)

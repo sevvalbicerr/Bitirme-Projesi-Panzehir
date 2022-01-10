@@ -78,7 +78,10 @@ class Sudoku : Fragment() , SudokuBoardView.OnTouchListener{
             viewModel.sudokuGame.solve()
             binding.chronomether.stop()
             val time= binding.chronomether.text
+            //Bu toast mesajını ortalayabilir miyiz???
             Toast.makeText(this.context,"${time} süresinde bulmacayı çözdünüz.",Toast.LENGTH_LONG).show()
+
+
         }
         binding.NewGamebutton.setOnClickListener{
             viewModel.sudokuGame.newGame(30)
