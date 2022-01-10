@@ -40,7 +40,7 @@ class Home : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         preferenceManager = context?.let { PreferenceManager(it) }!!
-
+        getWater()
         // Navigation
         binding.ProfileLinearLayout.setOnClickListener { Navigation.findNavController(it).navigate(R.id.action_home2_to_profile) }
         binding.seeMoreMemories.setOnClickListener { Navigation.findNavController(it).navigate(R.id.action_home2_to_memories2) }
@@ -52,6 +52,23 @@ class Home : Fragment() {
         binding.callFamilyLayout.setOnClickListener { callMyFamilyAlertButton(it) }
         getMedication()
         getUser()
+    }
+    @SuppressLint("SetTextI18n")
+    fun getWater(){
+        val myUserId = preferenceManager.getString(Constants.KEY_ID_PATIENT)
+        println("myuserİD ${myUserId}")
+        val database = FirebaseFirestore.getInstance()
+        database.collection(ConstantsForRelativesMedication.KEY_COLLECTION_WATER)
+            .get()
+            .addOnCompleteListener {
+                if (it.isSuccessful && it.result != null ) {
+                    for (documentSnapshot: QueryDocumentSnapshot in it.result) {
+                        if(myUserId==documentSnapshot.getString(Constants.KEY_ID_PATIENT).toString()){
+                            binding.waterTextview.text=documentSnapshot.getString(ConstantsForRelativesMedication.KEY_WATER)!!.toString()+" bardak"
+                        }
+                    }
+                }
+            }
     }
     @SuppressLint("SetTextI18n")
     fun getMedication(){
@@ -113,6 +130,14 @@ class Home : Fragment() {
     private fun getUser(){
         binding.nameOfPerson.text=preferenceManager.getString(Constants.KEY_FIRST_NAME_PATIENT)+" "+preferenceManager.getString(Constants.KEY_LAST_NAME_PATIENT)
         binding.typeOfBlood.text=preferenceManager.getString(Constants.KEY_BLOOD_PATIENT)
+        val gender=preferenceManager.getString(Constants.KEY_GENDER_PATIENT)
+        if (gender=="Erkek"){
+            binding.photo.setBackgroundResource(R.drawable.dede)
+        }
+        else {
+            binding.photo.setBackgroundResource(R.drawable.me)
+        }
+
         val now =Calendar.getInstance()
         val nowYear=now.get(Calendar.YEAR)
 //        println("nowYear  "+ nowYear)

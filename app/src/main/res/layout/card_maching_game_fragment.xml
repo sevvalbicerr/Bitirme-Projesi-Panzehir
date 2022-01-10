@@ -5,13 +5,14 @@
             xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:tools="http://schemas.android.com/tools"
             xmlns:app="http://schemas.android.com/apk/res-auto"
-
+            android:background="@color/xmlBackground"
     >
         <include
                 android:layout_width="wrap_content"
                 android:layout_height="300dp"
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
+
                 android:id="@+id/includeImages"
                 layout="@layout/images"/>
         <TextView

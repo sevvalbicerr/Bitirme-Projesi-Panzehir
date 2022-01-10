@@ -10,9 +10,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.Navigation
 import com.example.panzehir.R
-import com.example.panzehir.databinding.CardMachingGameFragmentBinding
 import com.example.panzehir.databinding.FragmentHomeRelativesOfThePatientBinding
-import com.example.panzehir.model.medication
 import com.example.panzehir.utilities.Constants
 import com.example.panzehir.utilities.ConstantsForRelativesMedication
 import com.example.panzehir.utilities.PreferenceManager
@@ -46,6 +44,24 @@ class HomeRelativesOfThePatient : Fragment() {
         binding.signOut.setOnClickListener{
             signOut()
         }
+        getWater()
+         var glassOfWater=0
+        binding.wateradd.setOnClickListener{
+            if (binding.waterTextview.text!=""){
+                glassOfWater=Integer.parseInt(binding.waterTextview.text.toString())
+                glassOfWater++
+            }
+            binding.waterTextview.text=(glassOfWater).toString()
+            recordWater()
+        }
+        binding.waterReduce.setOnClickListener {
+            if (binding.waterTextview.text!="" && glassOfWater!=0){
+                glassOfWater=Integer.parseInt(binding.waterTextview.text.toString())
+                glassOfWater--
+            }
+            binding.waterTextview.text=(glassOfWater).toString()
+            recordWater()
+        }
 
     }
     private fun signOut() {
@@ -65,7 +81,37 @@ class HomeRelativesOfThePatient : Fragment() {
                 Toast.makeText(context, "Çıkış yapılamadı", Toast.LENGTH_SHORT).show()
             }
     }
-
+    fun recordWater(){
+        val glassOfWater: HashMap<String, Any> = HashMap()
+        val tc=preferenceManager.getString(Constants.KEY_ID_PATIENT)!!
+        glassOfWater[ConstantsForRelativesMedication.KEY_WATER] = binding.waterTextview.text.toString()
+        glassOfWater[Constants.KEY_ID_PATIENT]=tc
+        val database: FirebaseFirestore = FirebaseFirestore.getInstance()
+        database.collection(ConstantsForRelativesMedication.KEY_COLLECTION_WATER)
+            .document(tc)
+            .set(glassOfWater)
+            .addOnSuccessListener {
+               Toast.makeText(context, "Su takibi güncellendi: ", Toast.LENGTH_SHORT).show()
+            }
+            .addOnFailureListener { Toast.makeText(context, "Error: " + it.message, Toast.LENGTH_SHORT).show() }
+    }
+    @SuppressLint("SetTextI18n")
+    fun getWater(){
+        val myUserId = preferenceManager.getString(Constants.KEY_ID_PATIENT)
+        println("myuserİD ${myUserId}")
+        val database = FirebaseFirestore.getInstance()
+        database.collection(ConstantsForRelativesMedication.KEY_COLLECTION_WATER)
+            .get()
+            .addOnCompleteListener {
+                if (it.isSuccessful && it.result != null ) { println("completelistener ifffffffffff")
+                    for (documentSnapshot: QueryDocumentSnapshot in it.result) {
+                        if(myUserId==documentSnapshot.getString(Constants.KEY_ID_PATIENT).toString()){
+                            binding.waterTextview.text=documentSnapshot.getString(ConstantsForRelativesMedication.KEY_WATER)!!.toString()
+                        }
+                    }
+                }
+            }
+    }
     @SuppressLint("SetTextI18n")
     private fun getUser(){
         binding.nameOfPerson.text=preferenceManager.getString(Constants.KEY_FIRST_NAME_PATIENT)+" "+preferenceManager.getString(
@@ -81,7 +127,6 @@ class HomeRelativesOfThePatient : Fragment() {
     @SuppressLint("SetTextI18n")
     fun getMedication(){
         val myUserId = preferenceManager.getString(ConstantsForRelativesMedication.KEY_PATIENT_ID)
-        println(myUserId+":+++++ userId")
         var i =0
         val database = FirebaseFirestore.getInstance()
         database.collection(ConstantsForRelativesMedication.KEY_COLLECTION_MEDICATION)

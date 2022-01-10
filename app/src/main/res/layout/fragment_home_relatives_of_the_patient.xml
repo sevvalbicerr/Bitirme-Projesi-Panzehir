@@ -157,17 +157,19 @@
 
 
 
-            <EditText
+            <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="bardak sayısı:"
-                    android:inputType="number"
+                    android:hint="Bardak sayısı:"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:id="@+id/waterTextview"
             />
             <de.hdodenhof.circleimageview.CircleImageView
                     android:layout_width="40dp"
                     android:layout_height="50dp"
                     android:src="@drawable/ic_baseline_control_point_24"
-                    android:id="@+id/water1"
+                    android:id="@+id/wateradd"
                     android:layout_marginStart="@dimen/_40sdp"
 
 
@@ -177,7 +179,7 @@
                     android:layout_height="50dp"
                     android:src="@drawable/ic_baseline_do_not_disturb_on_24"
 
-                    android:id="@+id/water2"
+                    android:id="@+id/waterReduce"
             />
 
 

@@ -43,23 +43,28 @@ class PatientRelative : Fragment() {
     private fun signInRelative() {
         binding.loginButtonInPatientRelatives.visibility = View.INVISIBLE
         binding.loginRelativeProgressBar.visibility = View.VISIBLE
-
+        val myUserId = preferenceManager.getString(Constants.KEY_ID_PATIENT)
         val database = FirebaseFirestore.getInstance()
         database.collection(Constants.KEY_COLLECTION_USERS)
-            .whereEqualTo(Constants.KEY_PASSWORD_ACCOUNT,binding.inputPasswordRelative.text.toString())
+            .whereEqualTo(Constants.KEY_ID_PATIENT,myUserId)
             .get()
             .addOnCompleteListener {
                 it.let {
                     if (it.isSuccessful && it.result != null && it.result!!.documents.size > 0){
                         val documentSnapshot = it.result!!.documents[0]
-                        preferenceManager.putString(Constants.KEY_PASSWORD_ACCOUNT,documentSnapshot.getString(Constants.KEY_PASSWORD_ACCOUNT)!!)
-                        val intent= Intent(activity, RelativesOfThePatientMainActivity::class.java)
-                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
-                        startActivity(intent)
-                    }else{
-                        binding.loginRelativeProgressBar.visibility = View.INVISIBLE
-                        binding.loginButtonInPatientRelatives.visibility = View.VISIBLE
-                        Toast.makeText(context, "Girilen parola yanlıştır. Lütfen tekrar deneyiniz", Toast.LENGTH_SHORT).show()
+                        if(binding.inputPasswordRelative.text.toString()==documentSnapshot.getString(Constants.KEY_PASSWORD_ACCOUNT)!!){
+                            //preferenceManager.putString(Constants.KEY_PASSWORD_ACCOUNT,documentSnapshot.getString(Constants.KEY_PASSWORD_ACCOUNT)!!)
+                            val intent= Intent(activity, RelativesOfThePatientMainActivity::class.java)
+                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                            startActivity(intent)
+                        }
+                        else{
+                            binding.loginRelativeProgressBar.visibility = View.INVISIBLE
+                            binding.loginButtonInPatientRelatives.visibility = View.VISIBLE
+                            Toast.makeText(context, "Girilen parola yanlıştır. Lütfen tekrar deneyiniz", Toast.LENGTH_SHORT).show()
+                        }
+
+
                     }
                 }
             }

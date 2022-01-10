@@ -138,7 +138,7 @@
                 <de.hdodenhof.circleimageview.CircleImageView
                         android:layout_width="@dimen/_46sdp"
                         android:layout_height="match_parent"
-                        android:src="@drawable/me"
+
                         android:id="@+id/photo"/>
                 <LinearLayout
                         android:layout_width="wrap_content"
@@ -243,14 +243,14 @@
 
                     />
 
-
-
-               <EditText
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:hint="bardak sayısı:"
-                       android:inputType="number"
-               />
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="Bardak sayısı:"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:id="@+id/waterTextview"
+                />
                 <de.hdodenhof.circleimageview.CircleImageView
                         android:layout_width="40dp"
                         android:layout_height="50dp"

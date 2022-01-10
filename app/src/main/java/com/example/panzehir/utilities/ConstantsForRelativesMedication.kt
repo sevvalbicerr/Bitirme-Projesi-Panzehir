@@ -8,4 +8,7 @@ object ConstantsForRelativesMedication {
     const val KEY_HUNGRY_OR_NOT = "hungry_or_not"
     const val KEY_TIME = "time"
 
+    const val KEY_COLLECTION_WATER = "WATER"
+    const val KEY_WATER="glass_of_water"
+
 }
