@@ -21,13 +21,7 @@
                   android:layout_height="wrap_content"
                   android:orientation="horizontal"
                   android:layout_gravity="right"
-          >  <ImageView
-                  android:id="@+id/switchAccount"
-                  android:layout_width="@dimen/_25sdp"
-                  android:layout_height="@dimen/_25sdp"
-                  android:layout_gravity="end"
-                  android:contentDescription="@string/app_name"
-                  android:src="@drawable/ic_baseline_autorenew_24"/>
+          >
               <ImageView
                       android:id="@+id/signOut"
                       android:layout_width="@dimen/_25sdp"

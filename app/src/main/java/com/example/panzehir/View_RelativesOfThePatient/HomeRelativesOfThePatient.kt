@@ -14,6 +14,7 @@ import com.example.panzehir.databinding.FragmentHomeRelativesOfThePatientBinding
 import com.example.panzehir.utilities.Constants
 import com.example.panzehir.utilities.ConstantsForRelativesMedication
 import com.example.panzehir.utilities.PreferenceManager
+import com.example.panzehir.view_Patient.HostFragment2
 import com.example.panzehir.view_Patient.MainActivity
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
@@ -35,15 +36,26 @@ class HomeRelativesOfThePatient : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         preferenceManager = context?.let { PreferenceManager(it) }!!
-        getUser()
+        //Medication Tracking
+        getMedication()
         binding.seeMoreMedication.setOnClickListener{
             Navigation.findNavController(it).navigate(R.id.action_homeRelativesOfThePatient_to_addMedicationPage)
         }
-        binding.ProfileLinearLayout.setOnClickListener{Navigation.findNavController(it).navigate(R.id.action_homeRelativesOfThePatient_to_profile_RelativesPatient)}
-        getMedication()
-        binding.signOut.setOnClickListener{
+        //User Profile
+        getUser()
+        binding.ProfileLinearLayout.setOnClickListener{
+            Navigation.findNavController(it).navigate(R.id.action_homeRelativesOfThePatient_to_profile_RelativesPatient)}
+
+        //Logout
+        binding.signOut.setOnClickListener {
             signOut()
         }
+        //Switch Account
+        binding.switchAccount.setOnClickListener {
+            val intent=Intent(this.context,HostFragment2::class.java)
+            startActivity(intent)
+        }
+        //Water tracking
         getWater()
          var glassOfWater=0
         binding.wateradd.setOnClickListener{
@@ -62,6 +74,8 @@ class HomeRelativesOfThePatient : Fragment() {
             binding.waterTextview.text=(glassOfWater).toString()
             recordWater()
         }
+
+
 
     }
     private fun signOut() {
@@ -117,6 +131,13 @@ class HomeRelativesOfThePatient : Fragment() {
         binding.nameOfPerson.text=preferenceManager.getString(Constants.KEY_FIRST_NAME_PATIENT)+" "+preferenceManager.getString(
             Constants.KEY_LAST_NAME_PATIENT)
         binding.typeOfBlood.text=preferenceManager.getString(Constants.KEY_BLOOD_PATIENT)
+        val gender=preferenceManager.getString(Constants.KEY_GENDER_PATIENT)
+        if (gender=="Erkek"){
+            binding.photo.setBackgroundResource(R.drawable.dede)
+        }
+        else {
+            binding.photo.setBackgroundResource(R.drawable.me)
+        }
         val now = Calendar.getInstance()
         val nowYear=now.get(Calendar.YEAR)
 //        println("nowYear  "+ nowYear)
