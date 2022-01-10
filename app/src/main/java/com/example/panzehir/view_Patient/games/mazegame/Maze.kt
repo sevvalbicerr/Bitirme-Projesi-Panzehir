@@ -11,7 +11,7 @@ import android.view.ViewGroup
 import com.example.panzehir.databinding.MazeGameFragmentBinding
 import com.example.panzehir.viewModelPatient.gamesViewModel.MazeGameViewModel
 
-class Maze : Fragment() {
+class Maze : Fragment(){
 
     private var _binding: MazeGameFragmentBinding?=null
     private val binding get() = _binding!!

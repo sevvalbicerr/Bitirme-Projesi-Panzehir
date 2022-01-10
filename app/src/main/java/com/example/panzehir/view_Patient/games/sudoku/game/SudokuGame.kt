@@ -43,7 +43,11 @@ class SudokuGame {
             }
             highlightedKeysLiveData.postValue(cell.notes)
         }
+
         board.getCell(selectedRow, selectedCol).value = number
+
+
+
         solveSudoku(boards,boards.size)
         cell.wrong = !(cell.value!=boards[selectedRow][selectedCol] && cell.value!=0)
         cellsLiveData.postValue(board.cells)
@@ -52,9 +56,12 @@ class SudokuGame {
     fun updateSelectedCell(row: Int, col: Int){
         val cell = board.getCell(row, col)
         if (!cell.isStartingCell) {
-            selectedRow = row
-            selectedCol = col
-            selectedCellLiveData.postValue(Pair(row, col))
+            if (board.getCell(row,col).value==0){
+                selectedRow = row
+                selectedCol = col
+                selectedCellLiveData.postValue(Pair(row, col))
+            }
+
         }
         if (isTakingNotes){
             highlightedKeysLiveData.postValue(cell.notes)
