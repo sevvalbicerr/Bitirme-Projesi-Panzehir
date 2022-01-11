@@ -2,7 +2,12 @@ package com.example.panzehir.view_Patient
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
+import android.content.Context
 import android.content.Intent
+import android.hardware.Sensor
+import android.hardware.SensorEvent
+import android.hardware.SensorEventListener
+import android.hardware.SensorManager
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -20,19 +25,23 @@ import com.example.panzehir.viewModelPatient.HomeViewModel
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.QueryDocumentSnapshot
-import java.time.LocalDate
 import java.util.*
-import kotlin.math.sign
+import kotlin.properties.Delegates
 
-class Home : Fragment() {
+class Home : Fragment(), SensorEventListener {
     private var _binding: HomeFragmentBinding?=null
     private val binding get() = _binding!!
     private lateinit var preferenceManager: PreferenceManager
-
+    //Step Counter
+    private var sensorManager: SensorManager? = null
+    private var running = false
+    var totalSteps by Delegates.notNull<Float>()
+    private var previousTotalSteps = 0f
     private  val viewModel: HomeViewModel by lazy { ViewModelProvider(this)[HomeViewModel::class.java] }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding=HomeFragmentBinding.inflate(inflater,container,false)
+        sensorManager = this.activity!!.getSystemService(Context.SENSOR_SERVICE) as SensorManager
         return binding.root
     }
 
@@ -52,6 +61,11 @@ class Home : Fragment() {
         binding.callFamilyLayout.setOnClickListener { callMyFamilyAlertButton(it) }
         getMedication()
         getUser()
+        //Step Counter
+
+        loadDataStep()
+        resetSteps()
+
     }
     @SuppressLint("SetTextI18n")
     fun getWater(){
@@ -168,5 +182,87 @@ class Home : Fragment() {
         builder.show()
 
 
+    }
+
+    //Step Counter
+
+    override fun onResume() {
+        super.onResume()
+        running = true
+        val stepSensor = sensorManager?.getDefaultSensor(Sensor.TYPE_STEP_COUNTER)
+        if (stepSensor == null) {
+            // This will give a toast message to the user if there is no sensor in the device
+            Toast.makeText(this.context, "No sensor detected on this device", Toast.LENGTH_SHORT).show()
+        } else {
+            // Rate suitable for the user interface
+            sensorManager?.registerListener(this, stepSensor, SensorManager.SENSOR_DELAY_UI)
+        }
+    }
+
+    override fun onSensorChanged(event: SensorEvent?) {
+        println("onSensorChanged")
+        var tv_stepsTaken = binding.NumberOfStepText
+        if (running) {
+            totalSteps = event!!.values[0]
+            preferenceManager.putString("totalSteps",totalSteps.toString())
+           previousTotalSteps=preferenceManager.getString("previousTotalSteps")!!.toFloat()
+            val currentSteps = totalSteps.toInt() - previousTotalSteps.toInt()
+            tv_stepsTaken.text = ("$currentSteps")
+            saveDataStep()
+        }
+    }
+
+    fun resetSteps(){
+
+        binding.NumberOfStepText.setOnClickListener {
+            // This will give a toast message if the user want to reset the steps
+            Toast.makeText(this.context, "Long tap to reset steps", Toast.LENGTH_SHORT).show()
+        }
+        binding.NumberOfStepText.setOnLongClickListener {
+            previousTotalSteps = preferenceManager.getString("totalSteps")!!.toFloat()
+            preferenceManager.putString("previousTotalSteps",previousTotalSteps.toString())
+            binding.NumberOfStepText.text = 0.toString()
+            saveDataStep()
+            true
+        }
+
+    }
+
+    private fun saveDataStep() {
+        val step: HashMap<String, Any> = HashMap()
+        val tc=preferenceManager.getString(Constants.KEY_ID_PATIENT)!!
+        step["step"] = binding.NumberOfStepText.text
+        step[Constants.KEY_ID_PATIENT]=tc
+        val database: FirebaseFirestore = FirebaseFirestore.getInstance()
+        database.collection("Step_Counter")
+            .document(tc)
+            .set(step)
+            .addOnSuccessListener {
+                Toast.makeText(context, "adım takibi güncellendi: ", Toast.LENGTH_SHORT).show()
+                preferenceManager.putString("key_step", binding.NumberOfStepText.text.toString())
+            }
+            .addOnFailureListener { Toast.makeText(context, "Error: " + it.message, Toast.LENGTH_SHORT).show() }
+    }
+
+
+    private fun loadDataStep() {
+        val myUserId = preferenceManager.getString(Constants.KEY_ID_PATIENT)
+        val database = FirebaseFirestore.getInstance()
+        database.collection("Step_Counter")
+            .get()
+            .addOnCompleteListener {
+                if (it.isSuccessful && it.result != null ) {
+                    for (documentSnapshot: QueryDocumentSnapshot in it.result) {
+                        if(myUserId==documentSnapshot.getString("patient_id").toString()){
+                            binding.NumberOfStepText.text=documentSnapshot.getString("step")!!.toString()
+
+                        }
+                    }
+                }
+            }
+    }
+
+    override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
+        // We do not have to write anything in this function for this app
     }
 }

@@ -74,6 +74,8 @@ class HomeRelativesOfThePatient : Fragment() {
             binding.waterTextview.text=(glassOfWater).toString()
             recordWater()
         }
+        //Step Counter
+        loadDataStep()
 
 
 
@@ -179,6 +181,22 @@ class HomeRelativesOfThePatient : Fragment() {
                         }
 
 
+                    }
+                }
+            }
+    }
+    private fun loadDataStep() {
+        val myUserId = preferenceManager.getString(Constants.KEY_ID_PATIENT)
+        val database = FirebaseFirestore.getInstance()
+        database.collection("Step_Counter")
+            .get()
+            .addOnCompleteListener {
+                if (it.isSuccessful && it.result != null ) {
+                    for (documentSnapshot: QueryDocumentSnapshot in it.result) {
+                        if(myUserId==documentSnapshot.getString("patient_id").toString()){
+                            binding.NumberOfStepText.text=documentSnapshot.getString("step")!!.toString()
+
+                        }
                     }
                 }
             }
