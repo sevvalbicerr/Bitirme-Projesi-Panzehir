@@ -18,6 +18,7 @@
               android:orientation="horizontal"
               android:gravity="right"
               android:layout_marginEnd="@dimen/_20sdp"
+              android:layout_marginTop="@dimen/_10sdp"
       >
           <ImageView
                   android:id="@+id/switchAccount"
@@ -58,7 +59,9 @@
                 android:background="@drawable/button_rectangle"
                 android:id="@+id/ProfileLinearLayout"
                 android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"  android:layout_marginBottom="10dp">
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="@dimen/_10sdp"
+        >
             <de.hdodenhof.circleimageview.CircleImageView
                     android:layout_width="@dimen/_46sdp"
                     android:layout_height="match_parent"
@@ -114,7 +117,7 @@
                 android:orientation="horizontal"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="@dimen/_10sdp"
         >
             <de.hdodenhof.circleimageview.CircleImageView
                     android:layout_width="73dp"
@@ -202,7 +205,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="@dimen/_10sdp"
+
         >
 
             <TextView

@@ -234,6 +234,7 @@ class Home : Fragment(), SensorEventListener {
         val step: HashMap<String, Any> = HashMap()
         val tc=preferenceManager.getString(Constants.KEY_ID_PATIENT)!!
         step["step"] = binding.NumberOfStepText.text
+        step["previousStep"]= preferenceManager.getString("totalSteps")!!
         step[Constants.KEY_ID_PATIENT]=tc
         val database: FirebaseFirestore = FirebaseFirestore.getInstance()
         database.collection("Step_Counter")
@@ -242,6 +243,8 @@ class Home : Fragment(), SensorEventListener {
             .addOnSuccessListener {
                 Toast.makeText(context, "adım takibi güncellendi: ", Toast.LENGTH_SHORT).show()
                 preferenceManager.putString("key_step", binding.NumberOfStepText.text.toString())
+                preferenceManager.putString("previousStep", preferenceManager.getString("totalSteps")!!)
+
             }
             .addOnFailureListener { Toast.makeText(context, "Error: " + it.message, Toast.LENGTH_SHORT).show() }
     }
@@ -259,6 +262,7 @@ class Home : Fragment(), SensorEventListener {
                         if(myUserId==documentSnapshot.getString("patient_id").toString()){
                             binding.NumberOfStepText.text=documentSnapshot.getString("step")!!.toString()
                             preferenceManager.putString("totalSteps",documentSnapshot.getString("step")!!.toString())
+                            preferenceManager.putString("previousStep",documentSnapshot.getString("previousStep")!!.toString())
 
                         }
                     }
