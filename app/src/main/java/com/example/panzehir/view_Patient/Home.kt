@@ -35,8 +35,9 @@ class Home : Fragment(), SensorEventListener {
     //Step Counter
     private var sensorManager: SensorManager? = null
     private var running = false
-    var totalSteps by Delegates.notNull<Float>()
+    //var totalSteps by Delegates.notNull<Float>()
     private var previousTotalSteps = 0f
+    private var totalSteps = 0f
     private  val viewModel: HomeViewModel by lazy { ViewModelProvider(this)[HomeViewModel::class.java] }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -208,6 +209,7 @@ class Home : Fragment(), SensorEventListener {
            previousTotalSteps=preferenceManager.getString("previousTotalSteps")!!.toFloat()
             val currentSteps = totalSteps.toInt() - previousTotalSteps.toInt()
             tv_stepsTaken.text = ("$currentSteps")
+
             saveDataStep()
         }
     }
@@ -246,6 +248,7 @@ class Home : Fragment(), SensorEventListener {
 
 
     private fun loadDataStep() {
+
         val myUserId = preferenceManager.getString(Constants.KEY_ID_PATIENT)
         val database = FirebaseFirestore.getInstance()
         database.collection("Step_Counter")
@@ -255,6 +258,7 @@ class Home : Fragment(), SensorEventListener {
                     for (documentSnapshot: QueryDocumentSnapshot in it.result) {
                         if(myUserId==documentSnapshot.getString("patient_id").toString()){
                             binding.NumberOfStepText.text=documentSnapshot.getString("step")!!.toString()
+                            preferenceManager.putString("totalSteps",documentSnapshot.getString("step")!!.toString())
 
                         }
                     }
