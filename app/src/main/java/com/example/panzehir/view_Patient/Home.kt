@@ -35,7 +35,6 @@ class Home : Fragment(), SensorEventListener {
     //Step Counter
     private var sensorManager: SensorManager? = null
     private var running = false
-    //var totalSteps by Delegates.notNull<Float>()
     private var previousTotalSteps = 0f
     private var totalSteps = 0f
     private  val viewModel: HomeViewModel by lazy { ViewModelProvider(this)[HomeViewModel::class.java] }
@@ -153,15 +152,7 @@ class Home : Fragment(), SensorEventListener {
             binding.photo.setBackgroundResource(R.drawable.me)
         }
 
-        val now =Calendar.getInstance()
-        val nowYear=now.get(Calendar.YEAR)
-//        println("nowYear  "+ nowYear)
-        //birthday kullanıcı bilgisi boş geliyor.
-        //val age=nowYear-preferenceManager.getString(Constants.KEY_BIRTHDAY_PATIENT)!!.toInt()
-        //binding.typeOfBlood.text=age
-
-
-
+       binding.ageOfPerson.text=preferenceManager.getString(Constants.KEY_BIRTHDAY_PATIENT)
     }
     private fun callMyFamilyAlertButton(view: View) { Navigation.findNavController(view).navigate(R.id.action_home2_to_friendList) }
 
@@ -272,5 +263,9 @@ class Home : Fragment(), SensorEventListener {
 
     override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
         // We do not have to write anything in this function for this app
+    }
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

@@ -29,4 +29,5 @@ class RelativesOfThePatientMainActivity : AppCompatActivity() {
         binding.fab.setOnClickListener { findNavController(R.id.fragmentContainerView2).navigate(R.id.homeRelativesOfThePatient) }
     }
 
+
 }

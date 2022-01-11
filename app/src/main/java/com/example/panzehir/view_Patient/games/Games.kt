@@ -49,6 +49,9 @@ class Games : Fragment() {
             Navigation.findNavController(it).navigate(R.id.action_games2_to_cardMachingGame2)
         }
     }
-
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 
 }

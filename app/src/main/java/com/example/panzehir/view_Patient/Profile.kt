@@ -41,7 +41,7 @@ class Profile : Fragment() {
             Navigation.findNavController(it).navigate(R.id.action_profile_to_home2)
         }
         preferenceManager = context?.let { PreferenceManager(it) }!!
-
+        println(preferenceManager.getString(Constants.KEY_BIRTHDAY_PATIENT))
         // The account will remain open until the sign-out button is clicked
        /* if (preferenceManager.getBoolean(Constants.KEY_IS_SIGNED_IN)){
             val intent = Intent(activity, HostFragment2::class.java)
@@ -62,6 +62,7 @@ class Profile : Fragment() {
         binding.heightEdittext.text=preferenceManager.getString(Constants.KEY_HEIGHT_PATIENT)
         binding.sexEdittext.text=preferenceManager.getString(Constants.KEY_GENDER_PATIENT)
         binding.AdressEdittext.text=preferenceManager.getString(Constants.KEY_ADDRESS_PATIENT)
+        binding.DateofBirthEdittext.text=preferenceManager.getString(Constants.KEY_BIRTHDAY_PATIENT)
         //Relatives of the Patient
         binding.nameofRelatevesEdittext.text=preferenceManager.getString(Constants.KEY_FIRST_NAME_RELATIVE_PATIENT)
         binding.surnameofRelativesEdittext.text=preferenceManager.getString(Constants.KEY_LAST_NAME_RELATIVE_PATIENT)
@@ -69,6 +70,11 @@ class Profile : Fragment() {
         binding.emailEdittext.text=preferenceManager.getString(Constants.KEY_EMAIL)
         binding.numberEdittext.text=preferenceManager.getString(Constants.KEY_PHONE1)
         binding.number2Edittext.text=preferenceManager.getString(Constants.KEY_PHONE2)
+
+    }
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
 

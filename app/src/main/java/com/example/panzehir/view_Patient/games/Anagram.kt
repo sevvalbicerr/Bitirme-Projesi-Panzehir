@@ -87,6 +87,10 @@ class Anagram : Fragment() {
         binding.wordEnteredTv.setText("")
 
     }
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 
 
 

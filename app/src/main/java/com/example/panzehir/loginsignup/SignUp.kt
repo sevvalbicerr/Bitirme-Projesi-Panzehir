@@ -1,5 +1,6 @@
 package com.example.panzehir.loginsignup
 
+import android.app.DatePickerDialog
 import android.content.Intent
 import android.os.Bundle
 import android.util.Patterns
@@ -16,6 +17,9 @@ import com.example.panzehir.utilities.Constants
 import com.example.panzehir.utilities.PreferenceManager
 import com.example.panzehir.view_Patient.MainActivity
 import com.google.firebase.firestore.FirebaseFirestore
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.HashMap
 
 class SignUp : Fragment() {
 
@@ -27,7 +31,7 @@ class SignUp : Fragment() {
     private lateinit var selectedDegree: String
 
     private lateinit var preferenceManager: PreferenceManager
-
+     var birthday=""
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding=SignUpFragmentBinding.inflate(inflater,container,false)
@@ -56,7 +60,11 @@ class SignUp : Fragment() {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) { selectedDegree = parent?.getItemAtPosition(position).toString() }
             override fun onNothingSelected(parent: AdapterView<*>?) { selectedDegree = "None" }
         }
+        binding.DateofBirthEdittext.setOnClickListener{
+            FixDate()
+            birthday=binding.DateofBirthEdittext.text.toString()
 
+        }
 
         binding.signUpButton.setOnClickListener {
             if (binding.nameofPatientEdittext.text.toString().trim().isEmpty()) {
@@ -115,9 +123,8 @@ class SignUp : Fragment() {
         }
 
     }
-
-
     private fun signUp(){
+        println("birthday ${binding.DateofBirthEdittext.text}")
         val database: FirebaseFirestore = FirebaseFirestore.getInstance()
         val user: HashMap<String, Any> = HashMap()
 
@@ -130,6 +137,7 @@ class SignUp : Fragment() {
         user[Constants.KEY_HEIGHT_PATIENT] = binding.heightEdittext.text.toString()
         user[Constants.KEY_GENDER_PATIENT] = selectedGender
         user[Constants.KEY_ADDRESS_PATIENT] = binding.AdressEdittext.text.toString()
+        user[Constants.KEY_BIRTHDAY_PATIENT]=binding.DateofBirthEdittext.text
         // Patient Relative Information
         user[Constants.KEY_FIRST_NAME_RELATIVE_PATIENT] = binding.nameofRelatevesEdittext.text.toString()
         user[Constants.KEY_LAST_NAME_RELATIVE_PATIENT] = binding.surnameofRelativesEdittext.text.toString()
@@ -154,6 +162,7 @@ class SignUp : Fragment() {
                 preferenceManager.putString(Constants.KEY_HEIGHT_PATIENT,binding.heightEdittext.text.toString())
                 preferenceManager.putString(Constants.KEY_GENDER_PATIENT,selectedGender)
                 preferenceManager.putString(Constants.KEY_ADDRESS_PATIENT,binding.AdressEdittext.text.toString())
+                preferenceManager.putString(Constants.KEY_BIRTHDAY_PATIENT,binding.DateofBirthEdittext.text.toString())
                 // Patient Relative Information
                 preferenceManager.putString(Constants.KEY_FIRST_NAME_RELATIVE_PATIENT,binding.nameofRelatevesEdittext.text.toString())
                 preferenceManager.putString(Constants.KEY_LAST_NAME_RELATIVE_PATIENT,binding.surnameofRelativesEdittext.text.toString())
@@ -168,6 +177,27 @@ class SignUp : Fragment() {
             }
             .addOnFailureListener { Toast.makeText(context, "Error: " + it.message, Toast.LENGTH_SHORT).show() }
 
+    }
+    fun FixDate() {
+        val cal = Calendar.getInstance()
+        val dateSetListener = DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
+            cal.set(Calendar.YEAR, year)
+            cal.set(Calendar.MONTH, monthOfYear)
+            cal.set(Calendar.DAY_OF_MONTH, dayOfMonth)
+            val myFormat = "dd.MM.yyyy" // mention the format you need
+            val sdf = SimpleDateFormat(myFormat, Locale.US)
+            binding.DateofBirthEdittext.text = sdf.format(cal.time)
+        }
+        binding.DateofBirthEdittext.setOnClickListener {
+            this.context?.let { it1 ->
+                DatePickerDialog(
+                    it1, dateSetListener,
+                    cal.get(Calendar.YEAR),
+                    cal.get(Calendar.MONTH),
+                    cal.get(Calendar.DAY_OF_MONTH)
+                ).show()
+            }
+        }
     }
 
 }

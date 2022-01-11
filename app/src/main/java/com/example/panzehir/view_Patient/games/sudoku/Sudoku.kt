@@ -126,4 +126,8 @@ class Sudoku : Fragment() , SudokuBoardView.OnTouchListener{
     override fun onCellTouched(row: Int, col: Int) {
         viewModel.sudokuGame.updateSelectedCell(row, col)
     }
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 }
