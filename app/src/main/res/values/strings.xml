@@ -79,4 +79,7 @@
     <string name="quizTitle">Kısa Sınav</string>
     <string name="proverb_quiz">Atasözleri</string>
     <string name="expression_quiz">Deyimler</string>
+    <string name="vegetable">Sebzeler</string>
+    <string name="fruit">Meyveler</string>
+
 </resources>

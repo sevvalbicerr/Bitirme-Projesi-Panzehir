@@ -11,4 +11,12 @@ object ConstantsForRelativesMedication {
     const val KEY_COLLECTION_WATER = "WATER"
     const val KEY_WATER="glass_of_water"
 
+    //For Quiz Result
+    const val KEY_COLLECTION_QUIZ = "Quiz"
+    const val KEY_QUIZ_TIME = "quiz_time"
+    const val KEY_QUIZ_CORRECT = "quiz_correct"
+    const val KEY_QUIZ_TYPE = "quiz_type"
+
+
+
 }

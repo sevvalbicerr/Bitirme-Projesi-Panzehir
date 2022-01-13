@@ -17,10 +17,17 @@ import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.example.panzehir.R
 import com.example.panzehir.databinding.QuizFragmentBinding
+import com.example.panzehir.utilities.Constants
+import com.example.panzehir.utilities.ConstantsForRelativesMedication
+import com.example.panzehir.utilities.PreferenceManager
 import com.example.panzehir.viewModelPatient.QuizViewModel
+import com.google.firebase.firestore.FirebaseFirestore
 import de.hdodenhof.circleimageview.CircleImageView
+import java.util.HashMap
 
 class Quiz : Fragment() {
+    private lateinit var preferenceManager: PreferenceManager
+
     private var score = 0
     private var correct = 0
     private var wrong = 0
@@ -29,16 +36,16 @@ class Quiz : Fragment() {
     private var updateQueNo = 1
 
     private var questionsExpression = arrayOf(
-        "Q.1. \"Babasının anlattıklarını can ............... ile dinledi.\" cümlesinde noktalı yere aşağıdaki kelimelerden hangisi gelmelidir?",
-        "Q.2. \"Alın teri dökmek\" deyiminin anlamı aşağıdakilerden hangisidir?",
-        "Q.3. Aşağıdaki cümlelerin hangisinde \"tat\" kelimesiyle yapılmış bir deyim vardır?",
-        "Q.4. Aşağıdaki cümlelerde geçen deyimlerden hangisi \" Kalabalıktan, gürültüden uzaklaşıp dinlenmek\" anlamına gelmektedir?",
-        "Q.5. Aşağıdaki cümlelerin hangisinde deyim kullanılmamıştır?",
-        "Q.6. \"Etekleri ..... çalmak \" boşluğu tamamlayan kelime hangisidir?",
-        "Q.7. \"Üstüne bir ……….su içmek\" boşluğu tamamlayan kelimeyi seçiniz.",
-        "Q.8. \"…………..alevi gibi parlamak\" boşluğu tamamlayınız.",
-        "Q.9. \"Baltayı ..... vurmak\" boşluğu tamamlayınız.",
-        "Q.10. Gerekmeden her işe karışmak anlamında ................................ deyimi kullanılır. Boş bırakılan yere hangisi getirilmelidir?")
+        " \"Babasının anlattıklarını can ............... ile dinledi.\" cümlesinde noktalı yere aşağıdaki kelimelerden hangisi gelmelidir?",
+        " \"Alın teri dökmek\" deyiminin anlamı aşağıdakilerden hangisidir?",
+        " Aşağıdaki cümlelerin hangisinde \"tat\" kelimesiyle yapılmış bir deyim vardır?",
+        " Aşağıdaki cümlelerde geçen deyimlerden hangisi \" Kalabalıktan, gürültüden uzaklaşıp dinlenmek\" anlamına gelmektedir?",
+        " Aşağıdaki cümlelerin hangisinde deyim kullanılmamıştır?",
+        " \"Etekleri ..... çalmak \" boşluğu tamamlayan kelime hangisidir?",
+        " \"Üstüne bir ……….su içmek\" boşluğu tamamlayan kelimeyi seçiniz.",
+        " \"…………..alevi gibi parlamak\" boşluğu tamamlayınız.",
+        " \"Baltayı ..... vurmak\" boşluğu tamamlayınız.",
+        " Gerekmeden her işe karışmak anlamında ................................ deyimi kullanılır. Boş bırakılan yere hangisi getirilmelidir?")
     private var answerExpression = arrayOf(
         "kulağı",
         "Bir işle çok uğraşmak.",
@@ -93,16 +100,16 @@ class Quiz : Fragment() {
         "Burnu sürtülmek ")
 
     private var questionsPoverb = arrayOf(
-        "Q.1.“Gün doğmadan neler doğar.” atasözüyle aynı anlama gelen hangisidir?",
-        "Q.2. “İnsanın kendi sıkıntılarına başkaları gereken önemi vermez.” anlamındaki atasözü hangisidir?",
-        "Q.3. “Çalışan kimse daha yararlı hale gelir.” anlamındaki atasözü hangisidir?",
-        "Q.4. Büyük ………….. ye büyük söz söyleme. Boşluğu tamamlayınız.",
-        "Q.5. ..... seven dikenine katlanır. Boşluğu tamamlayınız.",
-        "Q.6. İyilik eden ..... bulur. Boşluğu tamamlayınız. ",
-        "Q.7. Aşağıdakilerden hangisi atasözü değildir?",
-        "Q.8. Aşağıdaki atasözlerinden hangisi tutumlu olmayı öğütler?",
-        "Q.9. “İnsan yedisinde ne ise yetmişinde de odur.” atasözüyle aşağıdakilerden hangisinin ilgisi yoktur?",
-        "Q.10. “Horozu çok olan köyün sabahı geç olur.” atasözünün anlamı hangisidir?")
+        "“Gün doğmadan neler doğar.” atasözüyle aynı anlama gelen hangisidir?",
+        " “İnsanın kendi sıkıntılarına başkaları gereken önemi vermez.” anlamındaki atasözü hangisidir?",
+        " “Çalışan kimse daha yararlı hale gelir.” anlamındaki atasözü hangisidir?",
+        " Büyük ………….. ye büyük söz söyleme. Boşluğu tamamlayınız.",
+        " ..... seven dikenine katlanır. Boşluğu tamamlayınız.",
+        " İyilik eden ..... bulur. Boşluğu tamamlayınız. ",
+        " Aşağıdakilerden hangisi atasözü değildir?",
+        " Aşağıdaki atasözlerinden hangisi tutumlu olmayı öğütler?",
+        " “İnsan yedisinde ne ise yetmişinde de odur.” atasözüyle aşağıdakilerden hangisinin ilgisi yoktur?",
+        " “Horozu çok olan köyün sabahı geç olur.” atasözünün anlamı hangisidir?")
     private var answerPoverb = arrayOf(
         "Çıkmadık candan umut kesilmez.",
         "El elin eşeğini türkü çağırarak arar.",
@@ -180,6 +187,8 @@ class Quiz : Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        preferenceManager = context?.let { PreferenceManager(it) }!!
         setChronomether()
 
         //get bundle data -- for type of quiz
@@ -191,6 +200,13 @@ class Quiz : Fragment() {
             binding.imageQuestion.visibility=View.GONE
             initViews(questionsPoverb)
         }
+
+        // Doğru yanlış süre
+        println("correct $correct")
+        println("wrong ${10-correct}")
+        println("time ${binding.chronomether.text}")
+
+
     }
     private fun setChronomether(){
         binding.chronomether.setBase(SystemClock.elapsedRealtime())
@@ -213,10 +229,19 @@ class Quiz : Fragment() {
             }
             if (qIndex <= questionList.size - 1) {
                 questionText.text = questionList[qIndex]
-                A.text = optionsExpression[qIndex * 4] // 2*4=8
-                B.text = optionsExpression[qIndex * 4 + 1] //  2*4+1=9
-                C.text = optionsExpression[qIndex * 4 + 2] //  2*4+2=10
-                D.text = optionsExpression[qIndex * 4 + 3] //  2*4+3=11
+                if (arguments?.getString("type")=="expression") {
+                    A.text = optionsExpression[qIndex * 4] // 2*4=8
+                    B.text = optionsExpression[qIndex * 4 + 1] //  2*4+1=9
+                    C.text = optionsExpression[qIndex * 4 + 2] //  2*4+2=10
+                    D.text = optionsExpression[qIndex * 4 + 3] //  2*4+3=11
+                }
+                else if(arguments?.getString("type")=="poverb"){
+                    A.text = optionsPoverb[qIndex * 4] // 2*4=8
+                    B.text = optionsPoverb[qIndex * 4 + 1] //  2*4+1=9
+                    C.text = optionsPoverb[qIndex * 4 + 2] //  2*4+2=10
+                    D.text = optionsPoverb[qIndex * 4 + 3] //  2*4+3=11
+                }
+
             } else {
                 score = correct
                 binding.chronomether.stop()
@@ -232,6 +257,7 @@ class Quiz : Fragment() {
                 Time.text="Süre: ${binding.chronomether.text}"
                 val alertDialog = builder.create()
                 wrongOk.setOnClickListener {
+                    recordResulttoFirebase()
                     findNavController().navigate(R.id.action_quiz2_to_categories)
                     alertDialog.dismiss()
                 }
@@ -240,6 +266,24 @@ class Quiz : Fragment() {
             answerRaioGroup.clearCheck()
         }
     }
+
+    private fun recordResulttoFirebase() {
+        val resultQuiz: HashMap<String, Any> = HashMap()
+        val tc=preferenceManager.getString(Constants.KEY_ID_PATIENT)!!
+        resultQuiz[ConstantsForRelativesMedication.KEY_QUIZ_TIME] = binding.chronomether.text.toString()
+        resultQuiz[ConstantsForRelativesMedication.KEY_QUIZ_CORRECT] = correct
+        resultQuiz[ConstantsForRelativesMedication.KEY_QUIZ_TYPE] =arguments?.getString("type").toString()
+        resultQuiz[Constants.KEY_ID_PATIENT]=tc
+        val database: FirebaseFirestore = FirebaseFirestore.getInstance()
+        database.collection(ConstantsForRelativesMedication.KEY_COLLECTION_QUIZ)
+            .document(tc)
+            .set(resultQuiz)
+            .addOnSuccessListener {
+
+            }
+            .addOnFailureListener { Toast.makeText(context, "Error: " + it.message, Toast.LENGTH_SHORT).show() }
+    }
+
     @SuppressLint("SetTextI18n")
     private fun checkAnswer(answerList:Array<String>) {
         binding.apply {
@@ -263,10 +307,20 @@ class Quiz : Fragment() {
     private fun initViews(questionList:Array<String>) {
         binding.apply {
             numberOfQuestion.text = questionList[qIndex]
-            A.text = optionsExpression[0]
-            B.text = optionsExpression[1]
-            C.text = optionsExpression[2]
-            D.text = optionsExpression[3]
+            if (qIndex <= questionList.size - 1) {
+                questionText.text = questionList[qIndex]
+                if (arguments?.getString("type")=="expression") {
+                    A.text = optionsExpression[qIndex * 4] // 2*4=8
+                    B.text = optionsExpression[qIndex * 4 + 1] //  2*4+1=9
+                    C.text = optionsExpression[qIndex * 4 + 2] //  2*4+2=10
+                    D.text = optionsExpression[qIndex * 4 + 3] //  2*4+3=11
+                }
+                else if(arguments?.getString("type")=="poverb"){
+                    A.text = optionsPoverb[qIndex * 4] // 2*4=8
+                    B.text = optionsPoverb[qIndex * 4 + 1] //  2*4+1=9
+                    C.text = optionsPoverb[qIndex * 4 + 2] //  2*4+2=10
+                    D.text = optionsPoverb[qIndex * 4 + 3] //  2*4+3=11
+                }
             nextQuestionButton.setOnClickListener {
                 if (answerRaioGroup.checkedRadioButtonId == -1) {
                     Toast.makeText(context,
@@ -281,4 +335,4 @@ class Quiz : Fragment() {
             questionText.text = questionList[qIndex]
         }
     }
-}
+}}
