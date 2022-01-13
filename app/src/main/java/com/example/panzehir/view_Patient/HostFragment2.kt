@@ -30,7 +30,7 @@ class HostFragment2 : AppCompatActivity() {
         navView.setOnItemSelectedListener {
             when(it.itemId){
                 R.id.navigation_game ->{findNavController(R.id.fragmentContainerView3).navigate(R.id.games2)}
-                R.id.navigation_list ->{findNavController(R.id.fragmentContainerView3).navigate(R.id.quiz2)}
+                R.id.navigation_list ->{findNavController(R.id.fragmentContainerView3).navigate(R.id.categories)}
             }
              true
         }

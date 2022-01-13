@@ -8,9 +8,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="xmlBackground">#E9CDB0</color>
-
     <color name="blue">#1E88E5</color>
-
     <color name="colorPri">#3F51B5</color>
     <color name="colorPriDark">#303F9F</color>
     <color name="colorAccen">#FF5722</color>
@@ -22,6 +20,5 @@
     <color name="colorHintText">#BDBDBD</color>
     <color name="colorMeetingInvitationStart">#4004BB</color>
     <color name="colorMeetingInvitationEnd">#8A1AAA</color>
-
     <color name="colorTextDark">#D7000000</color>
 </resources>

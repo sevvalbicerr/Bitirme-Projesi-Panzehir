@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/xmlBackground"
+             tools:context=".view_Patient.quiz.Categories">
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/ProfileBackButton"
+            android:drawableLeft="@drawable/ic_baseline_arrow_back_24"
+            android:text="@string/quizTitle"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_20sdp"
+            android:textStyle="bold"
+            android:layout_margin="@dimen/_10sdp"
+
+    />
+    <TextView
+            android:layout_width="225dp"
+            android:layout_height="75dp"
+            android:background="@drawable/shape_quiz_categories"
+            android:id="@+id/poverbQuiz"
+            android:text="@string/proverb_quiz"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:textSize="@dimen/_15sdp"/>
+    <TextView
+            android:layout_width="225dp"
+            android:layout_height="75dp"
+            android:background="@drawable/shape_quiz_categories"
+            android:id="@+id/expression"
+            android:text="@string/expression_quiz"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:layout_gravity="right"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:textSize="@dimen/_15sdp"/>
+
+
+</LinearLayout>

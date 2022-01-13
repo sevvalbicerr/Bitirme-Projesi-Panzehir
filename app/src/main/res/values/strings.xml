@@ -76,4 +76,7 @@
         <item>Oğul</item>
         <item>Torun</item>
     </string-array>
+    <string name="quizTitle">Kısa Sınav</string>
+    <string name="proverb_quiz">Atasözleri</string>
+    <string name="expression_quiz">Deyimler</string>
 </resources>

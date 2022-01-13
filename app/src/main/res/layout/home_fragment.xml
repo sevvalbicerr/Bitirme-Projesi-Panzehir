@@ -50,7 +50,7 @@
                     android:paddingStart="30dp"
                     android:id="@+id/EmergencyLinearLayout"
                     android:paddingEnd="30dp"
-                    android:background="@drawable/button_rectangle_red"
+                    android:background="@drawable/button_rectangle_quiz_corner"
                     android:backgroundTint="#9A3737" android:baselineAligned="false">
 
                 <LinearLayout

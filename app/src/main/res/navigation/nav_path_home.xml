@@ -70,7 +70,9 @@
         <action android:id="@+id/action_anagram2_to_games2" app:destination="@id/games2"/>
     </fragment>
     <fragment android:id="@+id/quiz2" android:name="com.example.panzehir.view_Patient.quiz.Quiz"
-              android:label="quiz_fragment" tools:layout="@layout/quiz_fragment"/>
+              android:label="quiz_fragment" tools:layout="@layout/quiz_fragment">
+        <action android:id="@+id/action_quiz2_to_categories" app:destination="@id/categories"/>
+    </fragment>
     <fragment android:id="@+id/friendList" android:name="com.example.panzehir.videoCall.FriendList"
               android:label="fragment_friend_list" tools:layout="@layout/fragment_friend_list">
         <action android:id="@+id/action_friendList_to_home2" app:destination="@id/home2"/>
@@ -78,5 +80,9 @@
     </fragment>
     <fragment android:id="@+id/login2" android:name="com.example.panzehir.loginsignup.Login"
               android:label="fragment_login" tools:layout="@layout/fragment_login"/>
+    <fragment android:id="@+id/categories" android:name="com.example.panzehir.view_Patient.quiz.Categories"
+              android:label="fragment_categories" tools:layout="@layout/fragment_categories">
+        <action android:id="@+id/action_categories_to_quiz2" app:destination="@id/quiz2"/>
+    </fragment>
 
 </navigation>
