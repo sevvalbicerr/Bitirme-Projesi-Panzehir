@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:background="@color/xmlBackground"
+              android:orientation="vertical"
+             tools:context=".View_RelativesOfThePatient.Statistics.GraphDetail">
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/StatisticsTitle"
+            android:drawableLeft="@drawable/ic_baseline_arrow_back_24"
+            android:text="İstatistikler"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_margin="@dimen/_10sdp"
+
+    />
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/explain"
+            android:text="Bir Aylık Su Tüketimi aşağıdaki gibidir."
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:layout_margin="@dimen/_10sdp"
+
+    />
+    <com.example.panzehir.View_RelativesOfThePatient.Statistics.GraphView
+            android:id="@+id/Graph_View"
+            android:layout_width="match_parent"
+            android:layout_height="311dp"
+            android:background="@color/white"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="@dimen/_50sdp"
+
+    />
+
+
+</LinearLayout>

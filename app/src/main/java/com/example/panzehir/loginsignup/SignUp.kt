@@ -14,6 +14,7 @@ import androidx.navigation.Navigation
 import com.example.panzehir.R
 import com.example.panzehir.databinding.SignUpFragmentBinding
 import com.example.panzehir.utilities.Constants
+import com.example.panzehir.utilities.ConstantsForRelativesMedication
 import com.example.panzehir.utilities.PreferenceManager
 import com.example.panzehir.view_Patient.MainActivity
 import com.google.firebase.firestore.FirebaseFirestore
@@ -174,6 +175,15 @@ class SignUp : Fragment() {
                 val intent = Intent(activity, MainActivity::class.java)
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
                 startActivity(intent)
+            }
+            .addOnFailureListener { Toast.makeText(context, "Error: " + it.message, Toast.LENGTH_SHORT).show() }
+        val water: HashMap<String, Any> = HashMap()
+        water[Constants.KEY_ID_PATIENT] = binding.TCEdittext.text.toString()
+        database.collection(ConstantsForRelativesMedication.KEY_COLLECTION_WATER)
+            .document(binding.TCEdittext.text.toString())
+            .set(water)
+            .addOnSuccessListener {
+
             }
             .addOnFailureListener { Toast.makeText(context, "Error: " + it.message, Toast.LENGTH_SHORT).show() }
 

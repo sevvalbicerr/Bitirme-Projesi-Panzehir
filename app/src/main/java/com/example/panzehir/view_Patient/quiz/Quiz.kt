@@ -23,7 +23,8 @@ import com.example.panzehir.utilities.PreferenceManager
 import com.example.panzehir.viewModelPatient.QuizViewModel
 import com.google.firebase.firestore.FirebaseFirestore
 import de.hdodenhof.circleimageview.CircleImageView
-import java.util.HashMap
+import java.text.SimpleDateFormat
+import java.util.*
 
 class Quiz : Fragment() {
     private lateinit var preferenceManager: PreferenceManager
@@ -268,20 +269,26 @@ class Quiz : Fragment() {
     }
 
     private fun recordResulttoFirebase() {
+        val date=getCurrentDate()
         val resultQuiz: HashMap<String, Any> = HashMap()
         val tc=preferenceManager.getString(Constants.KEY_ID_PATIENT)!!
         resultQuiz[ConstantsForRelativesMedication.KEY_QUIZ_TIME] = binding.chronomether.text.toString()
         resultQuiz[ConstantsForRelativesMedication.KEY_QUIZ_CORRECT] = correct
         resultQuiz[ConstantsForRelativesMedication.KEY_QUIZ_TYPE] =arguments?.getString("type").toString()
         resultQuiz[Constants.KEY_ID_PATIENT]=tc
+        resultQuiz[ConstantsForRelativesMedication.KEY_DATE]=date
         val database: FirebaseFirestore = FirebaseFirestore.getInstance()
         database.collection(ConstantsForRelativesMedication.KEY_COLLECTION_QUIZ)
-            .document(tc)
+            .document()
             .set(resultQuiz)
             .addOnSuccessListener {
 
             }
             .addOnFailureListener { Toast.makeText(context, "Error: " + it.message, Toast.LENGTH_SHORT).show() }
+    }
+    fun getCurrentDate():String{
+        val sdf = SimpleDateFormat("yyyy-MM-dd")
+        return sdf.format(Date())
     }
 
     @SuppressLint("SetTextI18n")
@@ -303,6 +310,7 @@ class Quiz : Fragment() {
             }
             qIndex++
         } }
+
     @SuppressLint("SetTextI18n")
     private fun initViews(questionList:Array<String>) {
         binding.apply {

@@ -19,6 +19,7 @@ import com.example.panzehir.view_Patient.MainActivity
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.QueryDocumentSnapshot
+import java.text.SimpleDateFormat
 import java.util.*
 
 class HomeRelativesOfThePatient : Fragment() {
@@ -76,6 +77,8 @@ class HomeRelativesOfThePatient : Fragment() {
         }
         //Step Counter
         loadDataStep()
+        //Statistics
+        binding.Statistics.setOnClickListener { Navigation.findNavController(it).navigate(R.id.action_homeRelativesOfThePatient_to_graph) }
 
 
 
@@ -100,14 +103,24 @@ class HomeRelativesOfThePatient : Fragment() {
     fun recordWater(){
         val glassOfWater: HashMap<String, Any> = HashMap()
         val tc=preferenceManager.getString(Constants.KEY_ID_PATIENT)!!
+        val x=getCurrentDate()
         glassOfWater[ConstantsForRelativesMedication.KEY_WATER] = binding.waterTextview.text.toString()
         glassOfWater[Constants.KEY_ID_PATIENT]=tc
+        glassOfWater[ConstantsForRelativesMedication.KEY_DATE]=getCurrentDate()
         val database: FirebaseFirestore = FirebaseFirestore.getInstance()
-        database.collection(ConstantsForRelativesMedication.KEY_COLLECTION_WATER)
-            .document(tc)
+        /*database.collection(ConstantsForRelativesMedication.KEY_COLLECTION_WATER)
+            .document()
             .set(glassOfWater)
             .addOnSuccessListener {
                Toast.makeText(context, "Su takibi güncellendi: ", Toast.LENGTH_SHORT).show()
+            }
+            .addOnFailureListener { Toast.makeText(context, "Error: " + it.message, Toast.LENGTH_SHORT).show() }*/
+
+        database.collection(ConstantsForRelativesMedication.KEY_COLLECTION_WATER)
+            .document(tc)
+            .update(x,binding.waterTextview.text.toString())
+            .addOnSuccessListener {
+                Toast.makeText(context, "Su takibi güncellendi: ", Toast.LENGTH_SHORT).show()
             }
             .addOnFailureListener { Toast.makeText(context, "Error: " + it.message, Toast.LENGTH_SHORT).show() }
     }
@@ -122,7 +135,7 @@ class HomeRelativesOfThePatient : Fragment() {
                 if (it.isSuccessful && it.result != null ) { println("completelistener ifffffffffff")
                     for (documentSnapshot: QueryDocumentSnapshot in it.result) {
                         if(myUserId==documentSnapshot.getString(Constants.KEY_ID_PATIENT).toString()){
-                            binding.waterTextview.text=documentSnapshot.getString(ConstantsForRelativesMedication.KEY_WATER)!!.toString()
+                            binding.waterTextview.text=documentSnapshot.getString(getCurrentDate())!!.toString()
                         }
                     }
                 }
@@ -200,6 +213,10 @@ class HomeRelativesOfThePatient : Fragment() {
                     }
                 }
             }
+    }
+    fun getCurrentDate():String{
+        val sdf = SimpleDateFormat("yyyy-MM-dd")
+        return sdf.format(Date())
     }
     override fun onDestroyView() {
         super.onDestroyView()

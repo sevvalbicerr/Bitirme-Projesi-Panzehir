@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+        android:orientation="vertical"
+             android:layout_height="match_parent"
+        android:background="@color/xmlBackground"
+             tools:context=".View_RelativesOfThePatient.Statistics.Graph">
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/StatisticsTitle"
+            android:drawableLeft="@drawable/ic_baseline_arrow_back_24"
+            android:text="İstatistikler"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_margin="@dimen/_10sdp"
+
+    />
+    <TextView
+            android:layout_width="225dp"
+            android:layout_height="75dp"
+            android:background="@drawable/shape_quiz_categories"
+            android:id="@+id/Quiz"
+            android:text="Kısa Sınav"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:textSize="@dimen/_15sdp"/>
+    <TextView
+            android:layout_width="225dp"
+            android:layout_height="75dp"
+            android:background="@drawable/shape_quiz_categories"
+            android:id="@+id/water"
+            android:text="Su Takibi"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:layout_gravity="right"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:textSize="@dimen/_15sdp"/>
+    <TextView
+            android:layout_width="225dp"
+            android:layout_height="75dp"
+            android:background="@drawable/shape_quiz_categories"
+            android:id="@+id/step"
+            android:text="Adım Takibi"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:textSize="@dimen/_15sdp"/>
+    <TextView
+            android:layout_width="225dp"
+            android:layout_height="75dp"
+            android:background="@drawable/shape_quiz_categories"
+            android:id="@+id/medication"
+            android:text="İlaç Takibi"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:layout_gravity="right"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:textSize="@dimen/_15sdp"/>
+    <TextView
+            android:layout_width="225dp"
+            android:layout_height="75dp"
+            android:background="@drawable/shape_quiz_categories"
+            android:id="@+id/games"
+            android:text="Oyunlar"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:textSize="@dimen/_15sdp"/>
+
+</LinearLayout>

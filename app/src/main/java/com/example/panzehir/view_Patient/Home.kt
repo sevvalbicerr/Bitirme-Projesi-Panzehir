@@ -15,6 +15,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.content.ContextCompat.startActivity
 import androidx.navigation.Navigation
 import com.example.panzehir.R
 import com.example.panzehir.databinding.HomeFragmentBinding
@@ -25,6 +26,8 @@ import com.example.panzehir.viewModelPatient.HomeViewModel
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.QueryDocumentSnapshot
+import java.text.ParseException
+import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.properties.Delegates
 
@@ -62,7 +65,6 @@ class Home : Fragment(), SensorEventListener {
         getMedication()
         getUser()
         //Step Counter
-
         loadDataStep()
         resetSteps()
 
@@ -70,19 +72,22 @@ class Home : Fragment(), SensorEventListener {
     @SuppressLint("SetTextI18n")
     fun getWater(){
         val myUserId = preferenceManager.getString(Constants.KEY_ID_PATIENT)
-        println("myuserİD ${myUserId}")
+        val date=getCurrentDate()
         val database = FirebaseFirestore.getInstance()
-        database.collection(ConstantsForRelativesMedication.KEY_COLLECTION_WATER)
-            .get()
-            .addOnCompleteListener {
-                if (it.isSuccessful && it.result != null ) {
+        database.collection(ConstantsForRelativesMedication.KEY_COLLECTION_WATER).orderBy(date).get()
+            .addOnCompleteListener{
+                if (it.isSuccessful && it.result != null) {
                     for (documentSnapshot: QueryDocumentSnapshot in it.result) {
-                        if(myUserId==documentSnapshot.getString(Constants.KEY_ID_PATIENT).toString()){
-                            binding.waterTextview.text=documentSnapshot.getString(ConstantsForRelativesMedication.KEY_WATER)!!.toString()+" bardak"
+                        if(myUserId==documentSnapshot.get(Constants.KEY_ID_PATIENT).toString()){
+                            binding.waterTextview.text= documentSnapshot.getString(date).toString()+" bardak"
                         }
                     }
                 }
             }
+    }
+    fun getCurrentDate():String{
+        val sdf = SimpleDateFormat("yyyy-MM-dd")
+        return sdf.format(Date())
     }
     @SuppressLint("SetTextI18n")
     fun getMedication(){
@@ -155,7 +160,6 @@ class Home : Fragment(), SensorEventListener {
        binding.ageOfPerson.text=preferenceManager.getString(Constants.KEY_BIRTHDAY_PATIENT)
     }
     private fun callMyFamilyAlertButton(view: View) { Navigation.findNavController(view).navigate(R.id.action_home2_to_friendList) }
-
     fun emergencyAlertButton(){
         val builder = AlertDialog.Builder(this.context)
         builder.setTitle("Arama")
@@ -175,9 +179,7 @@ class Home : Fragment(), SensorEventListener {
 
 
     }
-
     //Step Counter
-
     override fun onResume() {
         super.onResume()
         running = true
@@ -190,7 +192,6 @@ class Home : Fragment(), SensorEventListener {
             sensorManager?.registerListener(this, stepSensor, SensorManager.SENSOR_DELAY_UI)
         }
     }
-
     override fun onSensorChanged(event: SensorEvent?) {
         println("onSensorChanged")
         var tv_stepsTaken = binding.NumberOfStepText
@@ -204,7 +205,6 @@ class Home : Fragment(), SensorEventListener {
             saveDataStep()
         }
     }
-
     fun resetSteps(){
 
         binding.NumberOfStepText.setOnClickListener {
@@ -220,7 +220,6 @@ class Home : Fragment(), SensorEventListener {
         }
 
     }
-
     private fun saveDataStep() {
         val step: HashMap<String, Any> = HashMap()
         val tc=preferenceManager.getString(Constants.KEY_ID_PATIENT)!!
@@ -239,8 +238,6 @@ class Home : Fragment(), SensorEventListener {
             }
             .addOnFailureListener { Toast.makeText(context, "Error: " + it.message, Toast.LENGTH_SHORT).show() }
     }
-
-
     private fun loadDataStep() {
 
         val myUserId = preferenceManager.getString(Constants.KEY_ID_PATIENT)
@@ -260,7 +257,6 @@ class Home : Fragment(), SensorEventListener {
                 }
             }
     }
-
     override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
         // We do not have to write anything in this function for this app
     }

@@ -28,7 +28,19 @@
                 app:destination="@id/profile_RelativesPatient"/>
         <action android:id="@+id/action_homeRelativesOfThePatient_to_addMedicationPage"
                 app:destination="@id/addMedicationPage"/>
+        <action android:id="@+id/action_homeRelativesOfThePatient_to_graph" app:destination="@id/graph"/>
     </fragment>
     <fragment android:id="@+id/settings2" android:name="com.example.panzehir.View_RelativesOfThePatient.Settings"
               android:label="fragment_settings" tools:layout="@layout/fragment_settings"/>
+    <fragment android:id="@+id/graph" android:name="com.example.panzehir.View_RelativesOfThePatient.Statistics.Graph"
+              android:label="fragment_graph" tools:layout="@layout/fragment_graph">
+        <action android:id="@+id/action_graph_to_graphDetail" app:destination="@id/graphDetail"/>
+        <action android:id="@+id/action_graph_to_homeRelativesOfThePatient"
+                app:destination="@id/homeRelativesOfThePatient"/>
+    </fragment>
+    <fragment android:id="@+id/graphDetail"
+              android:name="com.example.panzehir.View_RelativesOfThePatient.Statistics.GraphDetail"
+              android:label="fragment_graph_detail" tools:layout="@layout/fragment_graph_detail">
+        <action android:id="@+id/action_graphDetail_to_graph" app:destination="@id/graph"/>
+    </fragment>
 </navigation>

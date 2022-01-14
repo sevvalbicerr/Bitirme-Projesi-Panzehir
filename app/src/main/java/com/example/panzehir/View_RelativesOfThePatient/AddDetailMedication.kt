@@ -17,6 +17,9 @@ import com.example.panzehir.utilities.ConstantsForRelativesMedication
 import com.example.panzehir.utilities.PreferenceManager
 import com.example.panzehir.view_Patient.MainActivity
 import com.google.firebase.firestore.FirebaseFirestore
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.HashMap
 
 
 class AddDetailMedication : Fragment() {
@@ -56,13 +59,11 @@ class AddDetailMedication : Fragment() {
         medication[ConstantsForRelativesMedication.KEY_HUNGRY_OR_NOT] = binding.hungryOrNotEdittext.text.toString()
         medication[ConstantsForRelativesMedication.KEY_TIME] = binding.timeOfMedicationEdittext.text.toString()
         medication[ConstantsForRelativesMedication.KEY_PATIENT_ID] = tc
-
         val database: FirebaseFirestore = FirebaseFirestore.getInstance()
         database.collection(ConstantsForRelativesMedication.KEY_COLLECTION_MEDICATION)
             .document()
             .set(medication)
             .addOnSuccessListener {
-
                 Navigation.findNavController(view).navigate(R.id.action_addDetailMedication_to_addMedicationPage)
             }
             .addOnFailureListener { Toast.makeText(context, "Error: " + it.message, Toast.LENGTH_SHORT).show() }
