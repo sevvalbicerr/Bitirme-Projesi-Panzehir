@@ -179,6 +179,7 @@ class SignUp : Fragment() {
             .addOnFailureListener { Toast.makeText(context, "Error: " + it.message, Toast.LENGTH_SHORT).show() }
         val water: HashMap<String, Any> = HashMap()
         water[Constants.KEY_ID_PATIENT] = binding.TCEdittext.text.toString()
+        water[getCurrentDate()]="0"
         database.collection(ConstantsForRelativesMedication.KEY_COLLECTION_WATER)
             .document(binding.TCEdittext.text.toString())
             .set(water)
@@ -187,6 +188,10 @@ class SignUp : Fragment() {
             }
             .addOnFailureListener { Toast.makeText(context, "Error: " + it.message, Toast.LENGTH_SHORT).show() }
 
+    }
+    fun getCurrentDate():String{
+        val sdf = SimpleDateFormat("yyyy-MM-dd")
+        return sdf.format(Date())
     }
     fun FixDate() {
         val cal = Calendar.getInstance()
