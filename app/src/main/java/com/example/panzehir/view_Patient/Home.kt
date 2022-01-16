@@ -1,21 +1,26 @@
 package com.example.panzehir.view_Patient
 
+import android.Manifest
 import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.hardware.Sensor
 import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
 import android.hardware.SensorManager
+import android.net.Uri
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import android.telecom.TelecomManager
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.core.content.ContextCompat.startActivity
+import androidx.core.content.ContextCompat
 import androidx.navigation.Navigation
 import com.example.panzehir.R
 import com.example.panzehir.databinding.HomeFragmentBinding
@@ -26,10 +31,8 @@ import com.example.panzehir.viewModelPatient.HomeViewModel
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.QueryDocumentSnapshot
-import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
-import kotlin.properties.Delegates
 
 class Home : Fragment(), SensorEventListener {
     private var _binding: HomeFragmentBinding?=null
@@ -40,6 +43,7 @@ class Home : Fragment(), SensorEventListener {
     private var running = false
     private var previousTotalSteps = 0f
     private var totalSteps = 0f
+
     private  val viewModel: HomeViewModel by lazy { ViewModelProvider(this)[HomeViewModel::class.java] }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -57,11 +61,11 @@ class Home : Fragment(), SensorEventListener {
         binding.ProfileLinearLayout.setOnClickListener { Navigation.findNavController(it).navigate(R.id.action_home2_to_profile) }
         binding.seeMoreMemories.setOnClickListener { Navigation.findNavController(it).navigate(R.id.action_home2_to_memories2) }
         binding.seeMoreMedication.setOnClickListener { Navigation.findNavController(it).navigate(R.id.action_home2_to_medicationTracking) }
-        binding.signOut.setOnClickListener{
-            signOut()
-        }
+
+        binding.signOut.setOnClickListener{ signOut() }
         binding.callEmergencyLayout.setOnClickListener { emergencyAlertButton() }
         binding.callFamilyLayout.setOnClickListener { callMyFamilyAlertButton(it) }
+
         getMedication()
         getUser()
         //Step Counter
@@ -85,10 +89,12 @@ class Home : Fragment(), SensorEventListener {
                 }
             }
     }
+
     fun getCurrentDate():String{
         val sdf = SimpleDateFormat("yyyy-MM-dd")
         return sdf.format(Date())
     }
+
     @SuppressLint("SetTextI18n")
     fun getMedication(){
         val myUserId = preferenceManager.getString(ConstantsForRelativesMedication.KEY_PATIENT_ID)
@@ -128,6 +134,7 @@ class Home : Fragment(), SensorEventListener {
                 }
             }
     }
+
     private fun signOut() {
         Toast.makeText(context, "Çıkış yapılıyor", Toast.LENGTH_SHORT).show()
         val database = FirebaseFirestore.getInstance()
@@ -145,6 +152,7 @@ class Home : Fragment(), SensorEventListener {
                 Toast.makeText(context, "Çıkış yapılamadı", Toast.LENGTH_SHORT).show()
             }
     }
+
     @SuppressLint("SetTextI18n")
     private fun getUser(){
         binding.nameOfPerson.text=preferenceManager.getString(Constants.KEY_FIRST_NAME_PATIENT)+" "+preferenceManager.getString(Constants.KEY_LAST_NAME_PATIENT)
@@ -159,26 +167,28 @@ class Home : Fragment(), SensorEventListener {
 
        binding.ageOfPerson.text=preferenceManager.getString(Constants.KEY_BIRTHDAY_PATIENT)
     }
+
     private fun callMyFamilyAlertButton(view: View) { Navigation.findNavController(view).navigate(R.id.action_home2_to_friendList) }
-    fun emergencyAlertButton(){
+
+    private fun emergencyAlertButton(){
         val builder = AlertDialog.Builder(this.context)
         builder.setTitle("Arama")
-        builder.setMessage("Acil Durum Hattını Aramak İstiyor Musunuz?")
-//builder.setPositiveButton("OK", DialogInterface.OnClickListener(function = x))
-
-        builder.setPositiveButton("Ara") { dialog, which ->
-            Toast.makeText(this.context,
-                "Aranılıyor...", Toast.LENGTH_SHORT).show()
-        }
-
-        builder.setNegativeButton("Arama") { dialog, which ->
-            Toast.makeText(this.context,
-                "Vazgeçildi.", Toast.LENGTH_SHORT).show()
-        }
+            .setMessage("Acil Durum Hattını Aramak İstiyor Musunuz?")
+            .setPositiveButton("Ara") { dialog, which ->
+                Toast.makeText(this.context, "Arama yönlendirilmektedir.", Toast.LENGTH_SHORT).show()
+                val phone = 112
+                val callIntent = Intent(Intent.ACTION_DIAL)
+                callIntent.data = Uri.parse("tel: $phone")
+                startActivity(callIntent)
+            }
+            .setNegativeButton("Arama") { dialog, which ->
+            Toast.makeText(this.context, "Arama iptal edildi.", Toast.LENGTH_SHORT).show()
+            }
         builder.show()
 
 
     }
+
     //Step Counter
     override fun onResume() {
         super.onResume()
