@@ -75,7 +75,7 @@ class CardMachingGame : Fragment() {
         frontOfCardsResources()
         //suffle the images
         cardsArray.shuffle()
-        binding.tvP2.setTextColor(Color.GRAY)
+        //binding.tvP2.setTextColor(Color.GRAY)
 
     }
     private fun includedImagesSetonClickListener(){
@@ -266,17 +266,17 @@ class CardMachingGame : Fragment() {
                 10 ->  binding.includeImages.iv33.visibility = View.INVISIBLE
                 11 ->  binding.includeImages.iv34.visibility = View.INVISIBLE
             }
-
+            playerPoints++
+            binding.tvP1.text = "P1: $playerPoints"
             //add points to the corrent player
-            if (turn == 1) {
-                playerPoints++
-                binding.tvP1.text = "P1: $playerPoints"
+          /*  if (turn == 1) {
+
             } else {
                 if (turn == 2) {
                     cpuPoint++
                     binding.tvP2.text = "P2: $cpuPoint"
                 }
-            }
+            }*/
         } else {
             binding.includeImages.iv11.setImageResource(R.drawable.ic_back)
             binding.includeImages.iv12.setImageResource(R.drawable.ic_back)
@@ -292,7 +292,7 @@ class CardMachingGame : Fragment() {
             binding.includeImages.iv34.setImageResource(R.drawable.ic_back)
 
             //change the player turn
-            if (turn == 1) {
+           /* if (turn == 1) {
                 turn = 2
                 binding.tvP1.setTextColor(Color.GRAY)
                 binding.tvP2.setTextColor(Color.BLACK)
@@ -300,7 +300,7 @@ class CardMachingGame : Fragment() {
                 turn = 1
                 binding.tvP2.setTextColor(Color.GRAY)
                 binding.tvP1.setTextColor(Color.BLACK)
-            }
+            }*/
         }
 
         imageViewIsEnabled(true)

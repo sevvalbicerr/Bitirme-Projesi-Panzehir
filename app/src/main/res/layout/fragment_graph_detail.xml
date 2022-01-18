@@ -26,7 +26,9 @@
             android:text="Bir Aylık Su Tüketimi aşağıdaki gibidir."
             android:textColor="@color/black"
             android:textSize="20sp"
-            android:layout_margin="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
 
     />
     <com.example.panzehir.View_RelativesOfThePatient.Statistics.GraphView

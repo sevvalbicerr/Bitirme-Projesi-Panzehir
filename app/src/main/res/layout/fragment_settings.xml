@@ -32,12 +32,14 @@
                 android:id="@+id/Account"
                 android:textColor="@color/black"
                 android:text="Hesap Bilgileri"
-                android:textSize="@dimen/_25ssp"
+                android:textStyle="bold"
+
+                android:textSize="@dimen/_20ssp"
                 android:layout_marginStart="15dp"
         />
         <TextView
                 android:layout_width="match_parent"
-                android:layout_height="73dp"
+                android:layout_height="wrap_content"
                 android:id="@+id/email"
                 android:textColor="@color/black"
                 android:text="@string/email"
@@ -54,12 +56,15 @@
                 android:id="@+id/Common"
                 android:textColor="@color/black"
                 android:text="Genel"
-                android:textSize="@dimen/_25ssp"
+                android:textStyle="bold"
+
+                android:textSize="@dimen/_20ssp"
                 android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
         />
         <TextView
                 android:layout_width="match_parent"
-                android:layout_height="73dp"
+                android:layout_height="wrap_content"
                 android:id="@+id/notification"
                 android:textColor="@color/black"
                 android:text="Bildirimler"
@@ -76,15 +81,19 @@
                 android:id="@+id/Privacy"
                 android:textColor="@color/black"
                 android:text="Gizlilik"
-                android:textSize="@dimen/_25ssp"
+                android:textStyle="bold"
+
+                android:textSize="@dimen/_20ssp"
+                android:layout_marginTop="15dp"
                 android:layout_marginStart="15dp"
         />
         <TextView
                 android:layout_width="match_parent"
-                android:layout_height="73dp"
+                android:layout_height="wrap_content"
                 android:id="@+id/notificationOfPrivacy"
                 android:textColor="@color/black"
                 android:text="Veri izinleri"
+
                 android:textSize="@dimen/_20ssp"
                 android:paddingStart="@dimen/_20sdp"
                 android:layout_marginStart="15dp"
@@ -97,29 +106,36 @@
                 android:id="@+id/AboutApptitle"
                 android:textColor="@color/black"
                 android:text="Bilgi"
-                android:textSize="@dimen/_25ssp"
+                android:textStyle="bold"
+
+                android:textSize="@dimen/_20ssp"
+                android:layout_marginTop="15dp"
+
                 android:layout_marginStart="15dp"
         />
         <TextView
                 android:layout_width="match_parent"
-                android:layout_height="47dp"
+                android:layout_height="wrap_content"
                 android:id="@+id/AboutApp"
                 android:textColor="@color/black"
                 android:text="Panzehir Hakkında"
                 android:textSize="@dimen/_20ssp"
                 android:paddingStart="@dimen/_20sdp"
                 android:layout_marginStart="15dp"
+
+
                 android:layout_marginEnd="15dp"
                 android:background="@drawable/button_rectangle"
         />
         <TextView
                 android:layout_width="match_parent"
-                android:layout_height="47dp"
+                android:layout_height="wrap_content"
                 android:id="@+id/help"
                 android:textColor="@color/black"
                 android:text="Yardım "
                 android:textSize="@dimen/_20ssp"
                 android:paddingStart="@dimen/_20sdp"
+                android:layout_marginTop="10dp"
                 android:layout_marginStart="15dp"
                 android:layout_marginEnd="15dp"
                 android:background="@drawable/button_rectangle"
@@ -130,12 +146,15 @@
                 android:id="@+id/exittitle"
                 android:textColor="@color/black"
                 android:text="Çıkış Yap"
-                android:textSize="@dimen/_25ssp"
+                android:layout_marginTop="15dp"
+                android:textStyle="bold"
+
+                android:textSize="@dimen/_20ssp"
                 android:layout_marginStart="15dp"
         />
         <TextView
                 android:layout_width="match_parent"
-                android:layout_height="47dp"
+                android:layout_height="wrap_content"
                 android:id="@+id/exit"
                 android:textColor="@color/black"
                 android:text="Oturumu Kapat"

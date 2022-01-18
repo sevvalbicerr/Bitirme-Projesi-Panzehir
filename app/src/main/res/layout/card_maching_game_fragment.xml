@@ -7,31 +7,36 @@
             xmlns:app="http://schemas.android.com/apk/res-auto"
             android:background="@color/xmlBackground"
     >
-        <include
-                android:layout_width="wrap_content"
-                android:layout_height="300dp"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
+    <include
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_350sdp"
+            android:id="@+id/includeImages"
+            layout="@layout/images"
+            android:layout_centerInParent="true"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:text=" Oyuncu: 0"
+            android:textSize="32sp"
+            android:textColor="@color/black"
+            android:id="@+id/tv_p1"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="25dp"
+    />
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:text="2. Oyuncu: 0"
+            android:textSize="32sp"
+            android:textColor="@color/black"
+            android:id="@+id/tv_p2"
+            tools:ignore="RelativeOverlap"
+            android:layout_marginEnd="15dp"
+            android:layout_marginTop="20dp"
 
-                android:id="@+id/includeImages"
-                layout="@layout/images"/>
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentStart="true"
-                android:text="@string/p1_0"
-                android:textSize="32sp"
-                android:textColor="@color/black"
-                android:id="@+id/tv_p1"/>
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:text="@string/p2_0"
-                android:textSize="32sp"
-                android:textColor="@color/black"
-                android:id="@+id/tv_p2"
-                tools:ignore="RelativeOverlap"/>
+            android:visibility="gone"/>
     </RelativeLayout>

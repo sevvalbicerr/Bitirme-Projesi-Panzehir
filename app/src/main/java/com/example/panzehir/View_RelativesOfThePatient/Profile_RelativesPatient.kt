@@ -8,7 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.Toast
+import androidx.navigation.Navigation
 import com.example.panzehir.R
+import com.example.panzehir.databinding.ActivityRelativesOfThePatientMainBinding
 import com.example.panzehir.databinding.FragmentLoginBinding
 import com.example.panzehir.databinding.FragmentProfileRelativesPatientBinding
 import com.example.panzehir.utilities.Constants
@@ -42,7 +44,7 @@ class Profile_RelativesPatient : Fragment() {
             binding.closeButton.visibility=View.VISIBLE
             binding.UpdateButton.visibility=View.VISIBLE
             binding.EditProfile.visibility=View.VISIBLE
-            binding.Profile.visibility=View.INVISIBLE
+            binding.Profile.visibility=View.GONE
         }
 
         //user profile
@@ -54,8 +56,10 @@ class Profile_RelativesPatient : Fragment() {
         bunu da anlamadım
         * */
         binding.UpdateButton.setOnClickListener{
-        //UpdateUserProfile()
+        UpdateUserProfile()
+            Toast.makeText(this.context,"Bilgileriniz başarıyla güncellendi.",Toast.LENGTH_SHORT).show()
         }
+        binding.closeButton.setOnClickListener { Navigation.findNavController(it).navigate(R.id.action_profile_RelativesPatient_to_homeRelativesOfThePatient) }
     }
     fun getUserProfile(){
         //Patient
@@ -132,7 +136,7 @@ class Profile_RelativesPatient : Fragment() {
                 preferenceManager.putString(Constants.KEY_PHONE1,binding.numberEdittext.text.toString())
                 preferenceManager.putString(Constants.KEY_PHONE2,binding.number2Edittext.text.toString())
 
-                val intent = Intent(activity, MainActivity::class.java)
+                val intent = Intent(activity, RelativesOfThePatientMainActivity::class.java)
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
                 startActivity(intent)
             }

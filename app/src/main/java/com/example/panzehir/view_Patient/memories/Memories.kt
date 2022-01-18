@@ -9,7 +9,7 @@ import android.widget.AdapterView
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.example.panzehir.R
-import com.example.panzehir.adapters.AnagramGridViewAdapter
+import com.example.panzehir.adapters.MenoriesGridViewAdapter
 import com.example.panzehir.databinding.MemoriesFragmentBinding
 import com.example.panzehir.model.memoriesGridModel
 import com.example.panzehir.viewModelPatient.memoriesViewModel.MemoriesViewModel
@@ -20,7 +20,7 @@ class Memories : Fragment() {
     private var _binding: MemoriesFragmentBinding?=null
     private val binding get() = _binding!!
 
-   lateinit var  adapter : AnagramGridViewAdapter
+   lateinit var  adapter : MenoriesGridViewAdapter
     var images= intArrayOf(
         R.drawable.boy,
         R.drawable.daughter,
@@ -30,8 +30,8 @@ class Memories : Fragment() {
     var names= arrayOf(
         "Oğlum",
         "Kızım",
-        "torun1",
-        "torun2"
+        "Oğlumun kızı",
+        "Kızımın oğlu"
     )
 
 
@@ -62,7 +62,7 @@ class Memories : Fragment() {
             listOfPosts.add(memoriesGridModel(names[i],images[i]))
         }
         //Gridview Adapter
-        adapter= AnagramGridViewAdapter(listOfPosts,context!!)
+        adapter= MenoriesGridViewAdapter(listOfPosts,context!!)
         binding.memoriesGridView.adapter=adapter
         setupGridView()
     }

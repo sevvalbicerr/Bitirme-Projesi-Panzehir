@@ -10,7 +10,7 @@ import android.widget.TextView
 import com.example.panzehir.databinding.GridviewformemoriesfragmentBinding
 import com.example.panzehir.model.memoriesGridModel
 
-class AnagramGridViewAdapter(val listOfPosts: ArrayList<memoriesGridModel>,  context: Context
+class MenoriesGridViewAdapter(val listOfPosts: ArrayList<memoriesGridModel>, context: Context
 ): BaseAdapter() {
     private lateinit var itemBinding: GridviewformemoriesfragmentBinding
     val inflater: LayoutInflater = LayoutInflater.from(context)

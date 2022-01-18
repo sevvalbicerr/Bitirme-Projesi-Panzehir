@@ -26,32 +26,47 @@
                     android:layout_marginTop="@dimen/_10sdp"
                     android:contentDescription="@string/app_name"
                     android:src="@drawable/ic_baseline_logout_24"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Title"
+                    android:text="Panzehir"
+                    android:textSize="@dimen/_20sdp"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="-40dp"
+
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:fontFamily="@font/ubuntu_bold"
+                    android:layout_gravity="start"/>
 
             <TextView
                     android:id="@+id/emergencyTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+
                     android:layout_marginEnd="20dp"
                     android:text="Acil Durum"
                     android:textColor="@color/black"
-                    android:textSize="20sp"
+                    android:textSize="@dimen/_18sdp"
                     android:textStyle="bold"
-
                     android:drawablePadding="@dimen/_5sdp"
-                    android:drawableStart="@drawable/ic_emergency"/>
+                    />
 
             <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="92dp"
                     android:orientation="horizontal"
                     android:layout_marginStart="20dp"
+                    android:layout_marginTop="5dp"
                     android:layout_marginEnd="20dp"
                     android:paddingStart="30dp"
                     android:id="@+id/EmergencyLinearLayout"
                     android:paddingEnd="30dp"
                     android:background="@drawable/button_rectangle_quiz_corner"
-                    android:backgroundTint="#9A3737" android:baselineAligned="false">
+                    android:backgroundTint="#9A3737"
+                    android:baselineAligned="false">
 
                 <LinearLayout
                         android:id="@+id/callFamilyLayout"
@@ -62,7 +77,7 @@
                     <ImageView
                             android:id="@+id/callFamilyImage"
                             android:layout_width="@dimen/_40sdp"
-                            android:layout_height="@dimen/_40sdp"
+                            android:layout_height="@dimen/_30sdp"
                             android:layout_gravity="center"
                             android:contentDescription="@string/app_name"
                             android:src="@drawable/ic_baseline_family_restroom_24"/>
@@ -73,8 +88,8 @@
                             android:text="Ailemi Ara"
                             android:textColor="@color/black"
                             android:gravity="center"
-                            android:textSize="@dimen/_15ssp"
-                            android:padding="@dimen/_10ssp"/>
+                            android:textSize="@dimen/_16ssp"
+                            />
 
                 </LinearLayout>
                 <LinearLayout android:id="@+id/callEmergencyLayout"
@@ -85,7 +100,7 @@
                     <ImageView
                             android:id="@+id/callEmergencyImage"
                             android:layout_width="@dimen/_40sdp"
-                            android:layout_height="@dimen/_40sdp"
+                            android:layout_height="@dimen/_30sdp"
                             android:layout_gravity="center"
                             android:contentDescription="@string/app_name"
                             android:src="@drawable/ic_emergency"/>
@@ -93,10 +108,10 @@
                             android:id="@+id/callEmergencyText"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:text="Acil Durum Hattını Ara"
+                            android:text="Acil Durum "
                             android:textColor="@color/black"
                             android:gravity="center"
-                            android:textSize="@dimen/_15ssp"/>
+                            android:textSize="@dimen/_16ssp"/>
 
                 </LinearLayout>
 
@@ -109,13 +124,12 @@
                     android:layout_marginStart="20dp"
                     android:layout_marginEnd="20dp"
                     android:layout_marginTop="20dp"
-
                     android:text="Profil"
                     android:textColor="@color/black"
-                    android:textSize="20sp"
+                    android:textSize="@dimen/_18sdp"
                     android:textStyle="bold"
                     android:drawablePadding="@dimen/_10sdp"
-                    android:drawableStart="@drawable/ic_emergency"/>
+                    />
 
             <LinearLayout
                     android:layout_width="match_parent"
@@ -171,7 +185,7 @@
                     android:id="@+id/memories"
                     android:text="@string/memories"
                     android:textColor="@color/black"
-                    android:textSize="20sp"
+                    android:textSize="@dimen/_18sdp"
                     android:textStyle="bold"
                     android:layout_marginStart="20dp"
 
@@ -219,6 +233,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
+                    android:layout_gravity="center"
+                    android:paddingTop="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
             >
 
 
@@ -228,10 +245,10 @@
                             android:id="@+id/water"
                             android:text="Su Takibi"
                             android:textColor="@color/black"
-                            android:textSize="20sp"
+                            android:textSize="@dimen/_18sdp"
                             android:textStyle="bold"
                             android:layout_marginStart="20dp"
-                            android:paddingTop="10dp"
+
 
                     />
 
@@ -239,28 +256,30 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:hint="Bardak sayısı:"
-                        android:textSize="20sp"
+                        android:textSize="@dimen/_15ssp"
                         android:textColor="@color/black"
+                        android:layout_marginStart="20dp"
 
                         android:id="@+id/waterTextview"
                 />
                 <de.hdodenhof.circleimageview.CircleImageView
-                        android:layout_width="40dp"
-                        android:layout_height="50dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:src="@drawable/glass"
                         android:id="@+id/water1"
+                        android:layout_marginStart="20dp"
 
 
                 />
                 <de.hdodenhof.circleimageview.CircleImageView
-                        android:layout_width="40dp"
-                        android:layout_height="50dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:src="@drawable/glass"
                         android:id="@+id/water2"
                 />
                 <de.hdodenhof.circleimageview.CircleImageView
-                        android:layout_width="40dp"
-                        android:layout_height="50dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:src="@drawable/water"
                         android:id="@+id/water3"
                 />
@@ -280,7 +299,7 @@
                         android:id="@+id/step"
                         android:text="Adım Takibi"
                         android:textColor="@color/black"
-                        android:textSize="20sp"
+                        android:textSize="@dimen/_18sdp"
                         android:textStyle="bold"
                         android:layout_marginStart="20dp"
 
@@ -314,7 +333,7 @@
                     android:id="@+id/medicine"
                     android:text="İlaç Takibi"
                     android:textColor="@color/black"
-                    android:textSize="20sp"
+                    android:textSize="@dimen/_18sdp"
                     android:textStyle="bold"
                     android:layout_marginStart="20dp"
 

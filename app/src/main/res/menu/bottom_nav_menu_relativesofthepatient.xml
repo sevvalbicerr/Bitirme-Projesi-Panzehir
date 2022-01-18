@@ -15,11 +15,7 @@
             android:id="@+id/placeholder2"
             android:title=""/>
 
-    <item
-            android:id="@+id/medicationtrackofrelativeBottommenu"
-            android:title="İlaç Takibi"
-            android:contentDescription="İlaç Takibi"
-            android:icon="@drawable/ic_list"/>
+
     <item
             android:id="@+id/SettingsOfbottomMenu"
             android:title="Ayarlar"

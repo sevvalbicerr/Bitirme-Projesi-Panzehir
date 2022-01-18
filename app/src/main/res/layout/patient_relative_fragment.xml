@@ -18,8 +18,8 @@
             android:gravity="center"
             android:textSize="30sp"
             android:textStyle="bold"
-            android:textColor="@color/white"
-            android:layout_marginTop="200dp"
+            android:textColor="@color/black"
+            android:layout_marginTop="@dimen/_200sdp"
     />
     <EditText
             android:layout_width="match_parent"
@@ -27,6 +27,7 @@
             android:id="@+id/inputPasswordRelative"
             android:hint="@string/password"
             android:layout_margin="20dp"
+            android:textColor="@color/black"
             android:textStyle="italic"
 
     />

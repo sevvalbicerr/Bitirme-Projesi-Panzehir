@@ -37,7 +37,7 @@
             android:contentDescription="@string/app_name"
             android:padding="@dimen/_2sdp"
             android:src="@drawable/ic_video"
-            android:tint="@color/colorPri"
+            android:tint="#ED8F48"
             app:layout_constraintBottom_toTopOf="@+id/viewDivider"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
@@ -50,7 +50,7 @@
             android:contentDescription="@string/app_name"
             android:padding="@dimen/_4sdp"
             android:src="@drawable/ic_audio"
-            android:tint="@color/colorPri"
+            android:tint="#ED8F48"
             app:layout_constraintBottom_toTopOf="@+id/viewDivider"
             app:layout_constraintEnd_toStartOf="@+id/imageVideoMeeting"
             app:layout_constraintTop_toTopOf="parent"/>

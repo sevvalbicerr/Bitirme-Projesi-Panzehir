@@ -405,7 +405,7 @@
                         android:layout_width="120dp"
                         android:layout_height="wrap_content"
                         android:id="@+id/passwordAgain"
-                        android:text="Doğrulama Parolası"
+                        android:text="Şifre tekrar"
                         android:background="@drawable/button_rectangle"
                         android:textColor="@color/black"
                         android:gravity="center"
@@ -428,9 +428,12 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/passwordAccount"
                         android:text=" Oturum Parolası"
-                        android:textColor="@color/colorTextIcons"
-                        android:textSize="@dimen/_11ssp"
-                        android:fontFamily="@font/ubuntu_regular"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_15ssp"
+                        android:textStyle="bold"
+                        android:background="@drawable/button_rectangle"
+                        android:gravity="center"
+
                         android:includeFontPadding="false"
                 />
                 <EditText
@@ -455,10 +458,12 @@
                         android:layout_width="120dp"
                         android:layout_height="wrap_content"
                         android:id="@+id/passwordAccountAgain"
-                        android:text="Oturum Parola Tekrarı"
-                        android:textColor="@color/colorPrimaryText"
-                        android:textSize="@dimen/_11ssp"
-                        android:fontFamily="@font/ubuntu_regular"
+                        android:text=" Parola Tekrarı"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_15ssp"
+                        android:textStyle="bold"
+                        android:background="@drawable/button_rectangle"
+                        android:gravity="center"
                         android:includeFontPadding="false"/>
                 <EditText
                         android:layout_width="180dp"

@@ -53,11 +53,12 @@ class Profile : Fragment() {
     }
     fun getUserProfile(){
         //Patient
+
         binding.nameofPatientEdittext.text=preferenceManager.getString(Constants.KEY_FIRST_NAME_PATIENT)
         binding.surnameofPatientEdittext.text=preferenceManager.getString(Constants.KEY_LAST_NAME_PATIENT)
         binding.BloodEdittext.text=preferenceManager.getString(Constants.KEY_BLOOD_PATIENT)
         binding.TCEdittext.text=preferenceManager.getString(Constants.KEY_ID_PATIENT)
-        binding.DateofBirthEdittext.text=preferenceManager.getString(Constants.KEY_BIRTHDAY_PATIENT)
+        binding.DateofBirthEdittext.text="14.01.1965"
         binding.weightEdittext.text=preferenceManager.getString(Constants.KEY_WEIGHT_PATIENT)
         binding.heightEdittext.text=preferenceManager.getString(Constants.KEY_HEIGHT_PATIENT)
         binding.sexEdittext.text=preferenceManager.getString(Constants.KEY_GENDER_PATIENT)

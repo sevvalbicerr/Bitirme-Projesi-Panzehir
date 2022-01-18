@@ -7,11 +7,22 @@
               android:background="@color/xmlBackground"
               android:orientation="vertical"
 >
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="30sp"
+            android:textColor="@color/black"
+            android:id="@+id/addmedicationtitle"
+            android:layout_marginStart="20sp"
+            android:layout_marginTop="20sp"
+            android:drawableStart="@drawable/ic_baseline_arrow_back_24"
+            android:text="İlaç Ekle"/>
     <TableLayout android:layout_width="match_parent"
                  android:layout_height="wrap_content"
                  android:paddingLeft="10dp"
                  android:paddingRight="10dp"
-                android:layout_marginTop="@dimen/_80sdp"
+                android:layout_marginTop="@dimen/_50sdp"
 
     >
         <TableRow >
@@ -25,6 +36,7 @@
                     android:textColor="@color/black"
                     android:textSize="@dimen/_15ssp"
                     android:textStyle="bold"
+                    android:layout_marginTop="5dp"
             />
             <EditText
                     android:layout_width="180dp"
@@ -47,7 +59,7 @@
                     android:gravity="center"
                     android:textSize="@dimen/_15ssp"
                     android:textStyle="bold"
-
+                    android:layout_marginTop="5dp"
             />
             <EditText
                     android:layout_width="180dp"
@@ -70,7 +82,7 @@
                     android:gravity="center"
                     android:textSize="@dimen/_15ssp"
                     android:textStyle="bold"
-
+                    android:layout_marginTop="5dp"
             />
             <EditText
                     android:layout_width="180dp"
@@ -91,7 +103,7 @@
                     android:gravity="center"
                     android:textSize="@dimen/_15ssp"
                     android:textStyle="bold"
-
+                    android:layout_marginTop="5dp"
             />
             <EditText
                     android:layout_width="180dp"

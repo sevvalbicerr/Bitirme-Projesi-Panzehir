@@ -7,7 +7,10 @@
     <fragment android:id="@+id/profile_RelativesPatient"
               android:name="com.example.panzehir.View_RelativesOfThePatient.Profile_RelativesPatient"
               android:label="fragment_profile__relatives_patient"
-              tools:layout="@layout/fragment_profile__relatives_patient"/>
+              tools:layout="@layout/fragment_profile__relatives_patient">
+        <action android:id="@+id/action_profile_RelativesPatient_to_homeRelativesOfThePatient"
+                app:destination="@id/homeRelativesOfThePatient"/>
+    </fragment>
     <fragment android:id="@+id/addMedicationPage"
               android:name="com.example.panzehir.View_RelativesOfThePatient.AddMedicationPage"
               android:label="fragment_add_medication_page" tools:layout="@layout/fragment_add_medication_page">

@@ -6,13 +6,14 @@
         android:layout_height="match_parent"
         android:background="@color/white"
         android:orientation="vertical"
-        android:weightSum="3">
+        android:weightSum="4">
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
+
             android:layout_weight="1"
-            android:weightSum="4">
+            android:weightSum="3">
         <ImageView
                 android:id="@+id/iv_11"
                 android:scaleType="centerInside"
@@ -38,30 +39,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:contentDescription="@string/todo"/>
-        <ImageView
-                android:id="@+id/iv_14"
-                android:scaleType="centerInside"
-                android:src="@drawable/ic_back"
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:contentDescription="@string/todo"/>
+
     </LinearLayout>
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
             android:layout_weight="1"
-            android:weightSum="4">
-        <ImageView
-                android:id="@+id/iv_21"
-                android:scaleType="centerInside"
-                android:src="@drawable/ic_back"
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:contentDescription="@string/todo"
-                tools:ignore="NestedWeights"/>
+            android:weightSum="3">
+
         <ImageView
                 android:id="@+id/iv_22"
                 android:scaleType="centerInside"
@@ -92,7 +78,7 @@
             android:layout_height="match_parent"
             android:orientation="horizontal"
             android:layout_weight="1"
-            android:weightSum="4">
+            android:weightSum="3">
         <ImageView
                 android:id="@+id/iv_31"
                 android:scaleType="centerInside"
@@ -118,6 +104,31 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:contentDescription="@string/todo"/>
+
+    </LinearLayout>
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            android:weightSum="3">
+        <ImageView
+                android:id="@+id/iv_14"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_back"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/todo"/>
+        <ImageView
+                android:id="@+id/iv_21"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_back"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/todo"
+                tools:ignore="NestedWeights"/>
         <ImageView
                 android:id="@+id/iv_34"
                 android:scaleType="centerInside"
@@ -126,5 +137,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:contentDescription="@string/todo"/>
+
     </LinearLayout>
 </LinearLayout>

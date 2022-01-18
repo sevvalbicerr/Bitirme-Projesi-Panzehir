@@ -17,7 +17,7 @@
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:orientation="horizontal"
-              android:layout_marginTop="@dimen/_10sdp"
+              android:layout_marginTop="@dimen/_25sdp"
                     >
           <TextView
                   android:id="@+id/scoreText"
@@ -47,11 +47,7 @@
                   android:textSize="@dimen/_15sdp"
                   />
       </LinearLayout>
-        <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="159dp"
-                android:src="@drawable/glass"
-                android:id="@+id/imageQuestion"/>
+
         <TextView android:layout_width="match_parent"
                   android:layout_height="80dp"
                   android:id="@+id/questionText"
@@ -59,7 +55,7 @@
                   android:textColor="@color/black"
                   android:textSize="@dimen/_15ssp"
                   android:background="@drawable/button_rectangle_quiz_corner"
-                  android:layout_marginTop="20dp"
+                  android:layout_marginTop="@dimen/_50sdp"
                   android:layout_marginStart="10dp"
                   android:layout_marginEnd="10dp"
                   android:paddingStart="20dp"

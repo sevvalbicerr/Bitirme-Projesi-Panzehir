@@ -194,11 +194,9 @@ class Quiz : Fragment() {
 
         //get bundle data -- for type of quiz
         if (arguments?.getString("type")=="expression") {
-            binding.imageQuestion.visibility=View.GONE
             initViews(questionsExpression)
         }
         else if(arguments?.getString("type")=="poverb"){
-            binding.imageQuestion.visibility=View.GONE
             initViews(questionsPoverb)
         }
 
@@ -216,11 +214,9 @@ class Quiz : Fragment() {
     @SuppressLint("SetTextI18n")
     private fun showNextQuestion(questionList: Array<String>) {
         if (arguments?.getString("type")=="expression") {
-            binding.imageQuestion.visibility=View.GONE
             checkAnswer(answerExpression)
         }
         else if(arguments?.getString("type")=="poverb"){
-            binding.imageQuestion.visibility=View.GONE
             checkAnswer(answerPoverb)
         }
         binding.apply {

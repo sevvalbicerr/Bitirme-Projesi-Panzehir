@@ -19,7 +19,6 @@ class RelativesOfThePatientMainActivity : AppCompatActivity() {
         navView.setOnItemSelectedListener {
             when(it.itemId){
                 R.id.profileofrelativeBottommenu ->{findNavController(R.id.fragmentContainerView2).navigate(R.id.profile_RelativesPatient)}
-                R.id.medicationtrackofrelativeBottommenu ->{findNavController(R.id.fragmentContainerView2).navigate(R.id.addMedicationPage)}
                 R.id.SettingsOfbottomMenu ->{findNavController(R.id.fragmentContainerView2).navigate(R.id.settings2)}
 
             }
