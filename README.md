@@ -6,4 +6,3 @@ Proje Mobil platform için kotlin ile hazırlandı.
 - Oyunlar bölümünde Sudoku,Labirent,Anagram Kelime Oyunu ve Eşleştirme oyunları bulunmakta. Sudoku ve Labirent UI Canvas ile tasarlandı. 
 - Sudoku için Backtracking algoritması, Labirent için Depth first search algoritması kullanıldı.
 - MVVM mimarisiyle gerçekleştirilen projede Livedata gibi yapılar da kullanıldı. 
-
