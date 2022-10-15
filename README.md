@@ -42,7 +42,6 @@ girildiği kontrol edilir. Daha sonrasında girilen bilgilerin doğruluğu kontr
 
 <img src="https://user-images.githubusercontent.com/41507884/196002104-5788c94a-8069-41e9-8923-273e548c01df.png" width="300" height="400">
 
-
-
+- Proje Tanıtım Videosu: https://drive.google.com/drive/folders/1AXYC6GRz21RMdDruLXEgk-cWoYALrM3D?usp=sharing
 
 
