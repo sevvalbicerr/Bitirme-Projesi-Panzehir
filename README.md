@@ -36,18 +36,17 @@ girildiği kontrol edilir. Daha sonrasında girilen bilgilerin doğruluğu kontr
 ### Labirent Oyunu:
 - Alzheimer hastalığının öğrenme yetisinin ve bellekte bozulmalara neden olduğu saptanmıştır. Labirent oyunu görsel algı, hayal gücü, algılama ve kavrama yeteneği gibi açılardan fayda sağlar bu sayede hastalığın seyrini değiştirme konusunda uygulanabilecek etkinliklerden birisidir. Depth First Search (DFS) algoritması, recursive backtracker (özyinelemeli geri izleme) özelliğine sahip olduğu için çok büyük derinliğe sahip graflarda zaman karmaşıklığı arttığından daha fazla zaman almaktadır. DFS algoritmasının bu dezavantajından dolayı Breadth First Search (BFS) algoritmasını kullanmak daha mantıklı olmaktır. BFS algoritması tüm düğümlerin yollarını tarayıp belleğinde tuttuğundan dolayı daha hızlı sonuç vermektedir lakin DFS algoritmasına göre daha fazla bellek harcayacaktır. Bu durum Alzheimer uygulması için istenilen bir durum değildir. Uygulamada kullanılacak olan labirent oyunu alzheimer hastaların zihinsel becerilerini geliştirmeye yönelik bir oyun olacağından grafın derinliği büyük boyutlar olmamaktadır. Bu yüzden labirent oyununda DFS algoritması kullanılmaktadır.
 
-![Mazegame](https://user-images.githubusercontent.com/41507884/196002101-81c84c99-b444-4e5c-87ff-ad84468923f4.png)![labirentçöz](https://user-images.githubusercontent.com/41507884/196002098-ee188c2d-b89b-4ddf-b7db-ea41ac5c3388.png)
+<img src="https://user-images.githubusercontent.com/41507884/196002101-81c84c99-b444-4e5c-87ff-ad84468923f4.png" width="300" height="400"><img src="https://user-images.githubusercontent.com/41507884/196002098-ee188c2d-b89b-4ddf-b7db-ea41ac5c3388.png" width="300" height="400">
 
 ### Sudoku Oyunu:
 - Sudoku geri izleme algoritması kullanılarak çözülebilen ünlü bulmacalardan biridir. Sudoku oyunun kurallarını göz önüne alındığında bizim için en uygun algoritma backtracking algoritması olmaktadır. Backtracking algoritması, istenen sonucu bulmak için kaba kuvvet yaklaşımını (brute force approach) kullanan problem çözme algoritmasıdır. Brute force approach yaklaşımı, oluşabilecek tüm çözümleri deneyerek istenen veya en iyi çözümleri seçer. Backtracking algoritması mevcut çözüm uygun değilse geri dönerek diğer çözümleri deneyerek uygun çözümü bulmaya çalışır. Bu algoritma, birden fazla çözümü olan problemleri çözmek için kullanılır. 
 
-![sudoku](https://user-images.githubusercontent.com/41507884/196002330-cdd3cc3f-7f83-4a21-bea9-0a5302925a23.png)![sudoku çözüm](https://user-images.githubusercontent.com/41507884/196002331-6d477674-ab1d-49e7-a88d-de885292f21a.png)
-
+<img src="https://user-images.githubusercontent.com/41507884/196002330-cdd3cc3f-7f83-4a21-bea9-0a5302925a23.png" width="300" height="400"><img src="https://user-images.githubusercontent.com/41507884/196002331-6d477674-ab1d-49e7-a88d-de885292f21a.png" width="300" height="400">
 
 ### Anagram Oyunu:
 - Anagram, bir tür kelime oyunudur. Beyin anlama ve kavrama yetisini geliştiren , beyin jimnastiğine uygun egzersizlerden birisidir. Anlamlı bir kelimenin harflerinin yer değiştirilerek yeni anlamlı kelimenin üretilmesi amaçlanır. Anagram kelime oyunu için farklı sıralama algoritmaları incelendi. Sıralama algoritmaları yıllardır geliştirilen algoritmalar olmakla birlikte birçok çeşidi bulunmaktadır. İhtiyaç durumuna göre seçim farklılık gösterirken zaman ve bellek kullanımı açısından performans karşılaştırılması yapılmaktadır.  Merge, Selection, Quick sort olmak üzere 3 algoritmayı karşılaştırdık. 1000 verilik set için yapılan karşılaştırmaya göre merge sort : 0.05 ,quick sort: 0.03 selection sort : 0.4 saniyede çalıştı. Yapılan araştırmalar sonucu Hızlı sıralama (Quick Sort) algoritmasını tercih edildi.nagram kelime oyununa quick sort algoritmasını uygulayabilmemiz için sıralanabilecek bir veri dizisine ihtiyacımız vardı. Kelimedeki harflerin ASCII(aski) karşılıklarını kullanarak sıralama algoritmasını başarılı bir şekilde uygulayabildik.
 
-![anagram](https://user-images.githubusercontent.com/41507884/196002104-5788c94a-8069-41e9-8923-273e548c01df.png)
+<img src="https://user-images.githubusercontent.com/41507884/196002104-5788c94a-8069-41e9-8923-273e548c01df.png" width="300" height="400">
 
 
 
