@@ -21,6 +21,7 @@ girildiği kontrol edilir. Daha sonrasında girilen bilgilerin doğruluğu kontr
 - Kayıtlı kullanıcıların parolalarını unutması durumunda ‘Şifremi Unuttum’ yazısına tıklayarak farklı bir sayfaya yönlendirme yapılmaktadır. Yönlendirilen sayfada kullanıcının kayıtlı mail adresi girilmesi istenmektedir. Kullanıcının istenilen bilgileri yazmaması veya mail formatında yazılıp yazılmadığı kontrol edilmektedir. Bu kontrollerin sonunda herhangi bir sorun yok ise yazılan mail adresinin Panzehir uygulamasına kayıtlı olup olmadığı kontrol edilir.
 #### Yönlendirme Sayfası:
 - Panzehir uygulamasına başarılı bir şekilde oturum açan kullanıcıların ekranda Alert Dialog yardımıyla iki farklı seçenecek sunulmaktadır. Bu seçenekler ‘Hasta Girişi’ veya ‘Hasta Yakını Girişi’ şeklindedir. ‘Hasta Girişi’ butonuna tıklanıldığı zaman herhangi bir işlem gerekmeden hasta anasayfasına yönlendirme yapılmaktadır. ‘Hasta Yakını Girişi’ butonuna tıklanıldığı zaman ekstra parola istenmektedir.
+
 <img src="https://user-images.githubusercontent.com/41507884/196002072-1bc19734-eb0a-406d-957a-ae41729634bf.png" width="300" height="400"><img src="https://user-images.githubusercontent.com/41507884/196002066-8352a7e1-2ea5-4579-bc02-28ad51695136.png" width="300" height="400">
 
 ### Görüntülü/Sesli Görüşme İmkanı:
